@@ -97,11 +97,10 @@
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <a href="photo-eng.html"><li class="nav-item">Фото</li></a>
-                  <a href="karyera-eng.html"><li class="nav-item">Карьера</li></a>
-                  <a href="kursi-eng.html"><li class="nav-item">Курсы</li></a>
-                  <a href="index-eng.html"><li class="nav-item">Менторы</li></a>
-                  <a href="kompaniya-eng.html"><li class="nav-item">Окомпании</li></a>
+                  <a href="{% url 'kompanita_ru' %}"><li class="nav-item">Об академии</li></a>
+                  <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
+                  <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото картинки</li></a>
+                  <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
               </ul>
               <!-- Languages -->
               <div class="lang">

@@ -14,5 +14,5 @@ admin.site.register(Mentors)
 admin.site.register(Locatsia)
 admin.site.register(LocatsiaInfo)
 admin.site.register(Footer)
-
+admin.site.register(Theles)
 

@@ -64,16 +64,8 @@
   
                 <!-- Buttons -->
                 <div class="buttons">
-                  <!-- Telegram button -->
-                  <!-- <div class="telegram-button">
-                    <a href="https://t.me/astrumuz">
-                      <button class="btn-course">
-                        <img src="img/telegram.jpg" class="btn-icon"> Добавляйся Free в Telegram
-                      </button>
-                    </a>
-                  </div> -->
   
-                  <!-- Best cources button -->
+                <!-- Best cources button -->
                   <div class="best-cources">
                     <a href="{% url 'kursi_ru' %}">
                       <button class="btn-course">
@@ -81,7 +73,7 @@
                       </button>
                     </a>
                   </div>
-                  <!-- --- -->
+                <!-- --- -->
   
                   <!-- Languages -->
                   <div class="lang">
@@ -119,9 +111,9 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <a href="{% url 'kompanita_ru' %}"><li class="nav-item">Об академии</li></a>
-                    <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
-                    <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото картинки</li></a>
-                    <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
+                   <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
+                   <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото</li></a>
+                   <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
                   </ul>
                   <!-- Languages -->
                   <div class="lang">
@@ -151,12 +143,12 @@
     
       <!-- Courses -->
       <div class="container courses">
-        <button class="courses__btn all-btn">Barcha yo'nalishlar</button>
+        <button class="courses__btn all-btn">Все направления</button>
         <div class="courses__buttons">
-            <button class="program-btn">Dasturlash</button>
-            <button class="design-btn">Dizayn</button>
-            <button class="marketing-btn">Marketing</button>
-            <button class="england-btn">Ingliz tili</button>
+            <button class="program-btn">Программирование</button>
+            <button class="design-btn">Дизайн</button>
+            <button class="marketing-btn">Маркетинг</button>
+            <button class="england-btn">Aнглийский язык</button>
             <button class="top-btn">Top</button>
         </div>
 
@@ -168,14 +160,14 @@
                     <div class="birinchi">
                       <img src="{{i.image.url}}" class="course-img">
                       <div class="course-body">
-                        <p >{{i.data}}</p>
+                        <p >{{i.data_ru}}</p>
                         <h3 class="title-h3">{{i.title_ru}}</h3>
                         <p class="course__item-text">{{i.short_descriptions_ru}}</p>
                         <h6 class="course__item-duration">{{i.duration_ru}}</h6>
                       <div class="green-line"></div>
                       <div class="course__item-btm">
-                        <a class="btn-more course__item-btn" href="{% url 'kurs_about' i.id %}">
-                          Batafsil
+                        <a class="btn-more course__item-btn" href="{% url 'kurs_about_ru' i.id %}">
+                          Подробнее
                         </a>
                       </div>
                       </div>

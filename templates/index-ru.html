@@ -27,7 +27,7 @@
     <div id="flip">
       {% for i in news_header_ru %}
             <div>
-                <a href="{{i.link_ru}}">
+                <a href="{{i.link_ru }}">
                     <div>{{ i.title_ru }}</div>
                 </a>
             </div>
@@ -36,10 +36,9 @@
 
     <!-- Header -->
     <div class="header">
+
       <div class="header-box">
         <!-- Header-up carousel -->
-        
-        <!-- --- -->
 
         <div class="header__bg"></div>
 
@@ -48,14 +47,14 @@
           <div class="header-bottom container">
               <!-- Logo image -->
               <a href="{% url 'home_ru' %}">
-                <img src="{% static 'img/logo.svg' %}" class="logo">
+                <img class="logo" src="{% static 'img/logo.svg' %}">
               </a>
               <!-- --- -->
 
               <!-- Header links -->
               <div class="head-link">
                 <ul class="header-links">
-                 <a href="{% url 'kompanita_ru' %}"><li>Об академии</li></a>
+                  <a href="{% url 'kompanita_ru' %}"><li>Об академии</li></a>
                   <a href="{% url 'kursi_ru' %}"><li>Курсы</li></a>
                   <a href="{% url 'photo_ru' %}"><li>Фото картинки</li></a>
                   <a href="{% url 'karyera_ru' %}"><li>Карьера</li></a>
@@ -101,7 +100,7 @@
           </div>
         </div>
         <!-- --- -->
-  
+
         <!-- Navbar active -->
         <nav class="navbar navbar-dark">
           <div class="container-fluid">
@@ -120,10 +119,10 @@
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <a href="{% url 'kompanita_ru' %}"><li class="nav-item">Об академии</li></a>
-                  <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
-                  <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото</li></a>
-                  <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
+                    <a href="{% url 'kompanita_ru' %}"><li class="nav-item">Об академии</li></a>
+                    <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
+                    <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото картинки</li></a>
+                    <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
                 </ul>
                 <!-- Languages -->
                 <div class="lang">
@@ -169,7 +168,7 @@
         <!-- Btn learn more -->
         <a href="{% url 'kompanita_ru' %}">
           <button class="btn-more">
-            Batafsil
+            Подробнее
           </button>
         </a>
       </div>
@@ -198,20 +197,20 @@
             <h5>{{i.name_ru}}</h5>
             <h4 class="section-title">{{i.title_ru}}</h4>
             <p>{{i.short_descriptions_ru}}</p>
-            <div class="grid-3">
         {% endfor %}
 
-        {% for i in the_rules_ru %}
-          {% if forloop.counter0 < 6 %}
-              <div class="grid-box">
-                <div class="grid-box-line"></div>
-                <h4 class="grid-box-title">{{i.title_ru}}</h4>
-                <p>{{i.short_descriptions_ru}}</p>
+        <div class="grid">
+
+          {% for i in theles %}
+              <div class="fact-item">
+                <div class="vertical-line"></div>
+                <h4 class="fact-item-number">{{i.name_ru}}</h4>
+                <p class="fact-text">{{i.title_ru}}</p>
+                <h6 class="fact-item-text">{{i.short_descriptions_ru}}</h6>
               </div>
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
 
-            </div>
+        </div>
       </div>
     </div>
     <!-- --- -->
@@ -236,11 +235,11 @@
 
     <!-- Course -->
     <div class="section container course-container">
-      <div class="row">
+      <div class="course__list">
 
       {% for i in main_course_ru %}
         {% if forloop.counter0 < 4 %}
-          <div class="col">
+          <div class="">
             <div class="course-box">
               <img src="{{i.image.url}}" class="course-img">
               <div class="course-body">
@@ -257,11 +256,9 @@
       {% endfor %}
 
         <div>
-          <a href="{% url 'kursi_ru' %}"><button class="btn-more">Все курсы</button></a>
+          <a href="{% url 'kursi_ru' %}"><button class="btn-more">Bсе курсы</button></a>
         </div>
-
       </div>
-
     </div>
     <!-- --- -->
 
@@ -273,7 +270,7 @@
         </h5>
 
         <h4 class="section-title">
-         {{i.title_ru}}
+         {{i.title}}
         </h4>
     {% endfor %}
 
@@ -284,7 +281,6 @@
             <div class="fact-item">
               <div class="vertical-line"></div>
               <h4 class="fact-item-number">{{i.name_ru}}</h4>
-              <p class="fact-text">{{i.title_ru}}</p>
               <h6 class="fact-item-text">{{i.short_descriptions_ru}}</h6>
             </div>
           {% endif %}
@@ -346,16 +342,17 @@
             {{i.short_titile_ru}}
           </h6>
           <div class="group">
-          <div class="location-text">
-            <h1 class="location-h1">{{i.name_ru}}</h1>
-          </div>
+            <div class="location-text">
+              <h1 class="location-h1">{{i.name_ru}}</h1>
+            </div>
+            <div class="location__box">
+              <p>С помощью венчурного фонда развитых стран мы смогли добиться реализации данного образовательного и развивающего проекта, чтобы наше подрастающие поколение имело возможность развиваться в разных направлениях современных технологиях.
+              </p>
+            </div>
 
         {% endfor %}
           <img src="{% static 'img/Group 14.png' %}" class="location-logo">
           <img src="{% static 'img/shu rasm.png' %}" class="location-bg-img">
-          <!-- <button class="location-massage">
-            С помощью венчурного фонда развитых стран мы смогли добиться реализации данного образовательного и развивающего проекта, чтобы наше подрастающие поколение имело возможность развиваться в разных направлениях современных технологиях.
-          </button> -->
           <main>
             <ul class="location-carousel">
 
@@ -387,7 +384,9 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body align-self-center">
-                    <form>
+                    <form class="form__review" method="post" action="{% url 'send_message' %}">
+                      {% csrf_token %}
+                      {{ form }}
                       <div class="mb-3 text-center">
                         <div class="register-text">Готовы стать учеником Astrum?</div>
                         <div class="register text-center">
@@ -397,20 +396,20 @@
                       </div>
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Имя Фамилия</label>
-                        <input type="text" class="form-control" id="recipient-name" placeholder="Имя Фамилия">
+                        <input name="full_name" type="text" class="form-control full_name" id="recipient-name" placeholder="Имя Фамилия">
                       </div>
                       <div class="mb-3">
                         <label for="message-number" class="col-form-label">Номер телефона:</label>
-                        <input type="number" class="form-control" id="number" placeholder="+998">
+                        <input name="phone" type="number" class="form-control phone_number" id="number" placeholder="+998">
                       </div>
                       <div class="mb-3">
                         <label for="message-number" class="col-form-label">Telegram nick-name:</label>
-                        <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                        <input name="nick_name" type="text" maxlength="10" class="form-control nick_name" id="email" placeholder="@examle" autocomplete="on">
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer align-self-center text-center">
-                    <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                    <button type="submit" class="register-button form__review-btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                       Отправить
                     </button>
                   </div>
@@ -420,7 +419,7 @@
           </div>
         </div>
 
-        <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="confirm__modal modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-white">
               <div class="modal-header">
@@ -429,31 +428,13 @@
               </div>
               <div class="modal-body succes-text register-modal">
                 <div class="form-floating">
-                  <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+                  <input type="number" maxlength="4" class="opt__code form-control" id="floatingPassword" placeholder="Your code">
                 </div>
               </div>
               <div class="modal-footer register-modal align-self-center text-center">
-                <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
-                  Подтвердить 
+                <button type="button" class="register-button confirm__btn">
+                  Подтвердить
                 </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-white">
-              <div class="modal-header">
-                <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body succes-text register-modal">
-                Отправлено
-              </div>
-              <div class="modal-footer register-modal align-self-center text-center">
-                <button type="button" class="register-button" data-bs-dismiss="modal">Понятно</button>
               </div>
             </div>
           </div>
@@ -482,14 +463,14 @@
 
           <div class="footer-box">
             <p class="footer-p">Astrum</p>
-            <a class="first" href="{% url 'kompanita_ru' %}"><li class="footer-li">Об академии</li></a>
-            <a href="{% url 'kursi_ru' %}"><li class="footer-li">Курсы</li></a>
-            <a href="{% url 'photo_ru' %}"><li class="footer-li">Фото</li></a>
-            <a href="{% url 'karyera_ru' %}"><li class="footer-li">Карьера</li></a>
+                  <a href="{% url 'kompanita_ru' %}"><li class="footer-li">Об академии</li></a>
+                  <a href="{% url 'kursi_ru' %}"><li class="footer-li">Курсы</li></a>
+                  <a href="{% url 'photo_ru' %}"><li class="footer-li">Фото картинки</li></a>
+                  <a href="{% url 'karyera_ru' %}"><li class="footer-li">Карьера</li></a>
           </div>
 
           <div class="footer-box">
-            <p class="footer-p">связаться</p>
+            <p class="footer-p">Связь</p>
             <a class="first" href="tel:+998943151337">
               <li class="footer-li">
                 <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
@@ -544,7 +525,27 @@
           </div>
         </div>
 
-      </div>    
+
+        <!-- Modal -->
+        <div class="success__modal modal fade">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-white">
+              <div class="modal-header">
+                <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                <button type="button" class="btn-close btnclose__confirm-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body succes-text register-modal">
+                Отправлено
+              </div>
+              <div class="modal-footer register-modal align-self-center text-center">
+                <button type="button" class="register-button close__success-modal" data-bs-dismiss="modal">Понятно</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
     <!-- --- -->
 
@@ -577,5 +578,5 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- --- -->
-  </body> 
+  </body>
 </html>

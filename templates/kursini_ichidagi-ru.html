@@ -4,24 +4,11 @@
     {% load static %}
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Astrim IT Academy | {{course.title_ru}} </title>
+      <title>Astrim IT Academy | {{course_ru.title_ru}} </title>
       <link rel="stylesheet" href="{% static 'css/kursini_ichidagi.css' %}">
-      <link rel="stylesheet" href="{% static './css/price.css' %}">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-      <!-- Loader -->
-      <div id="preloader">
-        <div class="frame" data-loader="circle-side">
-          <div class="circle"></div>
-          <div class="line left"></div>
-          <div class="line right"></div>
-          <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
-          <div class="hide top"></div>
-          <div class="hide bottom"></div>
-        </div>
-      </div>
-      <!-- --- -->
 
       <!-- Header -->
           <div id=flip>
@@ -34,48 +21,43 @@
               {% endfor %}
           </div>
       <!-- --- -->
-          
+
           <!-- Header bottom -->
           <div class="navbar34">
             <div class="header-bottom container">
                 <!-- Logo image -->
-                <a href="{% url 'home' %}">
-                  <img src="{% static 'img/blue-logo.png' %}" class="logo">
+                <a href="{% url 'home_ru' %}">
+                  <img src="{% static 'img/blue-logo.svg' %}" class="logo">
                 </a>
 
                 <!-- Header links -->
                 <div class="head-link">
                   <ul class="header-links">
-                    <a href="{% url 'kompanita' %}"><li>Об академии</li></a>
-                    <a href="{% url 'kursi' %}"><li>Курсы</li></a>
-                    <a href="{% url 'photo' %}"><li>Фото картинки</li></a>
-                    <a href="{% url 'karyera' %}"><li>Карьера</li></a>
+                    <a href="{% url 'kompanita_ru' %}"><li>Об академии</li></a>
+                    <a href="{% url 'kursi_ru' %}"><li>Курсы</li></a>
+                    <a href="{% url 'photo_ru' %}"><li>Фото картинки</li></a>
+                    <a href="{% url 'karyera_ru' %}"><li>O нас</li></a>
                   </ul>
                 </div>
                 <div class="buttons">
-                  <!-- Telegram button -->
-                  <!-- <div class="telegram-button">
-                    <a href="https://t.me/astrumuz">
-                      <button class="btn-course">
-                        <img src="img/telegram.jpg" class="btn-icon"> Добавляйся Free в Telegram
-                      </button>
-                    </a>
-                  </div> -->
 
-                  <!-- Best cources button -->
-                  <div class="best-cources">
+                <!-- Best cources button -->
+                <div class="best-cources">
+                  <a href="{% url 'kursi_ru' %}">
                     <button class="btn-course">
                       Лучшие курсы
                     </button>
-                  </div>
+                  </a>
+                </div>
+                <!-- --- -->
 
                   <!-- Languages -->
                   <div class="lang">
                     <div id="lang" class="dropdown">
                       <button class="dropbtn">Ru</button>
                       <div class="dropdown-content">
-                        <a href="{% url 'kursi_ichidagi' %}">Uz</a>
-                      <a href="{% url 'kursi_ichidagi_eng' %}">Eng</a>
+                        <a href="{% url 'kursi' %}">Uz</a>
+                      <a href="{% url 'kursi_eng' %}">Eng</a>
                       </div>
                     </div>
                   </div>
@@ -87,8 +69,8 @@
           <!-- Navbar active -->
           <nav class="navbar navbar-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static './img/blue-logo.png' %}" class="navbar-logo">
+              <a class="navbar-brand" href="{% url 'home_ru' %}">
+                <img src="{% static './img/blue-logo.svg' %}" class="navbar-logo">
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -96,25 +78,24 @@
               <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-                    <img src="{% static './img/logo.png' %}" class="navbar-logo">
+                    <img src="{% static './img/logo.svg' %}" class="navbar-logo">
                   </h5>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <a href="photo.html"><li class="nav-item">Фото</li></a>
-                    <a href="karyera.html"><li class="nav-item">Карьера</li></a>
-                    <a href="kursi.html"><li class="nav-item">Курсы</li></a>
-                    <a href="index.html"><li class="nav-item">Менторы</li></a>
-                    <a href="kompaniya.html"><li class="nav-item">Окомпании</li></a>
+                     <a href="{% url 'kompanita_ru' %}"><li class="nav-item">Об академии</li></a>
+                   <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
+                   <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото</li></a>
+                   <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
                   </ul>
                   <!-- Languages -->
                   <div class="lang">
                     <div id="lang" class="dropdown">
                       <button class="dropbtn">Ru</button>
                       <div class="dropdown-content">
-                        <a href="{% url 'kursi_ichidagi' %}">Uz</a>
-                        <a href="{% url 'kursi_ichidagi_eng' %}">Eng</a>
+                        <a href="{% url 'home' %}">Uz</a>
+                        <a href="{% url 'home_eng' %}">Eng</a>
                       </div>
                     </div>
                   </div>
@@ -129,34 +110,34 @@
       <!-- --- -->
 
       <!-- Header title -->
-      <div class="container mb-5 mt-5">
+      <div class="container hero__breadcrumb">
 
-        <div class="location-page text-center m-5" id="m-5">
+        <div class="location-page text-center" id="m-5">
           <!-- <p class="bold">Главная&zwnj;</p> | курсы и образование | Full stack developer  -->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'home' %}">Домашняя страница</a></li>
-              <li class="breadcrumb-item"><a href="{% url 'kursi' %}">Курс и обучение</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'home_ru' %}">Домашняя страница</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'kursi_ru' %}">Курс и обучение</a></li>
               <li class="breadcrumb-item active" aria-current="page">Full stack developer</li>
             </ol>
           </nav>
         </div>
 
-        <div class="row">
-          <div class="col">
+        <div class="hero__content">
+          <div class="hero__description">
             <div class="comment">
-              <h1 class="title-comment">{{course.title_ru}}</h1>
-              <h3 class="time-comment">{{course.data_ru}}</h3>
+              <h1 class="title-comment">{{course_ru.title_ru}}</h1>
+              <h3 class="time-comment">{{course_ru.data_ru}}</h3>
               <div class="green-line"></div>
               <div class="box-skills">
-                 {{course.short_descriptions_ru}}
+                 {{course_ru.short_descriptions_ru}}
               </div>
               <p class="text-comment">
-               {{course.short_descriptions_big_ru}}
+               {{course_ru.short_descriptions_big_ru}}
               </p>
-              <div class="mt-5" id="btn-register-box">
+              <div id="btn-register-box">
                 <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                  Зарегистрируйтесь сейчас
+                  Hozir roʻyxatdan oʻting
                 </button> -->
                 <script data-b24-form="click/107/cvf8d7" data-skip-moving="true">
                   (function(w,d,u){
@@ -165,7 +146,7 @@
                   })(window,document,'https://office.astrum.uz/upload/crm/form/loader_107_cvf8d7.js');
                   </script>
                 <button class="btn-register clickSound" data-b24-form="click/107/cvf8d7" data-skip-moving="true">
-                  Yordam kerak?
+                  Вам нужна помощь?
                 </button>
 
                 <!-- Modal register -->
@@ -173,14 +154,14 @@
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Модальный 1</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
                         Покажите второе модальное окно и скройте его с помощью кнопки ниже.
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Открыть второй режим</button>
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
                       </div>
                     </div>
                   </div>
@@ -189,38 +170,38 @@
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Модальный 2</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
                         Скройте это модальное окно и покажите первое с помощью кнопки ниже.
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Назад к первому</button>
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!-- --- -->
-              
+
               </div>
             </div>
           </div>
 
-          <div class="col">
-            <img src="{% static './img/Mask group (7).png' %}" class="hero-img">
+          <div class="hero__image">
+            <img src="{{course_ru.image.url}}" class="hero-img">
           </div>
         </div>
       </div>
       <!-- --- -->
-      
+
       <!-- Aside -->
       <div class="container mb-5 mt-5">
         <div class="row aside-row">
 
           <div class="col">
             <aside class="aside">
-              <div class="aside-title">{{course.title_ru}}</div>
+              <div class="aside-title">{{course_ru.title_ru}}</div>
               <div class="grey-line"></div>
               <ul class="aside-links">
                 <a href="#programa"><li class="aside-link">Программа обучения</li></a>
@@ -229,7 +210,7 @@
                 <a href="#raspisania"><li class="aside-link">Расписание курсов</li></a>
                 <a href="#questions"><li class="aside-link">Вопросы</li></a>
               </ul>
-              <div class="mt-3 text-center">
+              <div class="aside-btn text-center">
                 <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
                   (function(w,d,u){
                   var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
@@ -240,17 +221,29 @@
                   Зарегистрироваться
                 </button>
                 <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                  Зарегистрируйтесь сейчас
+                  Hozir roʻyxatdan oʻting
                 </button> -->
               </div>
             </aside>
           </div>
 
-          <div class="col-8 container">
+          <div class="col-8 container learn__course programming__skills">
+
+            <div class="section" id="abzor">
+              {% for i in korib_chiqish_ru %}
+                <div class="green-title">{{i.title_ru}}</div>
+                <h1 class="section-title">{{i.name_ru}}</h1>
+                <p class="section-text">
+                  {{i.descriptions_ru}}
+                </p>
+                <div class="section">
+                  <video src="{{i.video.url}}" controls class="section-video"></video>
+                </div>
+                {% endfor %}
+            </div>
 
             <div class="section" id="programa">
               {% for i in trend_dasturi_ru %}
-                <div class="section-line"></div>
                 <div class="green-title">{{i.title_ru}}</div>
 
                 <h1 class="section-title">{{i.name_ru}}</h1>
@@ -272,6 +265,71 @@
               </ul>
             </div>
 
+            <div class="section" id="abzor">
+                {% for i in savollar1_ru %}
+                  <div class="green-title">{{course_ru.title_ru}}</div>
+
+                  <h1 class="section-title mb-3">{{i.title1_ru}}</h1>
+
+                  <p class="section-text mb-5">
+                    {{i.descriptions1_ru}}
+                  </p>
+
+                  <h1 class="section-title mb-3">
+                    {{i.title2}}
+                  </h1>
+
+                  <p class="section-text mb-5">
+                    {{i.descriptions2_ru}}
+                  </p>
+
+                  <h4 class="program-h4 mb-3">{{i.title3_ru}}</h4>
+
+                  <p class="section-text">
+                  {{i.descriptions3_ru}}
+                  </p>
+
+                {% endfor %}
+                <!-- Questions-answeres -->
+
+                <div class="accordion" id="#quest{{ forloop.counter }}">
+                  <!-- <div class="accordion_line-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="4" height="565" viewBox="0 0 4 565" fill="none">
+                      <line x1="1.92773" y1="1.5791" x2="1.92771" y2="562.579" stroke="#99999B" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 12"/>
+                    </svg>
+                  </div> -->
+
+                  {% for i in savollar_javob1_ru %}
+                    {% if forloop.counter0 < 10 %}
+                      <div class="accordion-item">
+
+                        <div class="accordion__point">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <circle cx="8.27539" cy="8.07886" r="7.5" fill="#9747FF"/>
+                          </svg>
+                        </div>
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest{{ forloop.counter }}" aria-expanded="false" aria-controls="quest{{ forloop.counter }}">
+                            <div class="accordion-img">
+                              <img src="{% static './img/arrow-left.svg' %}"/>
+                            </div>
+                            <span class="accordion-header-title">{{ i.title_ru }}</span>
+                            <div class="accordion-header-btn">Ko'proq</div>
+                          </button>
+
+                          <div id="quest{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              {{ i.descriptions_ru }}
+                            </div><br>
+                          </div><br>
+
+                        </h2>
+                      </div>
+                    {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+
             <div class="section" id="class">
               {% for i in kurslar_uchun_darslar_ru %}
                 <div class="section-line"></div>
@@ -281,112 +339,156 @@
                   {{i.descriptions_ru}}
                 </p>
                 <div class="carousel-w-100">
-                
+
                 <div class="mentor-carousel-item">
-                  <img src="{{i.image1_ru.url}}" class="carousel-img">
+                  <img src="{{i.image1.url}}" class="carousel-img">
                 </div>
 
                 <div class="mentor-carousel-item">
-                  <img src="{{i.image2_ru.url}}" class="carousel-img">
-                </div>
-                
-                <div class="mentor-carousel-item">
-                  <img src="{{i.image3_ru.url}}" class="carousel-img">
+                  <img src="{{i.image2.url}}" class="carousel-img">
                 </div>
 
                 <div class="mentor-carousel-item">
-                  <img src="{{i.image4_ru.url}}" class="carousel-img">
+                  <img src="{{i.image3.url}}" class="carousel-img">
                 </div>
-      
+
                 <div class="mentor-carousel-item">
-                  <img src="{{i.image5_ru.url}}" class="carousel-img">
+                  <img src="{{i.image4.url}}" class="carousel-img">
+                </div>
+
+                <div class="mentor-carousel-item">
+                  <img src="{{i.image5.url}}" class="carousel-img">
                 </div>
               {% endfor %}
               </div>
             </div>
 
+            <div class="section" id="vipusnik">
+              {% for i in bitiruvchilar_ru %}
+              <div class="section-line"></div>
+              <div class="green-title">Выпускники</div>
+              <h1 class="section-title">{{i.title_ru}}</h1>
+              <p class="section-text">
+                {{i.descriptions_ru}}
+              </p>
+              {% endfor %}
+
+              <div class="row gap-1 mt-5">
+
+              {% for i in bitiruvchilar_videolar_ru %}
+                  {% if forloop.counter0 < 4 %}
+                    <div class="col">
+                      <video src="{{i.video.url}}" controls class="col-video"></video>
+                      <div class="name-mentor">{{i.name_lastname_ru}}</div>
+                      <p class="skills-mentor">{{i.skill_ru}}</p>
+                      <div class="green-line"></div>
+                    </div>
+                {% endif %}
+              {% endfor %}
+
+              </div>
+              <div class="grid-2">
+
+
+             {% for i in comentarya_ru %}
+               {% if forloop.counter0 < 8 %}
+                  <div class="comment">
+                    <div class="comment-header">
+                      <img src="{{i.image.url}}" class="profile-img">
+                      <div class="profile-name">
+                        <div class="comment-name">{{i.name_lastname_ru}}</div>
+                        <div class="comment-skills">{{i.skill_ru}}</div>
+                      </div>
+                    </div>
+                    <div class="comment-body">
+                        {{i.descriptions_ru}}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+
+              </div>
+            </div>
+
             <div class="section" id="price">
               <div class="section-line"></div>
-              <div class="green-title mb-3">Цена</div>
-              <h1 class="section-title mb-3">Простые, прозрачные и гибкие планы платежей</h1>
-              <p class="section-text mb-5">
-                В отличие от других курсов, которые скрывают свои цены, мы полностью прозрачны 
-                в отношении цен на курсы и гордимся тем, что они доступны и доступны.
-              </p>
+              {% for i in narxlar_ru %}
+                <div class="green-title">Цены</div>
+                <h1 class="section-title">{{i.name_ru}}</h1>
+                <p class="section-text">
+                 {{i.descriptions_ru}}
+                </p>
+              {% endfor %}
               <main>
                 <div class="pricing">
                   <div class="pricing-container">
-                    <div class="pricing-switcher mb-5">
-                      <p class="fieldset">
-                        <input type="radio" class="front-btn" name="duration-2" value="monthly" id="monthly-2" checked>
-                        <label for="monthly-2" id="rotateButton">Оплата сегодня</label>
-                        <input type="radio" class="back-btn" name="duration-2" value="yearly" id="yearly-2">
-                        <label for="yearly-2" id="rotateButton">Оплата по месячно</label>
-                        <span class="switch"></span>
-                      </p>
+                    <div class="pricing-switcher">
+                        <button class="pricing-switcher-btn active">Сегодняшний платеж</button>
+                        <button class="pricing-switcher-btn">Ежемесячно оплата</button>
                     </div>
+
                     <div class="popular">
                       <ul class="pricing-wrapper">
-                        <!-- Front-box -->
-                        <li class="is-visible rotate-element front-box">
-                          <div class="pricing-title mt-5">
-                            Оплата сегодня
-                          </div>
 
-                          <div class="today-price mt-3">
-                            <p class="bold">
-                              Оплата сегодня&nbsp;
-                            </p>
-                            -&nbsp;Скидка 6 000 UZS
-                          </div>
+                        {% for i in bugungi_tolov_ru %}
 
-                          <div class="uzs mt-3">
-                            <div class="strikethrough">
-                              <p class="bold size-2">5 000 UZS </p>
+                          <!-- Front-box -->
+                          <li class="pricing__item active">
+                            <div class="pricing-title">
+                              Сегодняшний платеж
                             </div>
-                            <p class="bold size-2">
-                              &nbsp; 4 500 UZS
-                            </p> / в месяц
-                          </div>
 
-                          <div class="table">
-                            <div class="table-text">
-                              Курс Full stack developer
+                            <div class="today-price">
+                              <p class="bold">
+                                Ежемесячно оплата&nbsp;
+                              </p>
+                              -&nbsp;Скидка {{i.oylik_tolov_chegirma_ru}}
                             </div>
-                            <div class="table-price">
-                              60 000 UZS
-                            </div>
-                          </div>
-                          
-                          <div class="table-line mt-3 mb-3"></div>
 
-                          <div class="table">
-                            <div class="table-btn">
-                              🥳Сохрани сегодня
+                            <div class="uzs">
+                              <div class="strikethrough">
+                                <p class="bold size-2">{{i.skidka_ru}} </p>
+                              </div>
+                              <p class="bold size-2">
+                                &nbsp; {{i.narx_oyiga_ru}}
+                              </p>&nbsp;/ в месяц
                             </div>
-                            <div class="table-price">
-                              -6 000 UZS
-                            </div>
-                          </div>
-                          
-                          <div class="table-line mt-3 mb-3"></div>
 
-                          <div class="table">
-                            <div class="table-text">
-                              Всего
-                            </div>
-                            <div class="table-price">
-                              <div class="uzs2">
-                                <div class="strikethrough">
-                                  <p class="d-flex">60 000 UZS</p>
-                                </div>
-                                <p class="d-flex">
-                                  &nbsp;54 000 UZS
+                            <div class="table">
+                              <div class="table-text">
+                                {{i.kurs_name_ru}}
+                              </div>
+                              <div class="table-price">
+                                {{i.kurs_narx_ru}}
                               </div>
                             </div>
-                          </div>
 
-                          <footer class="pricing-footer mb-5">
+                            <div class="table second">
+                              <div class="table-btn">
+                                {{i.skidka_text_ru}}
+                              </div>
+                              <div class="table-price">
+                                {{i.skidka_narx_ru}}
+                              </div>
+                            </div>
+
+                            <div class="table third">
+                              <div class="table-text">
+                                Общий
+                              </div>
+                              <div class="table-price">
+                                <div class="uzs2">
+                                  <div class="strikethrough">
+                                    <p class="d-flex">{{i.jami_skidka_ru}}</p>
+                                  </div>
+                                  <p class="d-flex">
+                                    &nbsp;{{i.jami_narx_ru}}
+                                </div>
+                              </div>
+                            </div>
+                          {% endfor %}
+
+                          <footer class="pricing-footer">
                             <a href="#0">
                               <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
                                 (function(w,d,u){
@@ -395,92 +497,63 @@
                                 })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
                               </script>
                               <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                                Зарегистрируйтесь сейчас
+                                Зарегистрироваться
                               </button>
                               <!-- <button class="btn-register w-100" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                                Зарегистрируйтесь сейчас
+                                Hozir roʻyxatdan oʻting
                               </button> -->
                             </a>
                           </footer>
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Присоединяйтесь к компактному классу в 20 учеников программистов</p>
-                          </div>
 
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Интересные и интерактивные занятия по программированию</p>
-                          </div>
+                          {% for i in bugungi_tolov_qlayligi_ru %}
+                            <div class="bottom-text first">
+                              <p class="stick">&#x2714;</p>
+                              <p class="bottom-p">{{i.title_ru}}</p>
+                            </div>
+                          {% endfor %}
 
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Присоединяйтесь к группе профи в Telegram</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Полный список литературы по программированию</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Освойте рабочий процесс Java EE</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Осваивайте дополнительные компоненты</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Выполняйте еженедельные задания</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Получите сертификат от Asirum</p>
-                          </div>
                         </li>
                         <!-- --- -->
 
                         <!-- Back-box -->
-                        <li class="rotate-element back-box">
-                          <div class="pricing-title mt-5">
+                        <li class="pricing__item">
+                          <div class="pricing-title">
                             ПЛАН ОПЛАТЫ
                           </div>
 
-                          <div class="today-price mt-3">
-                            <p class="bold">
-                              5 ежемесячных платежей
-                            </p>
-                          </div>
-
-                          <div class="uzs mt-3 mb-3">
-                            <p class="bold size-2">5 000 UZS</p>/ в месяц
-                          </div>
-
-                          <div class="table">
-                            <div class="table-text">
-                              5x ежемесячные платежей
+                          {% for i in oylik_tolov_ru %}
+                            <div class="today-price">
+                              <p class="bold">
+                                5 eжемесячные платежи
+                              </p>
                             </div>
-                            <div class="table-price">
-                              5 000 UZS
-                            </div>
-                          </div>                      
-                          
-                          <div class="table-line mt-3 mb-3"></div>
 
-                          <div class="table">
-                            <div class="table-text">
-                              Всего
+                            <div class="uzs">
+                              <p class="bold size-2">{{i.oyiga_ru}}</p>/ ежемесячно
                             </div>
-                            <div class="table-price">
-                              60 000 UZS
-                            </div>
-                          </div>
 
-                          <footer class="pricing-footer mb-5">
+                            <div class="table">
+                              <div class="table-text">
+                                5x ежемесячные платежи
+                              </div>
+                              <div class="table-price">
+                                {{i.besh_x_oylik_tolovlar_ru}}
+                              </div>
+                            </div>
+
+                            <div class="table-line"></div>
+
+                            <div class="table">
+                              <div class="table-text">
+                                Общий
+                              </div>
+                              <div class="table-price">
+                                {{i.jami_narx_ru}}
+                              </div>
+                            </div>
+                          {% endfor %}
+
+                          <footer class="pricing-footer">
                             <a href="#0">
                               <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
                                 (function(w,d,u){
@@ -489,53 +562,21 @@
                                 })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
                               </script>
                               <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                                Зарегистрируйтесь сейчас
+                                Зарегистрироваться
                               </button>
                               <!-- <button class="btn-register w-100" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                                Зарегистрируйтесь сейчас
+                                Hozir roʻyxatdan oʻting
                               </button> -->
                             </a>
                           </footer>
 
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Присоединяйтесь к компактному классу в 20 учеников программистов</p>
-                          </div>
+                          {% for i in oylik_tolov_qulayligi_ru %}
+                              <div class="bottom-text first">
+                                <p class="stick">&#x2714;</p>
+                                <p class="bottom-p">{{i.title_ru}}</p>
+                              </div>
+                          {% endfor %}
 
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Интересные и интерактивные занятия по программированию</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Присоединяйтесь к группе профи в Telegram</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Полный список литературы по программированию</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Освойте рабочий процесс Java EE</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Осваивайте дополнительные компоненты</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Выполняйте еженедельные задания</p>
-                          </div>
-
-                          <div class="bottom-text">
-                            <p class="stick">&#x2714;</p>
-                            <p class="bottom-p">Получите сертификат от Asirum</p>
-                          </div>
                         </li>
                         <!-- --- -->
                       </ul>
@@ -547,111 +588,40 @@
 
             <div class="section" id="raspisania">
               <div class="section-line"></div>
-              <div class="green-title mb-3">Расписание курсов</div>
-              <h1 class="section-title mb-3">Быстрый набор!</h1>
-              <p class="section-text mb-5">
-                Наши учебные курсы, как правило, набираются довольно быстро, 
-                поэтому мы открываем их за несколько месяцев. И мы намеренно 
-                ограничиваем размер классов примерно до 20 дизайнеров, чтобы 
-                каждый учебный курс предлагал индивидуальный опыт обучения.
-              </p>
-              <div class="pricing-switcher mb-5">
-                <p class="month">
-                  <button class="toggle-button " for="feb">Февраль</button>
-                  <button class="toggle-button " for="may">Май</button>
-                  <button class="toggle-button active" for="avg">Август</button>
+
+              {% for i in kurs_jadvali_ru %}
+                <div class="green-title">{{i.title_ru}}</div>
+                <h1 class="section-title">{{i.name_ru}}</h1>
+                <p class="section-text">
+                  {{i.descriptions_ru}}
                 </p>
-                <!-- --- -->
-                <div class="box mb-5">
-                  <div class="box-title">Full stack developer</div>
-                  <div class="box-texts">
-                    <div class="box-text mt-3">
-                      Аудитория 102, Вторнник 18:00 - 20:00
-                    </div>
-                    <div class="green-line"></div>
-                    <div class="yellow-box">14 свободных мест</div>
-                    <div class="greyline mt-5 mb-5"></div>
-                    <div class="box-footer comment-header">
-                      <div class="profile-img-box">
-                        <img src="{% static './img/Mask group (12).png' %}" >
-                      </div>
-                      <div class="header-text">
-                        <div class="name-mentor">Джасур Алиев</div>
-                        <p class="skills-mentor">Full Stack Developer - Преводаватель</p>
-                        <div class="green-line"></div>
-                      </div>
-                      <div class="box-register">
-                        <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                          (function(w,d,u){
-                          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-                          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-                          })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
-                        </script>
-                        <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                          Зарегистрируйтесь сейчас
-                        </button>
-                        <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                          Зарегистрируйтесь сейчас
-                        </button> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- --- -->
-                <div class="box mb-5">
-                  <div class="box-title">Full stack developer</div>
-                  <div class="box-texts">
-                    <div class="box-text mt-3">
-                      Аудитория 102, Вторнник 18:00 - 20:00
-                    </div>
-                    <div class="green-line"></div>
-                    <div class="yellow-box">14 свободных мест</div>
-                    <div class="greyline mt-5 mb-5"></div>
-                    <div class="box-footer comment-header">
-                      <div class="profile-img-box">
-                        <img src="{% static './img/Mask group (12).png' %}" >
-                      </div>
-                      <div class="headet-text">
-                        <div class="name-mentor">Джасур Алиев</div>
-                        <p class="skills-mentor">Full Stack Developer - Преводаватель</p>
-                        <div class="green-line"></div>
-                      </div>
-                      <div class="box-register">
-                        <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                          (function(w,d,u){
-                          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-                          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-                          })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
-                        </script>
-                        <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                          Зарегистрируйтесь сейчас
-                        </button>
-                        <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                          Зарегистрируйтесь сейчас
-                        </button> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {% endfor %}
+
                 <!-- --- -->
                 <div class="box">
-                  <div class="box-title">Full stack developer</div>
-                  <div class="box-texts">
-                    <div class="box-text mt-3">
-                      Аудитория 102, Вторнник 18:00 - 20:00
-                    </div>
-                    <div class="green-line"></div>
-                    <div class="yellow-box">14 свободных мест</div>
-                    <div class="greyline mt-5 mb-5"></div>
-                    <div class="box-footer comment-header">
-                      <div class="profile-img-box">
-                        <img src="{% static './img/Mask group (12).png' %}" >
-                      </div>
-                      <div class="headet-text">
-                        <div class="name-mentor">Джасур Алиев</div>
-                        <p class="skills-mentor">Full Stack Developer - Преводаватель</p>
+
+                  {% for i in kurs_pLan_ru %}
+                    {% if forloop.counter0 < 5 %}
+                      <div class="box-title">{{i.kurs_name_ru}}</div>
+                      <div class="box-texts">
+                        <div class="box-text">
+                          {{i.data_ru}}
+                        </div>
                         <div class="green-line"></div>
-                      </div>
+                        <div class="yellow-box">{{i.oqish_davomiligi_ru}}</div>
+                        <div class="greyline"></div>
+                        <div class="box-footer comment-header">
+                          <div class="profile-img-box">
+                            <img src="{{i.image.url}}" >
+                          </div>
+                          <div class="header-text">
+                            <div class="name-mentor">{{i.name_lastname_ru}}</div>
+                            <p class="skills-mentor">{{i.sohasi_ru}}</p>
+                            <div class="green-line"></div>
+                          </div>
+                    {% endif %}
+                  {% endfor %}
+
                       <div class="box-register">
                         <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
                           (function(w,d,u){
@@ -660,69 +630,58 @@
                           })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
                         </script>
                         <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
-                          Зарегистрируйтесь сейчас
+                          Зарегистрироваться
                         </button>
                         <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                          Зарегистрируйтесь сейчас
+                          Hozir roʻyxatdan oʻting
                         </button> -->
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- --- -->
-              </div>
             </div>
 
             <div class="section" id="questions">
-              <div class="section-line"></div>
-              <div class="green-title mb-3">Вопросы</div>
-              <h1 class="section-title mb-3">У вас есть вопрос о нашем учебном курсе по Full stack developer?</h1>
-              <p class="section-text mb-5">
-                Скорее всего, на этом этапе у вас есть пара вопросов. Мы призываем 
-                наших студентов задавать вопросы напрямую, и вы можете организовать 
-                быстрый звонок с нами в любое время.
-              </p>
-              <!-- Questions-answeres -->
-              <div class="accordion mb-5" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest1" aria-expanded="false" aria-controls="quest1">
-                      Нужен ли мне опыт работы в программировании?
-                    </button>
-                  </h2>
-                  <div id="quest1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
+                <div class="section-line"></div>
+              {% for i in savollar2_ru %}
+                  <div class="green-title">ВОПРОСЫ</div>
+                  <h1 class="section-title">{{i.name_ru}}</h1>
+                  <p class="section-text">{{i.descriptions_ru}}</p>
+                <!-- Questions-answeres -->
+              {% endfor %}
+                <div class="accordion" id="accordionExample">
+
+                  <div class="accordion-item">
+                    {% for i in savollar_javob2_ru %}
+                      {% if forloop.counter0 < 10 %}
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest{{ forloop.counter }}" aria-expanded="false" aria-controls="quest{{ forloop.counter }}">
+                            <div class="accordion-img">
+                              <img src="{% static './img/arrow-left.svg' %}"/>
+                            </div>
+                            <span class="accordion-header-title">{{ i.title_ru }}</span>
+                            <div class="accordion-header-btn">Ko'proq</div>
+                          </button>
+
+                          <div id="quest{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              {{ i.descriptions_ru }}
+                            </div><br>
+                          </div><br>
+
+                        </h2>
+                      {% endif %}
+                    {% endfor %}
                   </div>
+
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest2" aria-expanded="false" aria-controls="quest2">
-                      Нужен ли мне опыт работы в программировании?
-                    </button>
-                  </h2>
-                  <div id="quest2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest3" aria-expanded="false" aria-controls="quest3">
-                      Нужен ли мне опыт работы в программировании?
-                    </button>
-                  </h2>
-                  <div id="quest3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- --- -->
+                <!-- --- -->
             </div>
+
+          </div>
+
+
+
           </div>
         </div>
       </div>
@@ -731,121 +690,122 @@
       <!-- Courses row -->
       <div class="container">
         <div class="grid-4">
-          
+
           <!-- Box -->
-          <div class="course-box mb-5">
-            {% for i in main_course_ru %}
-              {% if forloop.counter0 < 4 %}
-                <img src="{{i.image_ru.url}}" class="course-img">
-                <div class="course-body">
-                  <p>{{i.data_ru}}</p>
-                  <h3 class="title-h3">{{i.title_ru}}</h3>
-                  <p>{{i.short_descriptions_ru}}</p>
-                  <h6>{{i.duration_ru}}</h6>
-                <div class="green-line"></div>
-                <a href="{% url 'home' %}"><button class="btn-course-more">{{i.button_text_ru}}</button></a>
-                </div>
-              {% endif %}
-            {% endfor %}
+      {% for i in main_course_ru %}
+        {% if forloop.counter0 < 4 %}
+          <div class="col">
+            <div class="course-box">
+              <img src="{{i.image.url}}" class="course-img">
+              <div class="course-body">
+                <p class="course__date">{{i.data_ru}}</p>
+                <h3 class="course__title title-h3">{{i.title_ru}}</h3>
+                <p class="course__text">{{i.short_descriptions_ru}}</p>
+                <h6 class="course__duration">{{i.duration_ru}}</h6>
+              <div class="green-line"></div>
+              <a href="{% url 'kurs_about_ru' i.id %}"><button class="btn-course-more">Подробнее</button></a>
+              </div>
+            </div>
           </div>
+        {% endif %}
+      {% endfor %}
           <!-- --- -->
 
         </div>
       </div>
       <!-- --- -->
 
-      <!-- Footer -->
-      <div class="section-footer container">
-        <div class="footer">
+    <!-- Footer -->
+    <div class="section-footer container">
+      <div class="footer">
+        <div class="footer-box">
+          <div class="modal-contact">
+            <div class="register-box">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body align-self-center">
+                    <form>
+                      <div class="mb-3 text-center">
+                        <div class="register-text">Готовы стать студентом Astrum?</div>
+                        <div class="register text-center">
+                          <img src="{% static './img/shar.svg' %}" class="shar2">
+                          <h4 class="register-text-2">Оставить заявку</h4>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Имя фамилия</label>
+                        <input type="text" class="form-control" id="recipient-name" placeholder="Имя фамилия">
+                      </div>
+                      <div class="mb-3">
+                        <label for="message-number" class="col-form-label">Номер телефона:</label>
+                        <input type="number" class="form-control" id="number" placeholder="+998">
+                      </div>
+                      <div class="mb-3">
+                        <label for="message-number" class="col-form-label">Имя пользователя Telegram:</label>
+                        <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer align-self-center text-center">
+                    <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                      Отправка
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-white">
+              <div class="modal-header">
+                <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Natija</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body succes-text register-modal">
+                <div class="form-floating">
+                  <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+                </div>
+              </div>
+              <div class="modal-footer register-modal align-self-center text-center">
+                <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                  Подтверждать
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-white">
+              <div class="modal-header">
+                <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body succes-text register-modal">
+                Отправлено
+              </div>
+              <div class="modal-footer register-modal align-self-center text-center">
+                <button type="button" class="register-button" data-bs-dismiss="modal">Понятно</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-boxes grid container">
+
           <div class="footer-box">
-            <div class="modal-contact">
-              <div class="register-box">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body align-self-center">
-                      <form>
-                        <div class="mb-3 text-center">
-                          <div class="register-text">Готовы стать учеником Astrum?</div>
-                          <div class="register text-center">
-                            <img src="{% static './img/shar.svg' %}" class="shar2">
-                            <h4 class="register-text-2">Оставьте заявку</h4>
-                          </div>
-                        </div>
-                        <div class="mb-3">
-                          <label for="recipient-name" class="col-form-label">Имя Фамилия</label>
-                          <input type="text" class="form-control" id="recipient-name" placeholder="Имя Фамилия">
-                        </div>
-                        <div class="mb-3">
-                          <label for="message-number" class="col-form-label">Номер телефона:</label>
-                          <input type="number" class="form-control" id="number" placeholder="+998">
-                        </div>
-                        <div class="mb-3">
-                          <label for="message-number" class="col-form-label">Telegram nick-name:</label>
-                          <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer align-self-center text-center">
-                      <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#registerBox">
-                        Отправить
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal fade" id="registerBox" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content bg-white">
-                <div class="modal-header">
-                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body succes-text register-modal">
-                  <div class="form-floating">
-                    <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
-                  </div>
-                </div>
-                <div class="modal-footer register-modal align-self-center text-center">
-                  <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
-                    Подтвердить 
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content bg-white">
-                <div class="modal-header">
-                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body succes-text register-modal">
-                  Отправлено
-                </div>
-                <div class="modal-footer register-modal align-self-center text-center">
-                  <button type="button" class="register-button" data-bs-dismiss="modal">Понятно</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-boxes grid container">
-
+            <p class="footer-p">КУРСЫ И ОБУЧЕНИЕ</p>
             <div class="footer-box">
-              <p class="footer-p">курсы и образование</p>
-              <div class="grey-line"></div>
-              <div class="footer-box">
-                <ul>
+              <ul>
                 {% for i in main_course_ru %}
                   {% if forloop.counter0 < 3 %}
                     <li class="footer-li">
-                      <img src="{{i.image_ru.url}}" class="footer-img">
+                      <img src="{{i.image.url}}" class="footer-img">
                       <div class="footer-text">
                         {{i.title_ru}}
                         <p class="footer-time">{{i.duration_ru}}</p>
@@ -853,9 +813,78 @@
                     </li>
                   {% endif %}
                 {% endfor %}
-                </ul>
-              </div>
+              </ul>
             </div>
+          </div>
+
+          <div class="footer-box">
+            <p class="footer-p">Astrum</p>
+            <a class="first" href="{% url 'kompanita' %}"><li class="footer-li">Об академии</li></a>
+            <a href="{% url 'kursi_ru' %}"><li class="footer-li">Курсы</li></a>
+            <a href="{% url 'photo_ru' %}"><li class="footer-li">Фото</li></a>
+            <a href="{% url 'karyera_ru' %}"><li class="footer-li">Карьера</li></a>
+          </div>
+
+          <div class="footer-box">
+            <p class="footer-p">Связь</p>
+            <a class="first" href="tel:+998943151337">
+              <li class="footer-li">
+                <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+                Позвоните нам
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+                Instagram
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+                Facebook
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+                Telegram
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+                Свяжитесь с нами по электронной почте
+              </li>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <div class="last-footer">
+            {% for i in footer_ru %}
+              <div class="footer-logo">
+                <div class="footer-logo-imgs">
+                  <img src="{% static 'img/Group 58.png' %}">
+                  <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+                </div>
+                <p>{{i.motto_ru}}</p>
+              </div>
+              <h4>
+                {{i.short_descriptions_ru}}
+              </h4>
+              <h6>
+                © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+              </h6>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- --- -->
+
       <!-- Scripts -->
       <script>
         const frame = document.getElementById('preloader');
@@ -918,7 +947,7 @@
           });
         });
       });
-      
+
         var tugma = document.querySelectorAll(".clickSound");
         function chiqarishOvozi() {
             var audio = new Audio('./audio/btn.wav');
@@ -938,14 +967,16 @@
       <!-- --- -->
 
       <!-- Script links -->
-      <script src="./js/price-js/prise-tables.js"></script>
-      <script src="./js/price-js/prise-common.js"></script>
-      <script src="./js/price-js/price-modernizer.js"></script>
+      <script src="{% static './js/price-js/prise-tables.js' %}"></script>
+      <script src="{% static './js/price-js/prise-common.js' %}"></script>
+      <script src="{% static './js/price-js/price-modernizer.js' %}"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       <!-- --- -->
+      <!-- <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');</script> -->
+      <!--  -->
       
   </body>
 </html>

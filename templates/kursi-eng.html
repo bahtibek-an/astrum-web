@@ -118,10 +118,10 @@
                 </div>
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <a href="{% url 'kompanita_eng' %}"><li class="nav-item">About academy</li></a>
-                    <a href="{% url 'kursi_eng' %}"><li class="nav-item">Courses</li></a>
-                    <a href="{% url 'photo_eng' %}"><li class="nav-item">Photo pictures</li></a>
-                    <a href="{% url 'karyera_eng' %}"><li class="nav-item">About Us</li></a>
+                    <a href="{% url 'kompanita_eng' %}" class="nav-item"><li>About academy</li></a>
+                    <a href="{% url 'kursi_eng' %}" class="nav-item"><li>Courses</li></a>
+                    <a href="{% url 'photo_eng' %}" class="nav-item"><li>Photo pictures</li></a>
+                    <a href="{% url 'karyera_eng' %}" class="nav-item"><li>Career</li></a>
                   </ul>
                   <!-- Languages -->
                   <div class="lang">
@@ -129,7 +129,7 @@
                       <button class="dropbtn">ENG</button>
                       <div class="dropdown-content">
                         <a href="{% url 'home' %}">UZ</a>
-                        <a href="{% url 'home_eng' %}">RU</a>
+                        <a href="{% url 'home_ru' %}">RU</a>
                       </div>
                     </div>
                   </div>
@@ -176,8 +176,8 @@
                         <h6 class="course__item-duration">{{i.duration_eng}}</h6>
                       <div class="green-line"></div>
                       <div class="course__item-btm">
-                        <a class="btn-more course__item-btn" href="{% url 'kurs_about' i.id %}">
-                          Batafsil
+                        <a class="btn-more course__item-btn" href="{% url 'kurs_about_eng' i.id %}">
+                          More
                         </a>
                       </div>
                       </div>

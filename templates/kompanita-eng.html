@@ -97,11 +97,10 @@
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <a href="photo-eng.html"><li class="nav-item">Фото</li></a>
-                  <a href="karyera-eng.html"><li class="nav-item">Карьера</li></a>
-                  <a href="kursi-eng.html"><li class="nav-item">Курсы</li></a>
-                  <a href="index-eng.html"><li class="nav-item">Менторы</li></a>
-                  <a href="kompaniya-eng.html"><li class="nav-item">Окомпании</li></a>
+                  <a href="{% url 'kompanita_eng' %}"><li class="nav-item">About academy</li></a>
+                  <a href="{% url 'kursi_eng' %}"><li class="nav-item">Courses</li></a>
+                  <a href="{% url 'photo_eng' %}"><li class="nav-item">Photo pictures</li></a>
+                  <a href="{% url 'karyera_eng' %}"><li class="nav-item">Career</li></a>
               </ul>
               <!-- Languages -->
               <div class="lang">
@@ -474,10 +473,10 @@
 
         <div class="footer-box">
           <p class="footer-p">Astrum</p>
-          <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">About academy</li></a>
-          <a href="{% url 'kursi_eng' %}"><li class="footer-li">Courses</li></a>
-          <a href="{% url 'photo_eng' %}"><li class="footer-li">Photo pictures</li></a>
-          <a href="{% url 'karyera_eng' %}"><li class="footer-li">About Us</li></a>
+              <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">About academy</li></a>
+              <a href="{% url 'kursi_eng' %}"><li class="footer-li">Courses</li></a>
+              <a href="{% url 'photo_eng' %}"><li class="footer-li">Photo pictures</li></a>
+              <a href="{% url 'karyera_eng' %}"><li class="footer-li">About Us</li></a>
         </div>
 
         <div class="footer-box">

@@ -119,17 +119,17 @@
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <a href="{% url 'kompanita' %}"><li class="nav-item">Об академии</li></a>
-                  <a href="{% url 'kursi' %}"><li class="nav-item">Курсы</li></a>
-                  <a href="{% url 'photo' %}"><li class="nav-item">Фото</li></a>
-                  <a href="{% url 'karyera' %}"><li class="nav-item">Карьера</li></a>
+                  <a href="{% url 'kompanita' %}"><li class="nav-item">Akademiya haqida</li></a>
+                  <a href="{% url 'kursi' %}"><li class="nav-item">Kurslar</li></a>
+                  <a href="{% url 'photo' %}"><li class="nav-item">Foto rasmlar</li></a>
+                  <a href="{% url 'karyera' %}"><li class="nav-item">Karyera</li></a>
                 </ul>
                 <!-- Languages -->
                 <div class="lang">
                   <div id="lang" class="dropdown mt-4">
-                    <button class="dropbtn">Ru</button>
+                    <button class="dropbtn">Uz</button>
                     <div class="dropdown-content">
-                      <a href="{% url 'home' %}">Uz</a>
+                      <a href="{% url 'home_ru' %}">Ru</a>
                       <a href="{% url 'home_eng' %}">Eng</a>
                     </div>
                   </div>
@@ -197,20 +197,20 @@
             <h5>{{i.name}}</h5>
             <h4 class="section-title">{{i.title}}</h4>
             <p>{{i.short_descriptions}}</p>
-            <div class="grid-3">
         {% endfor %}
 
-        {% for i in theles %}
-          {% if forloop.counter0 < 6 %}
-              <div class="grid-box">
-                <div class="grid-box-line"></div>
-                <h4 class="grid-box-title">{{i.title}}</h4>
-                <p>{{i.short_descriptions}}</p>
+        <div class="grid">
+
+          {% for i in theles %}
+              <div class="fact-item">
+                <div class="vertical-line"></div>
+                <h4 class="fact-item-number">{{i.name}}</h4>
+                <p class="fact-text">{{i.title}}</p>
+                <h6 class="fact-item-text">{{i.short_descriptions}}</h6>
               </div>
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
 
-            </div>
+        </div>
       </div>
     </div>
     <!-- --- -->
@@ -235,11 +235,11 @@
 
     <!-- Course -->
     <div class="section container course-container">
-      <div class="row">
+      <div class="course__list">
 
       {% for i in main_course %}
         {% if forloop.counter0 < 4 %}
-          <div class="col">
+          <div class="">
             <div class="course-box">
               <img src="{{i.image.url}}" class="course-img">
               <div class="course-body">
@@ -248,19 +248,18 @@
                 <p class="course-body-text">{{i.short_descriptions}}</p>
                 <h6>{{i.duration}}</h6>
               <div class="green-line"></div>
-              <a href="{% url 'kurs_about' i.id %}"><button class="btn-course-more">Подробнее</button></a>
+              <a href="{% url 'kurs_about' i.id %}"><button class="btn-course-more">Batafsil</button></a>
               </div>
             </div>
           </div>
         {% endif %}
       {% endfor %}
 
-        <div>
-          <a href="{% url 'kursi' %}"><button class="btn-more">Все курсы</button></a>
-        </div>
-
       </div>
 
+      <div>
+          <a href="{% url 'kursi' %}"><button class="btn-more">Barcha kurslar</button></a>
+        </div>
     </div>
     <!-- --- -->
 
@@ -283,7 +282,6 @@
             <div class="fact-item">
               <div class="vertical-line"></div>
               <h4 class="fact-item-number">{{i.name}}</h4>
-              <p class="fact-text">{{i.title}}</p>
               <h6 class="fact-item-text">{{i.short_descriptions}}</h6>
             </div>
           {% endif %}
@@ -356,9 +354,6 @@
         {% endfor %}
           <img src="{% static 'img/Group 14.png' %}" class="location-logo">
           <img src="{% static 'img/shu rasm.png' %}" class="location-bg-img">
-          <!-- <button class="location-massage">
-            С помощью венчурного фонда развитых стран мы смогли добиться реализации данного образовательного и развивающего проекта, чтобы наше подрастающие поколение имело возможность развиваться в разных направлениях современных технологиях.
-          </button> -->
           <main>
             <ul class="location-carousel">
 
@@ -469,14 +464,14 @@
 
           <div class="footer-box">
             <p class="footer-p">Astrum</p>
-            <a class="first" href="{% url 'kompanita' %}"><li class="footer-li">Об академии</li></a>
-            <a href="{% url 'kursi' %}"><li class="footer-li">Курсы</li></a>
-            <a href="{% url 'photo' %}"><li class="footer-li">Фото</li></a>
-            <a href="{% url 'karyera' %}"><li class="footer-li">Карьера</li></a>
+                  <a href="{% url 'kompanita' %}"><li class="footer-li">Akademiya haqida</li></a>
+                  <a href="{% url 'kursi' %}"><li class="footer-li">Kurslar</li></a>
+                  <a href="{% url 'photo' %}"><li class="footer-li">Foto rasmlar</li></a>
+                  <a href="{% url 'karyera' %}"><li class="footer-li">Karyera</li></a>
           </div>
 
           <div class="footer-box">
-            <p class="footer-p">связаться</p>
+            <p class="footer-p">Bog'lanish</p>
             <a class="first" href="tel:+998943151337">
               <li class="footer-li">
                 <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->

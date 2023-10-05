@@ -167,6 +167,7 @@ def index(request):
     locatsia = Locatsia.objects.all()
     astrum_locatsia = LocatsiaInfo.objects.all()
     footer = Footer.objects.all()
+    theles = Theles.objects.all()
 
     ctx = {
         "news_header": news_header,
@@ -183,6 +184,7 @@ def index(request):
         "locatsia": locatsia,
         "astrum_locatsia": astrum_locatsia,
         "footer": footer,
+        "theles": theles,
     }
 
     return render(request, 'index.html', ctx)
@@ -297,6 +299,7 @@ def index_ru(request):
     locatsia_ru = Locatsia.objects.all()
     astrum_locatsia_ru = LocatsiaInfo.objects.all()
     footer_ru = Footer.objects.all()
+    theles = Theles.objects.all()
 
     ctx = {
         "news_header_ru": news_header_ru,
@@ -313,6 +316,7 @@ def index_ru(request):
         "locatsia_ru": locatsia_ru,
         "astrum_locatsia_ru": astrum_locatsia_ru,
         "footer_ru": footer_ru,
+        "theles": theles,
     }
 
     return render(request, 'index-ru.html', ctx)

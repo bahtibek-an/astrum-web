@@ -203,3 +203,22 @@ class Footer(models.Model):
 
     def __str__(self):
         return self.motto
+
+
+class Theles(models.Model):
+    title = models.CharField(max_length=255, default="")
+    short_descriptions = models.TextField()
+    name = models.CharField(max_length=255, default="")
+
+    title_ru = models.CharField(max_length=255, default="")
+    short_descriptions_ru = models.TextField()
+    name_ru = models.CharField(max_length=255, default="")
+
+    title_eng = models.CharField(max_length=255, default="", blank=True)
+    short_descriptions_eng = models.TextField(blank=True)
+    name_eng = models.CharField(max_length=255, default="", blank=True)
+
+    def __str__(self):
+        return self.title
+
+

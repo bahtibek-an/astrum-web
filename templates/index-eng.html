@@ -40,7 +40,6 @@
         <!-- Header-up carousel -->
         
         <!-- --- -->
-_eng
         <div class="header__bg"></div>
 
         <!-- Header bottom -->
@@ -55,7 +54,7 @@ _eng
               <!-- Header links -->
               <div class="head-link">
                 <ul class="header-links">
-                 <a href="{% url 'kompanita_eng' %}"><li>About academy</li></a>
+                  <a href="{% url 'kompanita_eng' %}"><li>About academy</li></a>
                   <a href="{% url 'kursi_eng' %}"><li>Courses</li></a>
                   <a href="{% url 'photo_eng' %}"><li>Photo pictures</li></a>
                   <a href="{% url 'karyera_eng' %}"><li>Career</li></a>
@@ -120,10 +119,10 @@ _eng
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <a href="{% url 'kompanita_eng' %}"><li class="nav-item">Об академии</li></a>
-                  <a href="{% url 'kursi_eng' %}"><li class="nav-item">Курсы</li></a>
-                  <a href="{% url 'photo_eng' %}"><li class="nav-item">Фото</li></a>
-                  <a href="{% url 'karyera_eng' %}"><li class="nav-item">Карьера</li></a>
+                  <a href="{% url 'kompanita_eng' %}"><li class="nav-item">About academy</li></a>
+                  <a href="{% url 'kursi_eng' %}"><li class="nav-item">Courses</li></a>
+                  <a href="{% url 'photo_eng' %}"><li class="nav-item">Photo pictures</li></a>
+                  <a href="{% url 'karyera_eng' %}"><li class="nav-item">Career</li></a>
                 </ul>
                 <!-- Languages -->
                 <div class="lang">
@@ -169,7 +168,7 @@ _eng
         <!-- Btn learn more -->
         <a href="{% url 'kompanita_eng' %}">
           <button class="btn-more">
-            Batafsil
+            More
           </button>
         </a>
       </div>
@@ -249,7 +248,7 @@ _eng
                 <p class="course-body-text">{{i.short_descriptions_eng}}</p>
                 <h6>{{i.duration_eng}}</h6>
               <div class="green-line"></div>
-              <a href="{% url 'kurs_about_eng' i.id %}"><button class="btn-course-more">Подробнее</button></a>
+              <a href="{% url 'kurs_about_eng' i.id %}"><button class="btn-course-more">More</button></a>
               </div>
             </div>
           </div>
@@ -257,11 +256,9 @@ _eng
       {% endfor %}
 
         <div>
-          <a href="{% url 'kursi_eng' %}"><button class="btn-more">Все курсы</button></a>
+          <a href="{% url 'kursi_eng' %}"><button class="btn-more">All courses</button></a>
         </div>
-
       </div>
-
     </div>
     <!-- --- -->
 
@@ -482,10 +479,10 @@ _eng
 
           <div class="footer-box">
             <p class="footer-p">Astrum</p>
-            <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">Об академии</li></a>
-            <a href="{% url 'kursi_eng' %}"><li class="footer-li">Курсы</li></a>
-            <a href="{% url 'photo_eng' %}"><li class="footer-li">Фото</li></a>
-            <a href="{% url 'karyera_eng' %}"><li class="footer-li">Карьера</li></a>
+              <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">About academy</li></a>
+              <a href="{% url 'kursi_eng' %}"><li class="footer-li">Courses</li></a>
+              <a href="{% url 'photo_eng' %}"><li class="footer-li">Photo pictures</li></a>
+              <a href="{% url 'karyera_eng' %}"><li class="footer-li">About Us</li></a>
           </div>
 
           <div class="footer-box">

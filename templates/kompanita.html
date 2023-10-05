@@ -84,11 +84,10 @@
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <a href="photo-eng.html"><li class="nav-item">Foto suratlar</li></a>
-                  <a href="karyera-eng.html"><li class="nav-item">Caryera</li></a>
-                  <a href="kursi-eng.html"><li class="nav-item">Kurslar</li></a>
-                  <a href="index-eng.html"><li class="nav-item">Mentorlar</li></a>
-                  <a href="kompaniya-eng.html"><li class="nav-item">Biz haqimizda</li></a>
+                  <a href="{% url 'kompanita' %}"><li class="nav-item">Akademiya haqida</li></a>
+                  <a href="{% url 'kursi' %}"><li class="nav-item">Kurslar</li></a>
+                  <a href="{% url 'photo' %}"><li class="nav-item">Foto rasmlar</li></a>
+                  <a href="{% url 'karyera' %}"><li class="nav-item">Karyera</li></a>
               </ul>
               <!-- Languages -->
               <div class="lang">

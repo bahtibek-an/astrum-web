@@ -1427,6 +1427,7 @@ label {
     color: #000000;
     margin-bottom: 30px;
     margin-top: 30px;
+    text-align: justify;
 }
 
 .btn-more .text-center .d-flex {
@@ -1857,9 +1858,6 @@ label {
         width: 80%;
         margin-left: 10%;
     }
-    .course-box {
-        width: 80%;
-    }
     .img-banner {
         display: none;
     }
@@ -2177,3 +2175,30 @@ label {
     background: rgba(0, 0, 0, 0.5);
     overflow: hidden !important;
 }
+
+.course__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+@media (max-width: 1400px) {
+    .course__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .course__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .course__list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
