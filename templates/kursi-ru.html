@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Astrum IT Academy | Kurslar</title>
+      <link rel="stylesheet" href="{% static 'css/kursi.css' %}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
+  </head>
+  <body>
+      <!-- Loader -->
+      <div id="preloader">
+        <div class="frame" data-loader="circle-side">
+          <div class="circle"></div>
+          <div class="line left"></div>
+          <div class="line right"></div>
+          <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
+          <div class="hide top"></div>
+          <div class="hide bottom"></div>
+        </div>
+      </div>
+      <!-- --- -->
+
+      <div id="flip">
+        {% for i in news_header_ru %}
+              <div>
+                  <a href="{{i.link_ru}}">
+                      <div>{{ i.title_ru }}</div>
+                  </a>
+              </div>
+        {% endfor %}
+      </div>
+  
+
+      <!-- Header -->
+      <div class="header">
+      
+        <div class="header-box">
+          <!-- Header-up carousel -->
+  
+          <div class="header__bg"></div>
+  
+          <!-- Header bottom -->
+          <div class="navbar34">
+            <div class="header-bottom container">
+                <!-- Logo image -->
+                <a href="{% url 'home_ru' %}">
+                  <img class="logo" src="{% static 'img/logo.svg' %}">
+                </a>
+                <!-- --- -->
+  
+                <!-- Header links -->
+                <div class="head-link">
+                  <ul class="header-links">
+                    <a href="{% url 'kompanita_ru' %}"><li>Об академии</li></a>
+                    <a href="{% url 'kursi_ru' %}"><li>Курсы</li></a>
+                    <a href="{% url 'photo_ru' %}"><li>Фото картинки</li></a>
+                    <a href="{% url 'karyera_ru' %}"><li>Карьера</li></a>
+                    <!-- <a href="index-ru.html"><li>Менторы</li></a> -->
+                  </ul>
+                </div>
+                <!-- --- -->
+  
+                <!-- Buttons -->
+                <div class="buttons">
+                  <!-- Telegram button -->
+                  <!-- <div class="telegram-button">
+                    <a href="https://t.me/astrumuz">
+                      <button class="btn-course">
+                        <img src="img/telegram.jpg" class="btn-icon"> Добавляйся Free в Telegram
+                      </button>
+                    </a>
+                  </div> -->
+  
+                  <!-- Best cources button -->
+                  <div class="best-cources">
+                    <a href="{% url 'kursi_ru' %}">
+                      <button class="btn-course">
+                        Лучшие курсы
+                      </button>
+                    </a>
+                  </div>
+                  <!-- --- -->
+  
+                  <!-- Languages -->
+                  <div class="lang">
+                    <div id="lang" class="dropdown">
+                      <button class="dropbtn">RU</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'home' %}">UZ</a>
+                        <a href="{% url 'home_eng' %}">ENG</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- --- -->
+                </div>
+                <!-- --- -->
+            </div>
+          </div>
+          <!-- --- -->
+    
+          <!-- Navbar active -->
+          <nav class="navbar navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                    <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+                  </h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <a href="{% url 'kompanita_ru' %}"><li class="nav-item">Об академии</li></a>
+                    <a href="{% url 'kursi_ru' %}"><li class="nav-item">Курсы</li></a>
+                    <a href="{% url 'photo_ru' %}"><li class="nav-item">Фото картинки</li></a>
+                    <a href="{% url 'karyera_ru' %}"><li class="nav-item">Карьера</li></a>
+                  </ul>
+                  <!-- Languages -->
+                  <div class="lang">
+                    <div id="lang" class="dropdown mt-4">
+                      <button class="dropbtn">RU</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'home' %}">UZ</a>
+                        <a href="{% url 'home_eng' %}">Eng</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- --- -->
+                </div>
+              </div>
+            </div>
+          </nav>
+          <!-- --- -->
+  
+          {% for i in kursi_ru %}
+          <div class="container main-container">
+            <div class="main-title"><img src="{% static './img/shar.svg' %}" class="shar"><h1>{{i.title_ru}}</h1></div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- --- -->
+    
+      <!-- Courses -->
+      <div class="container courses">
+        <button class="courses__btn all-btn">Barcha yo'nalishlar</button>
+        <div class="courses__buttons">
+            <button class="program-btn">Dasturlash</button>
+            <button class="design-btn">Dizayn</button>
+            <button class="marketing-btn">Marketing</button>
+            <button class="england-btn">Ingliz tili</button>
+            <button class="top-btn">Top</button>
+        </div>
+
+        <div class="card-boxes">
+
+              {% for i in main_course_ru %}
+                {% if forloop.counter0 < 14 %}
+                  <div class="all-div program-div">
+                    <div class="birinchi">
+                      <img src="{{i.image.url}}" class="course-img">
+                      <div class="course-body">
+                        <p >{{i.data}}</p>
+                        <h3 class="title-h3">{{i.title_ru}}</h3>
+                        <p class="course__item-text">{{i.short_descriptions_ru}}</p>
+                        <h6 class="course__item-duration">{{i.duration_ru}}</h6>
+                      <div class="green-line"></div>
+                      <div class="course__item-btm">
+                        <a class="btn-more course__item-btn" href="{% url 'kurs_about' i.id %}">
+                          Batafsil
+                        </a>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+
+        </div>
+      </div>
+      <!-- --- -->
+
+      <!-- Footer -->
+      <div class="section-footer container">
+        <div class="footer">
+          <div class="footer-box">
+            <div class="modal-contact">
+              <div class="register-box">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body align-self-center">
+                      <form>
+                        <div class="mb-3 text-center">
+                          <div class="register-text">Готовы стать учеником Astrum?</div>
+                          <div class="register text-center">
+                            <img src="{% static './img/shar.svg' %}" class="shar2">
+                            <h4 class="register-text-2">Оставьте заявку</h4>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Имя Фамилия</label>
+                          <input type="text" class="form-control" id="recipient-name" placeholder="Имя Фамилия">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-number" class="col-form-label">Номер телефона:</label>
+                          <input type="number" class="form-control" id="number" placeholder="+998">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-number" class="col-form-label">Telegram nick-name:</label>
+                          <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer align-self-center text-center">
+                      <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                        Отправить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-white">
+                <div class="modal-header">
+                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body succes-text register-modal">
+                  <div class="form-floating">
+                    <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="modal-footer register-modal align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                    Подтвердить 
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-white">
+                <div class="modal-header">
+                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body succes-text register-modal">
+                  Отправлено
+                </div>
+                <div class="modal-footer register-modal align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-dismiss="modal">Понятно</button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="footer-boxes grid container">
+  
+            <div class="footer-box">
+              <p class="footer-p">Курсы и образование</p>
+              <div class="footer-box">
+                <ul>
+                  {% for i in main_course_ru %}
+                    {% if forloop.counter0 < 3 %}
+                      <li class="footer-li">
+                        <img src="{{i.image.url}}" class="footer-img">
+                        <div class="footer-text">
+                          {{i.title_ru}}
+                          <p class="footer-time">{{i.duration_ru}}</p>
+                        </div>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+  
+            <div class="footer-box">
+              <p class="footer-p">Astrum</p>
+              <a class="first" href="{% url 'kompanita_ru' %}"><li class="footer-li">Об академии</li></a>
+              <a href="{% url 'kursi_ru' %}"><li class="footer-li">Курсы</li></a>
+              <a href="{% url 'photo_ru' %}"><li class="footer-li">Фото</li></a>
+              <a href="{% url 'karyera_ru' %}"><li class="footer-li">Карьера</li></a>
+            </div>
+  
+            <div class="footer-box">
+              <p class="footer-p">связаться</p>
+              <a class="first" href="tel:+998943151337">
+                <li class="footer-li">
+                  <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+                  Call us
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+                  Instagram
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+                  Facebook
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+                  Telegram
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+                  Email us
+                </li>
+              </a>
+            </div>
+  
+          </div>
+  
+          <div class="footer-bottom">
+            <div class="last-footer">
+              {% for i in footer_ru %}
+                <div class="footer-logo">
+                  <div class="footer-logo-imgs">
+                    <img src="{% static 'img/Group 58.png' %}">
+                    <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+                  </div>
+                  <p>{{i.motto_ru}}</p>
+                </div>
+                <h4>
+                  {{i.short_descriptions_ru}}
+                </h4>
+                <h6>
+                  © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+                </h6>
+              {% endfor %}
+            </div>
+          </div>
+  
+        </div>    
+      </div>
+      <!-- --- -->
+    
+      <!-- Scripts -->
+      <script>
+        const frame = document.getElementById('preloader');
+        setTimeout(() => {
+          frame.remove();
+        }, 3000);
+        
+        const allButton = document.querySelector('.all-btn');
+        const programDivs = document.querySelectorAll('.program-div');
+        const designDivs = document.querySelectorAll('.design-div');
+        const marketingDivs = document.querySelectorAll('.marketing-div');
+        const englandDivs = document.querySelectorAll('.england-div');
+        const topDivs = document.querySelectorAll('.top-div');
+
+        allButton.addEventListener('click', () => {
+            // Barcha divlarni ko'rsatish
+            programDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            designDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            marketingDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            englandDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            topDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+        });
+
+        const programButton = document.querySelector('.program-btn');
+        programButton.addEventListener('click', () => {
+            // Faqatgina "Программирование" divlarini ko'rsatish
+            programDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            designDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            marketingDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            englandDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            topDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+        });
+
+        const designButton = document.querySelector('.design-btn');
+        designButton.addEventListener('click', () => {
+            // Faqatgina "Дизайн" divlarini ko'rsatish
+            programDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            designDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            marketingDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            englandDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            topDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+        });
+
+        const marketingButton = document.querySelector('.marketing-btn');
+        marketingButton.addEventListener('click', () => {
+            // Faqatgina "Маркетинг" divlarini ko'rsatish
+            programDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            designDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            marketingDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            englandDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            topDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+        });
+
+        const englandButton = document.querySelector('.england-btn');
+        englandButton.addEventListener('click', () => {
+            // Faqatgina "Английский язык" divlarini ko'rsatish
+            programDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            designDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            marketingDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            englandDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+            topDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+        }); 
+
+        const topButton = document.querySelector('.top-btn');
+        topButton.addEventListener('click', () => {
+            // Faqatgina "Английский язык" divlarini ko'rsatish
+            programDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            designDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            marketingDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            englandDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+            topDivs.forEach(div => {
+                div.style.display = 'flex';
+            });
+        }); 
+      </script>
+      <!-- --- -->
+      
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

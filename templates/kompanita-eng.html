@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrum IT Academy | Akademiya haqida</title>
+  <link rel="stylesheet" href="{% static './css/komponita.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="preloader">
+    <div class="frame" data-loader="circle-side">
+      <div class="circle"></div>
+      <div class="line left"></div>
+      <div class="line right"></div>
+      <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
+      <div class="hide top"></div>
+      <div class="hide bottom"></div>
+    </div>
+  </div>
+  <!-- --- -->
+
+        <!-- Header -->
+          <div id=flip>
+              {% for i in news_header_eng %}
+                    <div>
+                        <a href="{{i.link_eng}}">
+                            <div>{{ i.title_eng }}</div>
+                        </a>
+                    </div>
+              {% endfor %}
+          </div>
+        <!-- --- -->
+
+      <!-- Header bottom -->
+      <div class="navbar34">
+        <div class="header-bottom container">
+            <!-- Logo image -->
+            <a href="{% url 'home' %}">
+              <img class="logo" src="{% static 'img/blue-logo.svg' %}">
+            </a>
+
+            <!-- Header links -->
+            <div class="head-link">
+              <ul class="header-links">
+                <a href="{% url 'kompanita_eng' %}"><li>About academy</li></a>
+                <a href="{% url 'kursi_eng' %}"><li>Courses</li></a>
+                <a href="{% url 'photo_eng' %}"><li>Photo pictures</li></a>
+                <a href="{% url 'karyera_eng' %}"><li>About Us</li></a>
+              </ul>
+            </div>
+            <div class="buttons">
+
+              <!-- Best cources button -->
+                <div class="best-cources">
+                  <a href="{% url 'kursi' %}">
+                    <button class="btn-course">
+                      Лучшие курсы
+                    </button>
+                  </a>
+                </div>
+              <!-- --- -->
+
+              <!-- Languages -->
+              <div class="lang">
+                <div id="lang" class="dropdown">
+                  <button class="dropbtn">RU</button>
+                  <div class="dropdown-content">
+                     <a href="{% url 'kompanita' %}">UZ</a>
+                      <a href="{% url 'kompanita_eng' %}">ENG</a>
+                  </div>
+                </div>
+              </div>
+              <!-- --- -->
+            </div>
+          </div>
+      </div>
+
+      <!-- Navbar active -->
+      <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static './img/blue-logo.svg' %}" class="navbar-logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+              </h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <a href="photo-eng.html"><li class="nav-item">Фото</li></a>
+                  <a href="karyera-eng.html"><li class="nav-item">Карьера</li></a>
+                  <a href="kursi-eng.html"><li class="nav-item">Курсы</li></a>
+                  <a href="index-eng.html"><li class="nav-item">Менторы</li></a>
+                  <a href="kompaniya-eng.html"><li class="nav-item">Окомпании</li></a>
+              </ul>
+              <!-- Languages -->
+              <div class="lang">
+                <div id="lang" class="dropdown">
+                  <button class="dropbtn">RU</button>
+                  <div class="dropdown-content">
+                     <a href="{% url 'kompanita' %}">UZ</a>
+                     <a href="{% url 'kompanita_eng' %}">ENG</a>
+                  </div>
+                </div>
+              </div>
+              <!-- --- -->
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  <!-- --- -->
+
+  <!-- Main entery -->
+  <div class="container">
+    <!-- Green text -->
+    <div class="location-page text-center">
+      <!-- <p class="bold">Главная &zwnj;</p> | о компании -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/">
+              Main page
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">About academy</li>
+        </ol>
+      </nav>
+    </div>
+    <!-- --- -->
+
+    <!-- Main text -->
+    <div class="container main-container">
+        {% for i in akamdeya_haqida_eng %}
+        <div class="main-title">
+          <h1 class="main-title-h1">
+            <img src="{% static './img/shar.svg' %}" class="shar">{{i.title_eng}}
+          </h1>
+        </div>
+        <p class="container text-comment text-center">
+        {{i.descriptions_eng}}
+        </p>
+        {% endfor %}
+    </div>
+    <!-- --- -->
+  </div>
+  <!-- --- -->
+  
+  <!-- Carousel -->
+  <div class="carousel">
+    <wee-slider data-loop="true" data-align="center" data-buttons-on-hover="true">
+        <div class="wee-slider">
+        <div class="oval-top"></div>
+        <ul class="wee-slider__slides">
+            {% for i in akamdeya_haqida_eng %}
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image1.url}}" class="img-box">
+                </div>
+                </li>
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image2.url}}" class="img-box">
+                </div>
+                </li>
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image3.url}}" class="img-box">
+                </div>
+                </li>
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image4.url}}" class="img-box">
+                </div>
+                </li>
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image5.url}}" class="img-box">
+                </div>
+                </li>
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image6.url}}" class="img-box">
+                </div>
+                </li>
+                <li class="wee-slider__slide">
+                <div class="slide-content">
+                    <img src="{{i.image7.url}}" class="img-box">
+                </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="oval-bottom"></div>
+    </wee-slider>
+  </div>
+  <!-- --- -->
+  
+  <!-- Aside -->
+  <div class="container mb-5 mt aside-container" id="aside">
+    <div class="row aside-row">
+
+      <div class="col">
+        <aside class="aside">
+          <div class="aside-title">Astrum IT Academy</div>
+          <div class="grey-line"></div>
+          <ul class="aside-links">
+            <a href="#sec-1"><li class="aside-link">About the Academy</li></a>
+            <a href="#sec-2"><li class="aside-link">Education system</li></a>
+            <a href="#sec-4"><li class="aside-link">Education system</li></a>
+            <a href="#sec-3"><li class="aside-link">Courses</li></a>
+            <a href="#sec-5"><li class="aside-link">Mentors</li></a>
+            <a href="#sec-6"><li class="aside-link">Training courses</li></a>
+          </ul>
+          <div>
+            <button class="btn-register">
+              Registration
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="col-8 container">
+
+        <div class="section sec-1" id="sec-1">
+            {% for i in asside_akademya_haqida_eng %}
+              <h1 class="section-title">
+                {{i.title_eng}}
+              </h1>
+              <p class="section-text">
+                {{i.descriptions_eng}}
+              </p>
+              <div class="mt-5">
+                <img src="{{i.image.url}}" class="section-img form-for-video">
+              </div>
+            {% endfor %}
+        </div>
+
+        <div class="section sec-2" id="sec-2">
+            {% for i in asside_talim_tizimi_eng %}
+                <h1 class="section-title mb-3">
+                  {{i.title_eng}}
+                </h1>
+                <p class="section-text">
+                    {{i.descriptions_eng}}
+                </p>
+                <div class="mt-5 images-row">
+                  <div class="row h-200">
+                    <div class="col-4">
+                      <img src="{{i.image1.url}}" class="col-img">
+                    </div>
+                    <div class="col">
+                      <img src="{{i.image2.url}}" class="col-img">
+                    </div>
+                  </div>
+                  <div class="row h-200">
+                    <div class="col">
+                      <img src="{{i.image3.url}}" class="col-img">
+                    </div>
+                    <div class="col">
+                      <img src="{{i.image4.url}}" class="col-img">
+                    </div>
+                    <div class="col">
+                      <img src="{{i.image5.url}}" class="col-img">
+                    </div>
+                  </div>
+                  <div class="row h-200">
+                    <div class="col">
+                      <img src="{{i.image6.url}}" class="col-img">
+                    </div>
+                    <div class="col-4">
+                      <img src="{{i.image7.url}}" class="col-img">
+                    </div>
+                  </div>
+
+                </div>
+
+            {% endfor %}
+            <!-- --- -->
+        </div>
+
+        <div class="section sec-3" id="sec-3">
+          {% for i in asside_kurslar_eng %}
+          <h1 class="section-title mb-3">
+            {{i.title_eng}}
+          </h1>
+          <p class="section-text">
+            {{i.descriptions_eng}}
+          </p>
+          <div class="mt-5">
+            <img src="{{i.image.url}}" class="section-img form-for-video">
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="section sec-4" id="sec-4">
+          {% for i in asside_qulaylik_eng %}
+          <h1 class="section-title mb-3">
+           {{i.title_eng}}
+          </h1>
+          <p class="section-text">
+            {{i.descriptions_eng}}
+          </p>
+          <div class="mt-5">
+            <!-- <video src="./img/auditoriya.png" class="section-img form-for-video"></video> -->
+            <img src="{{i.image.url}}" class="section-img form-for-video">
+          </div>
+          {% endfor %}
+        </div>
+        
+        <div class="section sec-5" id="sec-5">
+          {% for i in asside_oqituvchilar_eng %}
+          <h1 class="section-title mb-3">
+            {{i.title_eng}}
+          </h1>
+          <p class="section-text">
+            {{i.descriptions_eng}}
+          </p>
+        {% endfor %}
+
+          <div class="grid-company">
+
+            <!-- Grid item -->
+            {% for i in main_mentors_eng %}
+                 {% if forloop.counter0 < 9 %}
+                  <li class="grid-mentor-item">
+                    <button class="grid-btn">{{i.title_eng}}</button>
+                    <img class="grid-mentor-img" src="{{i.image.url}}">
+                    <div class="grid-mentor-info">
+                      <h4>{{i.name_lasname_eng}}</h4>
+                      <h6>{{i.skill_eng}}</h6>
+                      <div class="bottom-green-line"></div>
+                    </div>
+                  </li>
+                {% endif %}
+            {% endfor %}
+            <!-- --- -->
+
+          </div>
+        </div>
+
+        <div class="section sec-6" id="sec-6">
+            {% for i in asside_mashgulotlar_kurslar_eng %}
+              <h1 class="section-title mb-3">
+               {{i.title_eng}}
+              </h1>
+              <p class="section-text">
+                {{i.descriptions_eng}}
+              </p>
+              <div class="mt-5">
+                <!-- <video src="./img/auditoriya.png" class="section-img form-for-video"></video> -->
+                <img src="{{i.image.url}}" class="section-img form-for-video">
+              </div>
+            {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- --- -->
+
+  <!-- Footer -->
+  <div class="section-footer container">
+    <div class="footer">
+      <div class="footer-box">
+        <div class="modal-contact">
+          <div class="register-box">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body align-self-center">
+                  <form>
+                    <div class="mb-3 text-center">
+                      <div class="register-text">Ready to become an Astrum student?</div>
+                      <div class="register text-center">
+                        <img src="{% static './img/shar.svg' %}" class="shar2">
+                        <h4 class="register-text-2">Leave a request</h4>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">First Name Last Name</label>
+                      <input type="text" class="form-control" id="recipient-name" placeholder="First Name Last Name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-number" class="col-form-label">Номер телефона:</label>
+                      <input type="number" class="form-control" id="number" placeholder="+998">
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-number" class="col-form-label">Telegram nick-name:</label>
+                      <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                    Send
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-white">
+            <div class="modal-header">
+              <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body succes-text register-modal">
+              <div class="form-floating">
+                <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="modal-footer register-modal align-self-center text-center">
+              <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                Confirm 
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-white">
+            <div class="modal-header">
+              <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Result</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body succes-text register-modal">
+              Sent
+            </div>
+            <div class="modal-footer register-modal align-self-center text-center">
+              <button type="button" class="register-button" data-bs-dismiss="modal">Thanks</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-boxes grid container">
+
+        <div class="footer-box">
+          <p class="footer-p">Courses and education</p>
+          <div class="footer-box">
+            <ul>
+              {% for i in main_course_eng %}
+                {% if forloop.counter0 < 3 %}
+                  <li class="footer-li">
+                    <img src="{{i.image.url}}" class="footer-img">
+                    <div class="footer-text">
+                      {{i.title}}
+                      <p class="footer-time">{{i.duration}}</p>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-box">
+          <p class="footer-p">Astrum</p>
+          <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">About academy</li></a>
+          <a href="{% url 'kursi_eng' %}"><li class="footer-li">Courses</li></a>
+          <a href="{% url 'photo_eng' %}"><li class="footer-li">Photo pictures</li></a>
+          <a href="{% url 'karyera_eng' %}"><li class="footer-li">About Us</li></a>
+        </div>
+
+        <div class="footer-box">
+          <p class="footer-p">Contact</p>
+          <a class="first" href="tel:+998943151337">
+            <li class="footer-li">
+              <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+              Call us
+            </li>
+          </a>
+          <a href="">
+            <li class="footer-li">
+              <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+              Instagram
+            </li>
+          </a>
+          <a href="">
+            <li class="footer-li">
+              <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+              Facebook
+            </li>
+          </a>
+          <a href="">
+            <li class="footer-li">
+              <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+              Telegram
+            </li>
+          </a>
+          <a href="">
+            <li class="footer-li">
+              <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+              Email us
+            </li>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="last-footer">
+          {% for i in footer_eng %}
+            <div class="footer-logo">
+              <div class="footer-logo-imgs">
+                <img src="{% static 'img/Group 58.png' %}">
+                <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+              </div>
+              <p>{{i.motto_eng}}</p>
+            </div>
+            <h4>
+              {{i.short_descriptions_eng}}
+            </h4>
+            <h6>
+              © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+            </h6>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>    
+  </div>
+  <!-- --- -->
+
+  <!-- Loader js -->
+  <script>
+    const frame = document.getElementById('preloader');
+    setTimeout(() => {
+      frame.remove();
+    }, 3000);
+  </script>
+  <!-- --- -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

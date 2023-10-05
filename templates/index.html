@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Astrum IT Academy</title>
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="preloader">
+			<div class="frame" data-loader="circle-side">
+				<div class="circle"></div>
+				<div class="line left"></div>
+				<div class="line right"></div>
+				<div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
+				<div class="hide top"></div>
+				<div class="hide bottom"></div>
+			</div>
+	  </div>
+    <!-- --- -->
+
+    <div id="flip">
+      {% for i in news_header %}
+            <div>
+                <a href="{{i.link}}">
+                    <div>{{ i.title }}</div>
+                </a>
+            </div>
+      {% endfor %}
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      
+      <div class="header-box">
+        <!-- Header-up carousel -->
+
+        <div class="header__bg"></div>
+
+        <!-- Header bottom -->
+        <div class="navbar34">
+          <div class="header-bottom container">
+              <!-- Logo image -->
+              <a href="{% url 'home' %}">
+                <img class="logo" src="{% static 'img/logo.svg' %}">
+              </a>
+              <!-- --- -->
+
+              <!-- Header links -->
+              <div class="head-link">
+                <ul class="header-links">
+                  <a href="{% url 'kompanita' %}"><li>Akademiya haqida</li></a>
+                  <a href="{% url 'kursi' %}"><li>Kurslar</li></a>
+                  <a href="{% url 'photo' %}"><li>Foto rasmlar</li></a>
+                  <a href="{% url 'karyera' %}"><li>Karyera</li></a>
+                  <!-- <a href="index-ru.html"><li>Менторы</li></a> -->
+                </ul>
+              </div>
+              <!-- --- -->
+
+              <!-- Buttons -->
+              <div class="buttons">
+                <!-- Telegram button -->
+                <!-- <div class="telegram-button">
+                  <a href="https://t.me/astrumuz">
+                    <button class="btn-course">
+                      <img src="img/telegram.jpg" class="btn-icon"> Добавляйся Free в Telegram
+                    </button>
+                  </a>
+                </div> -->
+
+                <!-- Best cources button -->
+                <div class="best-cources">
+                  <a href="{% url 'kursi' %}">
+                    <button class="btn-course">
+                      Eng yaxshi kurslar
+                    </button>
+                  </a>
+                </div>
+                <!-- --- -->
+
+                <!-- Languages -->
+                <div class="lang">
+                  <div id="lang" class="dropdown">
+                    <button class="dropbtn">UZ</button>
+                    <div class="dropdown-content">
+                      <a href="{% url 'home_ru' %}">RU</a>
+                      <a href="{% url 'home_eng' %}">ENG</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- --- -->
+              </div>
+              <!-- --- -->
+          </div>
+        </div>
+        <!-- --- -->
+  
+        <!-- Navbar active -->
+        <nav class="navbar navbar-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                  <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <a href="{% url 'kompanita' %}"><li class="nav-item">Об академии</li></a>
+                  <a href="{% url 'kursi' %}"><li class="nav-item">Курсы</li></a>
+                  <a href="{% url 'photo' %}"><li class="nav-item">Фото</li></a>
+                  <a href="{% url 'karyera' %}"><li class="nav-item">Карьера</li></a>
+                </ul>
+                <!-- Languages -->
+                <div class="lang">
+                  <div id="lang" class="dropdown mt-4">
+                    <button class="dropbtn">Ru</button>
+                    <div class="dropdown-content">
+                      <a href="{% url 'home' %}">Uz</a>
+                      <a href="{% url 'home_eng' %}">Eng</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- --- -->
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- --- -->
+
+        {% for i in main_header %}
+        <div class="container main-container">
+          <div class="main-title"><img src="{% static './img/shar.svg' %}" class="shar"><h1>{{i.title}}</h1></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- --- -->
+
+    <!-- About us -->
+    <div class="section container about-container">
+      {% for i in about_us %}
+      <div class="about-left-box">
+
+        <!-- Green title -->
+        <h5>{{i.title}}</h5>
+        <!-- Title -->
+        <h2 class="about-title">
+          {{i.name}}
+        </h2>
+        <!-- Text about us -->
+        <p>
+         {{i.descriptions}}
+        </p>
+        <!-- Btn learn more -->
+        <a href="{% url 'kompanita' %}">
+          <button class="btn-more">
+            Batafsil
+          </button>
+        </a>
+      </div>
+
+      <div class="about-right-box">
+        <div class="about-front-box">
+          <div class="about-box-text">
+            <h1 class="about-text transparent-text">{{i.photo_name}}</p></h1>
+          </div>
+          <img src="{{i.img.url}}" class="about-front-img">
+        </div>
+
+        <div class="about-back-box">
+          <img src="{{i.image.url}}" class="about-back-img">
+          <a href="{% url 'kompanita' %}" class="href-to-photo">{{i.name}}<ion-icon name="arrow-forward-outline"></ion-icon></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- --- -->
+
+    <!-- Our prise -->
+    <div class="section container">
+      <div class="section-our-prise">
+        {% for i in why_exactly_sstrum %}
+            <h5>{{i.name}}</h5>
+            <h4 class="section-title">{{i.title}}</h4>
+            <p>{{i.short_descriptions}}</p>
+            <div class="grid-3">
+        {% endfor %}
+
+        {% for i in theles %}
+          {% if forloop.counter0 < 6 %}
+              <div class="grid-box">
+                <div class="grid-box-line"></div>
+                <h4 class="grid-box-title">{{i.title}}</h4>
+                <p>{{i.short_descriptions}}</p>
+              </div>
+          {% endif %}
+        {% endfor %}
+
+            </div>
+      </div>
+    </div>
+    <!-- --- -->
+
+    <!-- Banner -->
+    <div class="section banner">
+      <div class="container banner-box">
+        <div class="banner-textbox">
+          {% for i in education_courses %}
+              <h5 class="green-title">{{i.name}}</h5>
+              <h2 class="white-title">
+                {{i.title}}
+              </h2>
+              <p>
+                {{i.short_descriptions}}
+              </p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- --- -->
+
+    <!-- Course -->
+    <div class="section container course-container">
+      <div class="row">
+
+      {% for i in main_course %}
+        {% if forloop.counter0 < 4 %}
+          <div class="col">
+            <div class="course-box">
+              <img src="{{i.image.url}}" class="course-img">
+              <div class="course-body">
+                <p>{{i.data}}</p>
+                <h3 class="title-h3">{{i.title}}</h3>
+                <p class="course-body-text">{{i.short_descriptions}}</p>
+                <h6>{{i.duration}}</h6>
+              <div class="green-line"></div>
+              <a href="{% url 'kurs_about' i.id %}"><button class="btn-course-more">Подробнее</button></a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+        <div>
+          <a href="{% url 'kursi' %}"><button class="btn-more">Все курсы</button></a>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- --- -->
+
+    <!-- Section course -->
+    <div class="section-cours container">
+    {% for i in why_astrum %}
+        <h5 class="green-title">
+          {{i.name}}
+        </h5>
+
+        <h4 class="section-title">
+         {{i.title}}
+        </h4>
+    {% endfor %}
+
+      <div class="grid">
+
+        {% for i in why_astrum_answer %}
+          {% if forloop.counter0 < 7 %}
+            <div class="fact-item">
+              <div class="vertical-line"></div>
+              <h4 class="fact-item-number">{{i.name}}</h4>
+              <p class="fact-text">{{i.title}}</p>
+              <h6 class="fact-item-text">{{i.short_descriptions}}</h6>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+    <!-- ---- -->
+
+    <!-- Mentor -->
+    <div class="section container section-mentors-content">
+         {% for i in our_mentors %}
+          <div class="section-mentor">
+            <h5 class="green-title">{{i.name}}</h5>
+            <h4 class="section-title">{{i.title}}</h4>
+            <h6 class="section-text">{{i.who_is_the_mentor}}</h6>
+          </div>
+        {% endfor %}
+    </div>
+
+    <main class="container">
+      <ul class="mentor-carousel">
+
+        {% for i in main_mentors %}
+            {% if forloop.counter0 < 7 %}
+              <li class="mentor-carousel-item">
+                <button class="mentor-item-title">{{i.title}}</button>
+                <img class="mentor-carousel-img" src="{{i.image.url}}">
+                <div class="mentor-carousel-info">
+                  <h4>{{i.name_lasname}}</h4>
+                  <div class="bottom-green-line"></div>
+                  <h6>{{i.skill}}</h6>
+                </div>
+              </li>
+            {% endif %}
+        {% endfor %}
+
+      </ul>
+    </main>
+    <!-- --- -->
+
+    <!-- Banner -->
+    <div class="container img-banner">
+      <div class="mentr bg-img-mentor">
+      </div>
+    </div>
+    <!-- --- -->
+
+     <!-- Location -->
+    <div class="section section-location mb-5">
+      <div class="location-box">
+        {% for i in locatsia %}
+
+          <h5>{{i.name}}</h5>
+          <h4 class="about-title container">
+            {{i.title}}
+          </h4>
+          <h6>
+            {{i.short_titile}}
+          </h6>
+          <div class="group">
+            <div class="location-text">
+              <h1 class="location-h1">{{i.name}}</h1>
+            </div>
+            <div class="location__box">
+              <p>С помощью венчурного фонда развитых стран мы смогли добиться реализации данного образовательного и развивающего проекта, чтобы наше подрастающие поколение имело возможность развиваться в разных направлениях современных технологиях.
+              </p>
+            </div>
+
+        {% endfor %}
+          <img src="{% static 'img/Group 14.png' %}" class="location-logo">
+          <img src="{% static 'img/shu rasm.png' %}" class="location-bg-img">
+          <!-- <button class="location-massage">
+            С помощью венчурного фонда развитых стран мы смогли добиться реализации данного образовательного и развивающего проекта, чтобы наше подрастающие поколение имело возможность развиваться в разных направлениях современных технологиях.
+          </button> -->
+          <main>
+            <ul class="location-carousel">
+
+        {% for i in astrum_locatsia %}
+          {% if forloop.counter0 < 7 %}
+            <li class="location-carousel-item">
+              <div class="location-img-title">
+              <button class="location-carousel-item-title">{{i.title}}</button>
+              </div>
+              <img src="{{i.image.url}}">
+              <h4>{{i.tarif}}</h4>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+            </ul>
+          </main>
+        </div>
+      </div>
+    </div>
+    <!-- --- -->
+
+    <!-- Footer -->
+    <div class="section-footer container">
+      <div class="footer">
+        <div class="footer-box">
+          <div class="modal-contact">
+            <div class="register-box">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body align-self-center">
+                    <form class="form__review" method="post" action="{% url 'send_message' %}">
+                      {% csrf_token %}
+                      {{ form }}
+                      <div class="mb-3 text-center">
+                        <div class="register-text">Готовы стать учеником Astrum?</div>
+                        <div class="register text-center">
+                          <img src="{% static './img/shar.svg' %}" class="shar2">
+                          <h4 class="register-text-2">Оставьте заявку</h4>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Имя Фамилия</label>
+                        <input name="full_name" type="text" class="form-control full_name" id="recipient-name" placeholder="Имя Фамилия">
+                      </div>
+                      <div class="mb-3">
+                        <label for="message-number" class="col-form-label">Номер телефона:</label>
+                        <input name="phone" type="number" class="form-control phone_number" id="number" placeholder="+998">
+                      </div>
+                      <div class="mb-3">
+                        <label for="message-number" class="col-form-label">Telegram nick-name:</label>
+                        <input name="nick_name" type="text" maxlength="10" class="form-control nick_name" id="email" placeholder="@examle" autocomplete="on">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer align-self-center text-center">
+                    <button type="submit" class="register-button form__review-btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                      Отправить
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="confirm__modal modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-white">
+              <div class="modal-header">
+                <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body succes-text register-modal">
+                <div class="form-floating">
+                  <input type="number" maxlength="4" class="opt__code form-control" id="floatingPassword" placeholder="Your code">
+                </div>
+              </div>
+              <div class="modal-footer register-modal align-self-center text-center">
+                <button type="button" class="register-button confirm__btn">
+                  Подтвердить
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-boxes grid container">
+
+          <div class="footer-box">
+            <p class="footer-p">Курсы и образование</p>
+            <div class="footer-box">
+              <ul>
+                {% for i in main_course %}
+                  {% if forloop.counter0 < 3 %}
+                    <li class="footer-li">
+                      <img src="{{i.image.url}}" class="footer-img">
+                      <div class="footer-text">
+                        {{i.title}}
+                        <p class="footer-time">{{i.duration}}</p>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-box">
+            <p class="footer-p">Astrum</p>
+            <a class="first" href="{% url 'kompanita' %}"><li class="footer-li">Об академии</li></a>
+            <a href="{% url 'kursi' %}"><li class="footer-li">Курсы</li></a>
+            <a href="{% url 'photo' %}"><li class="footer-li">Фото</li></a>
+            <a href="{% url 'karyera' %}"><li class="footer-li">Карьера</li></a>
+          </div>
+
+          <div class="footer-box">
+            <p class="footer-p">связаться</p>
+            <a class="first" href="tel:+998943151337">
+              <li class="footer-li">
+                <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+                Call us
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+                Instagram
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+                Facebook
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+                Telegram
+              </li>
+            </a>
+            <a href="">
+              <li class="footer-li">
+                <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+                Email us
+              </li>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <div class="last-footer">
+            {% for i in footer %}
+              <div class="footer-logo">
+                <div class="footer-logo-imgs">
+                  <img src="{% static 'img/Group 58.png' %}">
+                  <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+                </div>
+                <p>{{i.motto}}</p>
+              </div>
+              <h4>
+                {{i.short_descriptions}}
+              </h4>
+              <h6>
+                © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+              </h6>
+            {% endfor %}
+          </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="success__modal modal fade">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-white">
+              <div class="modal-header">
+                <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                <button type="button" class="btn-close btnclose__confirm-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body succes-text register-modal">
+                Отправлено
+              </div>
+              <div class="modal-footer register-modal align-self-center text-center">
+                <button type="button" class="register-button close__success-modal" data-bs-dismiss="modal">Понятно</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>    
+    </div>
+    <!-- --- -->
+
+    <!-- Loader js -->
+    <script>
+      const frame = document.getElementById('preloader');
+      setTimeout(() => {
+        frame.remove();
+      }, 3000);
+
+      const locationText = document.querySelector('.location-text');
+      const locationH1 = document.querySelector('.location-h1');
+
+      // window.addEventListener('scroll', () => {
+      //     const scrollPosition = window.scrollY;
+      //     const elementOffset = locationText.offsetTop;
+
+      //     if (scrollPosition > elementOffset - window.innerHeight) {
+      //         locationText.style.animation = 'slideInFromRight 1s forwards';
+      //         locationH1.style.animation = 'fadeIn 1s forwards';
+      //     }
+      // });
+    </script>
+    <!-- --- -->
+
+    <!-- Scripts -->
+    <script src="{%static './js/index.js' %}"></script>
+    <script src="{%static 'https://code.jquery.com/jquery-3.6.0.min.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- --- -->
+  </body> 
+</html>

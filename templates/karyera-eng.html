@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static 'css/karyera.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Astrum IT Academy | Biz haqimizda</title>
+    </head>
+    <body>
+        <!-- Loader -->
+        <div id="preloader">
+            <div class="frame" data-loader="circle-side">
+                <div class="circle"></div>
+                <div class="line left"></div>
+                <div class="line right"></div>
+                <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
+                <div class="hide top"></div>
+                <div class="hide bottom"></div>
+            </div>
+        </div>
+        <!-- --- -->
+
+            <!-- Header -->
+                <div id=flip>
+                    {% for i in news_header_eng %}
+                          <div>
+                              <a href="{{i.link_eng}}">
+                                  <div>{{ i.title_eng }}</div>
+                              </a>
+                          </div>
+                    {% endfor %}
+                </div>
+            <!-- --- -->
+        
+                <!-- Header bottom -->
+                <div class="navbar34">
+                    <div class="header-bottom container">
+                        <!-- Logo image -->
+                        <a href="{% url 'home_eng' %}">
+                            <img src="{% static 'img/blue-logo.svg' %}" class="logo">
+                        </a>
+                        <!-- --- -->
+        
+                        <!-- Header links -->
+                        <div class="head-link">
+                            <ul class="header-links">
+                               <a href="{% url 'kompanita_eng' %}"><li>About academy</li></a>
+                                <a href="{% url 'kursi_eng' %}"><li>Courses</li></a>
+                                <a href="{% url 'photo_eng' %}"><li>Photo pictures</li></a>
+                                <a href="{% url 'karyera_eng' %}"><li>Career</li></a>
+                                <!-- <a href="index.html"><li>Менторы</li></a> -->
+                              </ul>
+                        </div>
+                        <!-- --- -->
+
+                        <!-- Buttons -->
+                        <div class="buttons">
+            
+                            <!-- Best cources button -->
+                                   <div class="best-cources">
+                                      <a href="{% url 'kursi_eng' %}">
+                                        <button class="btn-course">
+                                          Courses
+                                        </button>
+                                      </a>
+                                   </div>
+                            <!-- --- -->
+
+                            <!-- Languages -->
+                            <div class="lang">
+                                <div id="lang" class="dropdown">
+                                <button class="dropbtn">ENG</button>
+                                <div class="dropdown-content">
+                                    <a href="{% url 'karyera_ru' %}">RU</a>
+                                    <a href="{% url 'karyera' %}">UZ</a>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- --- -->
+                        </div>
+                    </div>
+                </div>
+                <!-- --- -->
+
+                <!-- Navbar active -->
+                <nav class="navbar navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'home_eng' %}">
+                            <img src="{% static './img/blue-logo.svg' %}" class="navbar-logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                                    <img src="{% static './img/logo.png' %}" class="navbar-logo">
+                                </h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <a href="{% url 'kompanita_eng' %}"><li class="nav-item">Akademiya haqida</li></a>
+                                    <a href="{% url 'kursi_eng' %}"><li class="nav-item">Kurslar</li></a>
+                                    <a href="{% url 'photo_eng' %}"><li class="nav-item">Foto suratlar</li></a>
+                                    <a href="{% url 'karyera_eng' %}"><li class="nav-item">Biz haqimizda</li></a>
+                                    <!-- <a href="index.html"><li class="nav-item">Менторы</li></a> -->
+                                </ul>
+                                <!-- Languages -->
+                                <div class="lang">
+                                    <div id="lang" class="dropdown">
+                                    <button class="dropbtn">ENG</button>
+                                    <div class="dropdown-content">
+                                        <a href="{% url 'karyera_ru' %}">RU</a>
+                                        <a href="{% url 'karyera' %}">UZ</a>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- --- -->
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- --- -->
+
+                <!-- Main title -->
+                <div class="container text-center hero">
+                    <!-- <div class="main-title-green text-center"><p class="bold">Главная &nbsp; |</p>карьера с Astrum</div>  -->
+                    <div class="location-page text-center">
+                        <nav aria-label="breadcrumb">
+                          <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item"><a href="{% url 'home_eng' %}">Main page</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">About us</li>
+                          </ol>
+                        </nav>
+                    </div>
+                    {% for i in karyera_eng %}
+                        <div class="main-container">
+                            <div class="main-title">
+                                <h1>
+                                    <img class="shar" src="{% static './img/shar.svg' %}">
+                                    {{i.title_eng}}
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="main-text text-center">{{i.short_descriptions_eng}}</p>
+                    {% endfor %}
+                </div>
+                <!-- --- -->
+            </div>
+        </div>
+        <!-- --- -->
+        
+        <!-- Image -->
+        <div class="container text-center image-sec">
+            <div class="hero__img">
+                {% for i in photo %}
+                    <div class="bg-img">
+                        <img src="{% static './img/karyera1.png'%}" alt="">
+                    </div>
+                    <div class="bg-img">
+                        <img src="{% static './img/karyera2.png'%}" alt="">
+                    </div>
+                    <div class="bg-img">
+                        <img src="{% static './img/karyera3.png'%}" alt="">
+                    </div>
+                    <div class="bg-img">
+                        <img src="{% static './img/karyera4.png'%}" alt="">
+                    </div>
+                    <div class="bg-img">
+                        <img src="{% static './img/karyera5.png'%}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- --- -->
+
+        <!-- Vakansiya -->
+        <div class="container vakansiya">
+            <div class="vakansiya__inner">
+                <p class="main-title-left">Vacancies</p>
+                <div class="grid-3">
+                    {% for i in vakansiya_eng %}
+
+                        <div class="vakansiya-box">
+                            <img src="{{i.image.url}}" class="top-img">
+                            <div class="vakansiya-body">
+                                <div class="vakansiya-time">
+                                    {{i.data_eng}}
+                                </div>
+                                <div class="vakansiya-title">
+                                    {{i.occupation_eng}}
+                                </div>
+                                <div class="vakansiya-text">
+                                    {{i.short_descriptions_eng}}
+                                </div>
+                                <div class="vakansiya-price">
+                                    {{i.prise_eng}}
+                                </div>
+                                <div class="green-line"></div>
+                                <div class="read-more">
+                                    <button class="btn-more">{{i.button_text_eng}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- --- -->
+
+        <div class="section-footer container">
+            <div class="footer">
+              <div class="footer-box">
+                <div class="modal-contact">
+                  <div class="register-box">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body align-self-center">
+                          <form>
+                            <div class="mb-3 text-center">
+                              <div class="register-text">Ready to become an Astrum student?</div>
+                              <div class="register text-center">
+                                <img src="{% static './img/shar.svg' %}" class="shar2">
+                                <h4 class="register-text-2">Leave a request</h4>
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="recipient-name" class="col-form-label">First Name Last Name</label>
+                              <input type="text" class="form-control" id="recipient-name" placeholder="First Name Last Name">
+                            </div>
+                            <div class="mb-3">
+                              <label for="message-number" class="col-form-label">Phone number:</label>
+                              <input type="number" class="form-control" id="number" placeholder="+998">
+                            </div>
+                            <div class="mb-3">
+                              <label for="message-number" class="col-form-label">Telegram nick-name:</label>
+                              <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer align-self-center text-center">
+                          <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content bg-white">
+                    <div class="modal-header">
+                      <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Resut</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body succes-text register-modal">
+                      <div class="form-floating">
+                        <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="modal-footer register-modal align-self-center text-center">
+                      <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                        Confirm 
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content bg-white">
+                    <div class="modal-header">
+                      <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Result</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body succes-text register-modal">
+                      Sent
+                    </div>
+                    <div class="modal-footer register-modal align-self-center text-center">
+                      <button type="button" class="register-button" data-bs-dismiss="modal">It's clear</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="footer-boxes grid container">
+      
+                <div class="footer-box">
+                  <p class="footer-p">Courses and education</p>
+                  <div class="footer-box">
+                    <ul>
+                      {% for i in main_course_eng %}
+                        {% if forloop.counter0 < 3 %}
+                          <li class="footer-li">
+                            <img src="{{i.image.url}}" class="footer-img">
+                            <div class="footer-text">
+                              {{i.title_eng}}
+                              <p class="footer-time">{{i.duration_eng}}</p>
+                            </div>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+      
+                <div class="footer-box">
+                  <p class="footer-p">Astrum</p>
+                  <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">About academy</li></a>
+                  <a href="{% url 'kursi_eng' %}"><li class="footer-li">Courses</li></a>
+                  <a href="{% url 'photo_eng' %}"><li class="footer-li">Photo</li></a>
+                  <a href="{% url 'karyera_eng' %}"><li class="footer-li">Career</li></a>
+                </div>
+      
+                <div class="footer-box">
+                  <p class="footer-p">связаться</p>
+                  <a class="first" href="tel:+998943151337">
+                    <li class="footer-li">
+                      <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+                      Call us
+                    </li>
+                  </a>
+                  <a href="">
+                    <li class="footer-li">
+                      <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+                      Instagram
+                    </li>
+                  </a>
+                  <a href="">
+                    <li class="footer-li">
+                      <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+                      Facebook
+                    </li>
+                  </a>
+                  <a href="">
+                    <li class="footer-li">
+                      <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+                      Telegram
+                    </li>
+                  </a>
+                  <a href="">
+                    <li class="footer-li">
+                      <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+                      Email us
+                    </li>
+                  </a>
+                </div>
+      
+              </div>
+      
+              <div class="footer-bottom">
+                <div class="last-footer">
+                  {% for i in footer_eng %}
+                    <div class="footer-logo">
+                      <div class="footer-logo-imgs">
+                        <img src="{% static 'img/Group 58.png' %}">
+                        <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+                      </div>
+                      <p>{{i.motto_eng}}</p>
+                    </div>
+                    <h4>
+                      {{i.short_descriptions_eng}}
+                    </h4>
+                    <h6>
+                      © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+                    </h6>
+                  {% endfor %}
+                </div>
+              </div>
+      
+            </div>    
+        </div>
+        <!-- --- -->
+
+        <!-- Script -->
+        <script>
+            const frame = document.getElementById('preloader');
+            setTimeout(() => {
+                frame.remove();
+            }, 3000);
+        </script>
+        <!-- --- -->
+
+        <!-- Scripts -->
+        <script src="{% static './js/photo.js' %}"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpk g.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- --- -->
+    </body>
+</html>

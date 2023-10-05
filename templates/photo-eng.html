@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static 'css/photo.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Astrum IT Academy | Photo</title>
+    </head>
+    <body>
+        <!-- Loader -->
+        <div id="preloader">
+          <div class="frame" data-loader="circle-side">
+            <div class="circle"></div>
+            <div class="line left"></div>
+            <div class="line right"></div>
+            <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
+            <div class="hide top"></div>
+            <div class="hide bottom"></div>
+          </div>
+        </div>
+        <!-- --- -->
+        <div id="flip">
+          {% for i in news_header_eng %}
+                <div>
+                    <a href="{{i.link_eng}}">
+                        <div>{{ i.title_eng }}</div>
+                    </a>
+                </div>
+          {% endfor %}
+        </div>
+    
+  
+        <!-- Header -->
+        <div class="header">
+        
+          <div class="header-box">
+            <!-- Header-up carousel -->
+    
+            <div class="header__bg"></div>
+    
+            <!-- Header bottom -->
+            <div class="navbar34">
+              <div class="header-bottom container">
+                  <!-- Logo image -->
+                  <a href="{% url 'home_eng' %}">
+                    <img class="logo" src="{% static 'img/logo.svg' %}">
+                  </a>
+                  <!-- --- -->
+    
+                  <!-- Header links -->
+                  <div class="head-link">
+                    <ul class="header-links">
+                      <a href="{% url 'kompanita_eng' %}"><li>About academy</li></a>
+                      <a href="{% url 'kursi_eng' %}"><li>Courses</li></a>
+                      <a href="{% url 'photo_eng' %}"><li>Photo pictures</li></a>
+                      <a href="{% url 'karyera_eng' %}"><li>About Us</li></a>
+                      <!-- <a href="index-ru.html"><li>Менторы</li></a> -->
+                    </ul>
+                  </div>
+                  <!-- --- -->
+    
+                  <!-- Buttons -->
+                  <div class="buttons">
+                    <!-- Telegram button -->
+                    <!-- <div class="telegram-button">
+                      <a href="https://t.me/astrumuz">
+                        <button class="btn-course">
+                          <img src="img/telegram.jpg" class="btn-icon"> Добавляйся Free в Telegram
+                        </button>
+                      </a>
+                    </div> -->
+    
+                    <!-- Best cources button -->
+                    <div class="best-cources">
+                      <a href="{% url 'kursi_eng' %}">
+                        <button class="btn-course">
+                          Top Courses
+                        </button>
+                      </a>
+                    </div>
+                    <!-- --- -->
+    
+                    <!-- Languages -->
+                    <div class="lang">
+                      <div id="lang" class="dropdown">
+                        <button class="dropbtn">ENG</button>
+                        <div class="dropdown-content">
+                          <a href="{% url 'photo_ru' %}">RU</a>
+                          <a href="{% url 'photo' %}">UZ</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- --- -->
+                  </div>
+                  <!-- --- -->
+              </div>
+            </div>
+            <!-- --- -->
+      
+            <!-- Navbar active -->
+            <nav class="navbar navbar-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                  <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                      <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                      <a href="{% url 'kompanita_eng' %}"><li class="nav-item">About academy</li></a>
+                      <a href="{% url 'kursi_eng' %}"><li class="nav-item">Courses</li></a>
+                      <a href="{% url 'photo_eng' %}"><li class="nav-item">Photo pictures</li></a>
+                      <a href="{% url 'karyera_eng' %}"><li class="nav-item">About Us</li></a>
+                    </ul>
+                    <!-- Languages -->
+                    <div class="lang">
+                      <div id="lang" class="dropdown mt-4">
+                        <button class="dropbtn">ENG</button>
+                        <div class="dropdown-content">
+                          <a href="{% url 'photo_ru' %}">RU</a>
+                          <a href="{% url 'photo' %}">UZ</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- --- -->
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <!-- --- -->
+    
+            {% for i in photo_eng %}
+              <div class="container main-container">
+                <div class="main-title"><img src="{% static './img/shar.svg' %}" class="shar"><h1>{{i.title_eng}}</h1></div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- --- -->
+
+        <!-- Images -->
+        <div class="container image-container">
+            <div class="">
+                <div class="title">COMPLEX LOCATIONS</div>
+
+                <div class="container text-center">
+                    <div class="row">
+                      <div class="col-8 gal1">
+                        <span class="bottom-title">
+                          <div class="bottom-text">
+                            <p>|</p> Architecture
+                          </div>
+                        </span>
+                      </div>
+                      <div class="col gal2">
+                        <span class="bottom-title">
+                          <div class="bottom-text">
+                            <p>|</p> Landscape and recreation areas
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col gal3">
+                        <span class="bottom-title">
+                          <div class="bottom-text">
+                            <p>|</p> Sports grounds
+                          </div>
+                        </span>
+                      </div>
+                      <div class="col gal4">
+                        <span class="bottom-title">
+                          <div class="bottom-text">
+                            <p>|</p> Sports grounds
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col gal5">
+                            <span class="bottom-title">
+                              <div class="bottom-text">
+                                <p>|</p> Scene
+                              </div>
+                            </span>
+                        </div>
+                        <div class="col gal6">
+                            <span class="bottom-title">
+                              <div class="bottom-text">
+                                <p>|</p> Office equipment
+                              </div>
+                            </span>
+                        </div>
+                        <div class="col gal7">
+                            <span class="bottom-title">
+                              <div class="bottom-text">
+                                <p>|</p> Rest places
+                              </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="more" id="more">
+                        <div class="row">
+                            <div class="col-8 gal1">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Arxitektura
+                                </div>
+                              </span>
+                            </div>
+                            <div class="col gal2">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Peyzaj va dam olish zonalari
+                                </div>
+                              </span>
+                            </div>
+                          </div>
+                    </div>
+
+                    <div class="see-more">
+                        <span onclick="myFunction()" id="myBtn">More</span>
+                        <span id="dots"><ion-icon name="arrow-down-outline"></ion-icon></span>
+                        <span id="up"><ion-icon name="arrow-up-outline"></ion-icon></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kurs-container">
+                <div class="title">OUR COURSES</div>
+
+                <div class="container text-center">
+                    <div class="row">
+                      <div class="col-8 kurs1">
+                        <span class="bottom-title">
+                          <div class="bottom-text">
+                            <p>|</p> Full stack developer
+                          </div>
+                        </span>
+                      </div>
+                      <div class="col kurs2">
+                        <span class="bottom-title">
+                          <div class="bottom-text">
+                            <p>|</p> Software engineer
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col kurs3">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> Data science engineer
+                            </div>
+                          </span>
+                        </div>
+                        <div class="col-8 kurs4">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> 3D max specialist
+                            </div>
+                          </span>
+                        </div>
+                    </div>
+
+                    <div class="more" id="kopro">
+                        <div class="row">
+                            <div class="col-8 kurs1">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Full stack developer
+                                </div>
+                              </span>
+                            </div>
+                            <div class="col kurs2">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Software engineer
+                                </div>
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="see-more">
+                        <span onclick="kurs()" id="bolshe">More</span>
+                        <span id="icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
+                        <span id="tepaga"><ion-icon name="arrow-up-outline"></ion-icon></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="people-container">
+                <div class="title">LIFE WITHIN THE COMPANY</div>
+
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col people1">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> Locatsiya 1
+                            </div>
+                          </span>
+                        </div>
+                        <div class="col people2">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> Locatsiya 2
+                            </div>
+                          </span>
+                        </div>
+                        <div class="col people3">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> Locatsiya 3
+                            </div>
+                          </span>
+                        </div>
+                    </div>
+                    <div class="row row1">
+                        <div class="col people4">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> Locatsiya 1
+                            </div>
+                          </span>
+                        </div>
+                        <div class="col-8 people5">
+                          <span class="bottom-title">
+                            <div class="bottom-text">
+                              <p>|</p> 3D max specialist
+                            </div>
+                          </span>
+                        </div>
+                    </div>
+
+                    <div class="more" id="people">
+                        <div class="row">
+                            <div class="col people1">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Locatsiya 1
+                                </div>
+                              </span>
+                            </div>
+                            <div class="col people2">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Locatsiya 2
+                                </div>
+                              </span>
+                            </div>
+                            <div class="col people3">
+                              <span class="bottom-title">
+                                <div class="bottom-text">
+                                  <p>|</p> Locatsiya 3
+                                </div>
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="see-more">
+                        <span onclick="odamla()" id="odamlar">More</span>
+                        <span id="qowimca"><ion-icon name="arrow-down-outline"></ion-icon></span>
+                        <span id="tepa"><ion-icon name="arrow-up-outline"></ion-icon></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- --- -->
+
+        <!-- Footer -->
+      <div class="section-footer container">
+        <div class="footer">
+          <div class="footer-box">
+            <div class="modal-contact">
+              <div class="register-box">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body align-self-center">
+                      <form>
+                        <div class="mb-3 text-center">
+                          <div class="register-text">Ready to become an Astrum student?</div>
+                          <div class="register text-center">
+                            <img src="{% static './img/shar.svg' %}" class="shar2">
+                            <h4 class="register-text-2">Leave a request</h4>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Name:</label>
+                          <input type="text" class="form-control" id="recipient-name" placeholder="Full name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-number" class="col-form-label">Phone:</label>
+                          <input type="number" class="form-control" id="number" placeholder="+998">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-number" class="col-form-label">Telegram nick-name:</label>
+                          <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer align-self-center text-center">
+                      <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                        Send
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-white">
+                <div class="modal-header">
+                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Result</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body succes-text register-modal">
+                  <div class="form-floating">
+                    <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="modal-footer register-modal align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                    Confirm 
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-white">
+                <div class="modal-header">
+                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Result</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body succes-text register-modal">
+                  Sent
+                </div>
+                <div class="modal-footer register-modal align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-dismiss="modal">Thanks</button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="footer-boxes grid container">
+  
+            <div class="footer-box">
+              <p class="footer-p">COURSES AND EDUCATION</p>
+              <div class="footer-box">
+                <ul>
+                  {% for i in main_course_eng %}
+                    {% if forloop.counter0 < 3 %}
+                      <li class="footer-li">
+                        <img src="{{i.image.url}}" class="footer-img">
+                        <div class="footer-text">
+                          {{i.title_eng}}
+                          <p class="footer-time">{{i.duration_eng}}</p>
+                        </div>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+  
+            <div class="footer-box">
+              <p class="footer-p">Astrum</p>
+              <a class="first" href="{% url 'kompanita_eng' %}"><li class="footer-li">About academy</li></a>
+              <a href="{% url 'kursi_eng' %}"><li class="footer-li">Courses</li></a>
+              <a href="{% url 'photo_eng' %}"><li class="footer-li">Photo pictures</li></a>
+              <a href="{% url 'karyera_eng' %}"><li class="footer-li">About Us</li></a>
+            </div>
+  
+            <div class="footer-box">
+              <p class="footer-p">связаться</p>
+              <a class="first" href="tel:+998943151337">
+                <li class="footer-li">
+                  <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+                  Call us
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+                  Instagram
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+                  Facebook
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+                  Telegram
+                </li>
+              </a>
+              <a href="">
+                <li class="footer-li">
+                  <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+                  Email us
+                </li>
+              </a>
+            </div>
+  
+          </div>
+  
+          <div class="footer-bottom">
+            <div class="last-footer">
+              {% for i in footer_eng %}
+                <div class="footer-logo">
+                  <div class="footer-logo-imgs">
+                    <img src="{% static 'img/Group 58.png' %}">
+                    <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+                  </div>
+                  <p>{{i.motto_eng}}</p>
+                </div>
+                <h4>
+                  {{i.short_descriptions_eng}}
+                </h4>
+                <h6>
+                  © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+                </h6>
+              {% endfor %}
+            </div>
+          </div>
+  
+        </div>    
+      </div>
+      <!-- --- -->
+
+        <!-- Scripts -->
+        <script>
+          const frame = document.getElementById('preloader');
+          setTimeout(() => {
+            frame.remove();
+          }, 3000);
+        </script>
+        <!-- --- -->
+
+        <!-- Scripts -->
+        <script src="{% static './js/photo.js' %}"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpk g.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- --- -->
+    </body>
+</html>

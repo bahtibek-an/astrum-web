@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Astrim IT Academy | {{course.title_eng}} </title>
+      <link rel="stylesheet" href="{% static 'css/kursini_ichidagi.css' %}">
+      <link rel="stylesheet" href="{% static './css/price.css' %}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+      <!-- Loader -->
+      <div id="preloader">
+        <div class="frame" data-loader="circle-side">
+          <div class="circle"></div>
+          <div class="line left"></div>
+          <div class="line right"></div>
+          <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
+          <div class="hide top"></div>
+          <div class="hide bottom"></div>
+        </div>
+      </div>
+      <!-- --- -->
+
+      <!-- Header -->
+          <div id="flip">
+              {% for i in news_header_eng %}
+                    <div>
+                        <a href="{{i.link_eng}}">
+                            <div>{{ i.title_eng }}</div>
+                        </a>
+                    </div>
+              {% endfor %}
+          </div>
+      <!-- --- -->
+          
+          <!-- Header bottom -->
+          <div class="navbar34">
+            <div class="header-bottom container">
+                <!-- Logo image -->
+                <a href="{% url 'home' %}">
+                  <img src="{% static 'img/blue-logo.png' %}" class="logo">
+                </a>
+
+                <!-- Header links -->
+                <div class="head-link">
+                  <ul class="header-links">
+                    <a href="{% url 'kompanita' %}"><li>Akademiya haqida</li></a>
+                    <a href="{% url 'kursi' %}"><li>Kurslar</li></a>
+                    <a href="{% url 'photo' %}"><li>Foto suratlar</li></a>
+                    <a href="{% url 'karyera' %}"><li>Biz haqimizda</li></a>
+                  </ul>
+                </div>
+                <div class="buttons">
+                  <!-- Telegram button -->
+                  <!-- <div class="telegram-button">
+                    <a href="https://t.me/astrumuz">
+                      <button class="btn-course">
+                        <img src="img/telegram.jpg" class="btn-icon"> Добавляйся Free в Telegram
+                      </button>
+                    </a>
+                  </div> -->
+
+                  <!-- Best cources button -->
+                  <div class="best-cources">
+                    <button class="btn-course">
+                      Лучшие курсы
+                    </button>
+                  </div>
+
+                  <!-- Languages -->
+                  <div class="lang">
+                    <div id="lang" class="dropdown">
+                      <button class="dropbtn">Uz</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'home_ru' %}">Ru</a>
+                      <a href="{% url 'home_eng' %}">Eng</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- --- -->
+                </div>
+              </div>
+          </div>
+
+          <!-- Navbar active -->
+          <nav class="navbar navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static './img/blue-logo.png' %}" class="navbar-logo">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                    <img src="{% static './img/logo.png' %}" class="navbar-logo">
+                  </h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <a href="photo.html"><li class="nav-item">Фото</li></a>
+                    <a href="karyera.html"><li class="nav-item">Карьера</li></a>
+                    <a href="kursi.html"><li class="nav-item">Курсы</li></a>
+                    <a href="index.html"><li class="nav-item">Менторы</li></a>
+                    <a href="kompaniya.html"><li class="nav-item">Окомпании</li></a>
+                  </ul>
+                  <!-- Languages -->
+                  <div class="lang">
+                    <div id="lang" class="dropdown">
+                      <button class="dropbtn">Uz</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'home_ru' %}">Ru</a>
+                        <a href="{% url 'home_eng' %}">Eng</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- --- -->
+                </div>
+              </div>
+            </div>
+          </nav>
+
+        </div>
+      </div>
+      <!-- --- -->
+
+      <!-- Header title -->
+      <div class="container mb-5 mt-5">
+
+        <div class="location-page text-center m-5" id="m-5">
+          <!-- <p class="bold">Главная&zwnj;</p> | курсы и образование | Full stack developer  -->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Bosh sahifa</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'kursi' %}">Kurs va ta'lim</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Full stack developer</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="comment">
+              <h1 class="title-comment">{{course.title_eng}}</h1>
+              <h3 class="time-comment">{{course.data_eng}}</h3>
+              <div class="green-line"></div>
+              <div class="box-skills">
+                 {{course.short_descriptions_eng}}
+              </div>
+              <p class="text-comment">
+               {{course.short_descriptions_big_eng}}
+              </p>
+              <div class="mt-5" id="btn-register-box">
+                <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                  Зарегистрируйтесь сейчас
+                </button> -->
+                <script data-b24-form="click/107/cvf8d7" data-skip-moving="true">
+                  (function(w,d,u){
+                  var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                  var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                  })(window,document,'https://office.astrum.uz/upload/crm/form/loader_107_cvf8d7.js');
+                  </script>
+                <button class="btn-register clickSound" data-b24-form="click/107/cvf8d7" data-skip-moving="true">
+                  Yordam kerak?
+                </button>
+
+                <!-- Modal register -->
+                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Show a second modal and hide this one with the button below.
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Hide this modal and show the first with the button below.
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- --- -->
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <img src="{% static './img/Mask group (7).png' %}" class="hero-img">
+          </div>
+        </div>
+      </div>
+      <!-- --- -->
+      
+      <!-- Aside -->
+      <div class="container mb-5 mt-5">
+        <div class="row aside-row">
+
+          <div class="col">
+            <aside class="aside">
+              <div class="aside-title">{{course.title_eng}}</div>
+              <div class="grey-line"></div>
+              <ul class="aside-links">
+                <a href="#programa"><li class="aside-link">Trening dasturi</li></a>
+                <a href="#class"><li class="aside-link">Kurslar uchun darslar</li></a>
+                <a href="#price"><li class="aside-link">Narxlar</li></a>
+                <a href="#raspisania"><li class="aside-link">Kurs jadvali</li></a>
+                <a href="#questions"><li class="aside-link">Savollar</li></a>
+              </ul>
+              <div class="mt-3 text-center">
+                <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                  (function(w,d,u){
+                  var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                  var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                  })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                </script>
+                <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                  Hozir roʻyxatdan oʻting
+                </button>
+                <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                  Зарегистрируйтесь сейчас
+                </button> -->
+              </div>
+            </aside>
+          </div>
+
+          <div class="col-8 container">
+
+            <div class="section" id="programa">
+              {% for i in trend_dasturi_eng %}
+                <div class="section-line"></div>
+                <div class="green-title">{{i.title_eng}}</div>
+
+                <h1 class="section-title">{{i.name_eng}}</h1>
+              {% endfor %}
+              <ul class="section-program-ul">
+
+              {% for i in trening_dasturi_answer_eng %}
+                {% if forloop.counter0 < 5 %}
+                  <li class="program-li d-flex">
+                    <ion-icon name="checkmark-sharp" class="program-icon"></ion-icon>
+                    <div class="program-text">
+                      <h4 class="program-h4">{{i.title_eng}}</h4>
+                      <p class="program-p">{{i.descriptions_eng}}</p>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+
+              </ul>
+            </div>
+
+            <div class="section" id="class">
+              {% for i in kurslar_uchun_darslar_eng %}
+                <div class="section-line"></div>
+                <div class="green-title">Kurslar uchun darslar</div>
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                <p class="section-text">
+                  {{i.descriptions_eng}}
+                </p>
+                <div class="carousel-w-100">
+                
+                <div class="mentor-carousel-item">
+                  <img src="{{i.image1_eng.url}}" class="carousel-img">
+                </div>
+
+                <div class="mentor-carousel-item">
+                  <img src="{{i.image2_eng.url}}" class="carousel-img">
+                </div>
+                
+                <div class="mentor-carousel-item">
+                  <img src="{{i.image3_eng.url}}" class="carousel-img">
+                </div>
+
+                <div class="mentor-carousel-item">
+                  <img src="{{i.image4_eng.url}}" class="carousel-img">
+                </div>
+      
+                <div class="mentor-carousel-item">
+                  <img src="{{i.image5_eng.url}}" class="carousel-img">
+                </div>
+              {% endfor %}
+              </div>
+            </div>
+
+            <div class="section" id="price">
+              <div class="section-line"></div>
+              <div class="green-title mb-3">Цена</div>
+              <h1 class="section-title mb-3">Простые, прозрачные и гибкие планы платежей</h1>
+              <p class="section-text mb-5">
+                В отличие от других курсов, которые скрывают свои цены, мы полностью прозрачны 
+                в отношении цен на курсы и гордимся тем, что они доступны и доступны.
+              </p>
+              <main>
+                <div class="pricing">
+                  <div class="pricing-container">
+                    <div class="pricing-switcher mb-5">
+                      <p class="fieldset">
+                        <input type="radio" class="front-btn" name="duration-2" value="monthly" id="monthly-2" checked>
+                        <label for="monthly-2" id="rotateButton">Оплата сегодня</label>
+                        <input type="radio" class="back-btn" name="duration-2" value="yearly" id="yearly-2">
+                        <label for="yearly-2" id="rotateButton">Оплата по месячно</label>
+                        <span class="switch"></span>
+                      </p>
+                    </div>
+                    <div class="popular">
+                      <ul class="pricing-wrapper">
+                        <!-- Front-box -->
+                        <li class="is-visible rotate-element front-box">
+                          <div class="pricing-title mt-5">
+                            Оплата сегодня
+                          </div>
+
+                          <div class="today-price mt-3">
+                            <p class="bold">
+                              Оплата сегодня&nbsp;
+                            </p>
+                            -&nbsp;Скидка 6 000 UZS
+                          </div>
+
+                          <div class="uzs mt-3">
+                            <div class="strikethrough">
+                              <p class="bold size-2">5 000 UZS </p>
+                            </div>
+                            <p class="bold size-2">
+                              &nbsp; 4 500 UZS
+                            </p> / в месяц
+                          </div>
+
+                          <div class="table">
+                            <div class="table-text">
+                              Курс Full stack developer
+                            </div>
+                            <div class="table-price">
+                              60 000 UZS
+                            </div>
+                          </div>
+                          
+                          <div class="table-line mt-3 mb-3"></div>
+
+                          <div class="table">
+                            <div class="table-btn">
+                              🥳Сохрани сегодня
+                            </div>
+                            <div class="table-price">
+                              -6 000 UZS
+                            </div>
+                          </div>
+                          
+                          <div class="table-line mt-3 mb-3"></div>
+
+                          <div class="table">
+                            <div class="table-text">
+                              Всего
+                            </div>
+                            <div class="table-price">
+                              <div class="uzs2">
+                                <div class="strikethrough">
+                                  <p class="d-flex">60 000 UZS</p>
+                                </div>
+                                <p class="d-flex">
+                                  &nbsp;54 000 UZS
+                              </div>
+                            </div>
+                          </div>
+
+                          <footer class="pricing-footer mb-5">
+                            <a href="#0">
+                              <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                (function(w,d,u){
+                                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                                })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                              </script>
+                              <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                Зарегистрируйтесь сейчас
+                              </button>
+                              <!-- <button class="btn-register w-100" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                Зарегистрируйтесь сейчас
+                              </button> -->
+                            </a>
+                          </footer>
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Присоединяйтесь к компактному классу в 20 учеников программистов</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Интересные и интерактивные занятия по программированию</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Присоединяйтесь к группе профи в Telegram</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Полный список литературы по программированию</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Освойте рабочий процесс Java EE</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Осваивайте дополнительные компоненты</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Выполняйте еженедельные задания</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Получите сертификат от Asirum</p>
+                          </div>
+                        </li>
+                        <!-- --- -->
+
+                        <!-- Back-box -->
+                        <li class="rotate-element back-box">
+                          <div class="pricing-title mt-5">
+                            ПЛАН ОПЛАТЫ
+                          </div>
+
+                          <div class="today-price mt-3">
+                            <p class="bold">
+                              5 ежемесячных платежей
+                            </p>
+                          </div>
+
+                          <div class="uzs mt-3 mb-3">
+                            <p class="bold size-2">5 000 UZS</p>/ в месяц
+                          </div>
+
+                          <div class="table">
+                            <div class="table-text">
+                              5x ежемесячные платежей
+                            </div>
+                            <div class="table-price">
+                              5 000 UZS
+                            </div>
+                          </div>                      
+                          
+                          <div class="table-line mt-3 mb-3"></div>
+
+                          <div class="table">
+                            <div class="table-text">
+                              Всего
+                            </div>
+                            <div class="table-price">
+                              60 000 UZS
+                            </div>
+                          </div>
+
+                          <footer class="pricing-footer mb-5">
+                            <a href="#0">
+                              <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                (function(w,d,u){
+                                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                                })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                              </script>
+                              <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                Зарегистрируйтесь сейчас
+                              </button>
+                              <!-- <button class="btn-register w-100" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                Зарегистрируйтесь сейчас
+                              </button> -->
+                            </a>
+                          </footer>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Присоединяйтесь к компактному классу в 20 учеников программистов</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Интересные и интерактивные занятия по программированию</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Присоединяйтесь к группе профи в Telegram</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Полный список литературы по программированию</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Освойте рабочий процесс Java EE</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Осваивайте дополнительные компоненты</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Выполняйте еженедельные задания</p>
+                          </div>
+
+                          <div class="bottom-text">
+                            <p class="stick">&#x2714;</p>
+                            <p class="bottom-p">Получите сертификат от Asirum</p>
+                          </div>
+                        </li>
+                        <!-- --- -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+
+            <div class="section" id="raspisania">
+              <div class="section-line"></div>
+              <div class="green-title mb-3">Расписание курсов</div>
+              <h1 class="section-title mb-3">Быстрый набор!</h1>
+              <p class="section-text mb-5">
+                Наши учебные курсы, как правило, набираются довольно быстро, 
+                поэтому мы открываем их за несколько месяцев. И мы намеренно 
+                ограничиваем размер классов примерно до 20 дизайнеров, чтобы 
+                каждый учебный курс предлагал индивидуальный опыт обучения.
+              </p>
+              <div class="pricing-switcher mb-5">
+                <p class="month">
+                  <button class="toggle-button " for="feb">Февраль</button>
+                  <button class="toggle-button " for="may">Май</button>
+                  <button class="toggle-button active" for="avg">Август</button>
+                </p>
+                <!-- --- -->
+                <div class="box mb-5">
+                  <div class="box-title">Full stack developer</div>
+                  <div class="box-texts">
+                    <div class="box-text mt-3">
+                      Аудитория 102, Вторнник 18:00 - 20:00
+                    </div>
+                    <div class="green-line"></div>
+                    <div class="yellow-box">14 свободных мест</div>
+                    <div class="greyline mt-5 mb-5"></div>
+                    <div class="box-footer comment-header">
+                      <div class="profile-img-box">
+                        <img src="{% static './img/Mask group (12).png' %}" >
+                      </div>
+                      <div class="header-text">
+                        <div class="name-mentor">Джасур Алиев</div>
+                        <p class="skills-mentor">Full Stack Developer - Преводаватель</p>
+                        <div class="green-line"></div>
+                      </div>
+                      <div class="box-register">
+                        <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                          (function(w,d,u){
+                          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                          })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                        </script>
+                        <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                          Зарегистрируйтесь сейчас
+                        </button>
+                        <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                          Зарегистрируйтесь сейчас
+                        </button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- --- -->
+                <div class="box mb-5">
+                  <div class="box-title">Full stack developer</div>
+                  <div class="box-texts">
+                    <div class="box-text mt-3">
+                      Аудитория 102, Вторнник 18:00 - 20:00
+                    </div>
+                    <div class="green-line"></div>
+                    <div class="yellow-box">14 свободных мест</div>
+                    <div class="greyline mt-5 mb-5"></div>
+                    <div class="box-footer comment-header">
+                      <div class="profile-img-box">
+                        <img src="{% static './img/Mask group (12).png' %}" >
+                      </div>
+                      <div class="headet-text">
+                        <div class="name-mentor">Джасур Алиев</div>
+                        <p class="skills-mentor">Full Stack Developer - Преводаватель</p>
+                        <div class="green-line"></div>
+                      </div>
+                      <div class="box-register">
+                        <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                          (function(w,d,u){
+                          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                          })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                        </script>
+                        <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                          Зарегистрируйтесь сейчас
+                        </button>
+                        <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                          Зарегистрируйтесь сейчас
+                        </button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- --- -->
+                <div class="box">
+                  <div class="box-title">Full stack developer</div>
+                  <div class="box-texts">
+                    <div class="box-text mt-3">
+                      Аудитория 102, Вторнник 18:00 - 20:00
+                    </div>
+                    <div class="green-line"></div>
+                    <div class="yellow-box">14 свободных мест</div>
+                    <div class="greyline mt-5 mb-5"></div>
+                    <div class="box-footer comment-header">
+                      <div class="profile-img-box">
+                        <img src="{% static './img/Mask group (12).png' %}" >
+                      </div>
+                      <div class="headet-text">
+                        <div class="name-mentor">Джасур Алиев</div>
+                        <p class="skills-mentor">Full Stack Developer - Преводаватель</p>
+                        <div class="green-line"></div>
+                      </div>
+                      <div class="box-register">
+                        <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                          (function(w,d,u){
+                          var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                          var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                          })(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                        </script>
+                        <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                          Зарегистрируйтесь сейчас
+                        </button>
+                        <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                          Зарегистрируйтесь сейчас
+                        </button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- --- -->
+              </div>
+            </div>
+
+            <div class="section" id="questions">
+              <div class="section-line"></div>
+              <div class="green-title mb-3">Вопросы</div>
+              <h1 class="section-title mb-3">У вас есть вопрос о нашем учебном курсе по Full stack developer?</h1>
+              <p class="section-text mb-5">
+                Скорее всего, на этом этапе у вас есть пара вопросов. Мы призываем 
+                наших студентов задавать вопросы напрямую, и вы можете организовать 
+                быстрый звонок с нами в любое время.
+              </p>
+              <!-- Questions-answeres -->
+              <div class="accordion mb-5" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest1" aria-expanded="false" aria-controls="quest1">
+                      Нужен ли мне опыт работы в программировании?
+                    </button>
+                  </h2>
+                  <div id="quest1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest2" aria-expanded="false" aria-controls="quest2">
+                      Нужен ли мне опыт работы в программировании?
+                    </button>
+                  </h2>
+                  <div id="quest2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest3" aria-expanded="false" aria-controls="quest3">
+                      Нужен ли мне опыт работы в программировании?
+                    </button>
+                  </h2>
+                  <div id="quest3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- --- -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- --- -->
+
+      <!-- Courses row -->
+      <div class="container">
+        <div class="grid-4">
+          
+          <!-- Box -->
+          <div class="course-box mb-5">
+            {% for i in main_course_eng %}
+              {% if forloop.counter0 < 4 %}
+                <img src="{{i.image_eng.url}}" class="course-img">
+                <div class="course-body">
+                  <p>{{i.data_eng}}</p>
+                  <h3 class="title-h3">{{i.title_eng}}</h3>
+                  <p>{{i.short_descriptions_eng}}</p>
+                  <h6>{{i.duration_eng}}</h6>
+                <div class="green-line"></div>
+                <a href="{% url 'home' %}"><button class="btn-course-more">{{i.button_text_eng}}</button></a>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- --- -->
+
+        </div>
+      </div>
+      <!-- --- -->
+
+      <!-- Footer -->
+      <div class="section-footer container">
+        <div class="footer">
+          <div class="footer-box">
+            <div class="modal-contact">
+              <div class="register-box">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body align-self-center">
+                      <form>
+                        <div class="mb-3 text-center">
+                          <div class="register-text">Готовы стать учеником Astrum?</div>
+                          <div class="register text-center">
+                            <img src="{% static './img/shar.svg' %}" class="shar2">
+                            <h4 class="register-text-2">Оставьте заявку</h4>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Имя Фамилия</label>
+                          <input type="text" class="form-control" id="recipient-name" placeholder="Имя Фамилия">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-number" class="col-form-label">Номер телефона:</label>
+                          <input type="number" class="form-control" id="number" placeholder="+998">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-number" class="col-form-label">Telegram nick-name:</label>
+                          <input type="text" maxlength="10" class="form-control" id="email" placeholder="@examle" autocomplete="on">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer align-self-center text-center">
+                      <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#registerBox">
+                        Отправить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="registerBox" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-white">
+                <div class="modal-header">
+                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body succes-text register-modal">
+                  <div class="form-floating">
+                    <input type="password" maxlength="4" class="form-control" id="floatingPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="modal-footer register-modal align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                    Подтвердить 
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-white">
+                <div class="modal-header">
+                  <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body succes-text register-modal">
+                  Отправлено
+                </div>
+                <div class="modal-footer register-modal align-self-center text-center">
+                  <button type="button" class="register-button" data-bs-dismiss="modal">Понятно</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-boxes grid container">
+
+            <div class="footer-box">
+              <p class="footer-p">курсы и образование</p>
+              <div class="grey-line"></div>
+              <div class="footer-box">
+                <ul>
+                {% for i in main_course_eng %}
+                  {% if forloop.counter0 < 3 %}
+                    <li class="footer-li">
+                      <img src="{{i.image_eng.url}}" class="footer-img">
+                      <div class="footer-text">
+                        {{i.title_eng}}
+                        <p class="footer-time">{{i.duration_eng}}</p>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+                </ul>
+              </div>
+            </div>
+      <!-- Scripts -->
+      <script>
+        const frame = document.getElementById('preloader');
+        setTimeout(() => {
+          frame.remove();
+        }, 3000);
+
+        const appearOptions = {};
+        const faders = document.querySelectorAll('.fade-in');
+        const sectionOnScroll = new IntersectionObserver(function(enteries, appearOnScroll){
+          enteries.forEach(entry => {
+            if(!entry.isIntersecting) {
+              return;
+            }
+            else {
+              entry.target.classList.add('appear');
+              appearOnScroll.unobserve(entry.target);
+            }
+          })
+        }, appearOptions);
+
+        faders.forEach(fader => {
+          appearOnScroll.observe(fader);
+        })
+
+        const programDivs = document.querySelectorAll('.front-box');
+        const designDivs = document.querySelectorAll('.back-box');
+
+        const programButton = document.querySelector('.front-btn');
+        programButton.addEventListener('click', () => {
+            programDivs.forEach(box => {
+                box.style.display = 'block';
+                box.style.animation = 'rotateAnimation 1s';
+            });
+            designDivs.forEach(box => {
+                box.style.display = 'none';
+            });
+        });
+
+        const designButton = document.querySelector('.back-btn');
+        designButton.addEventListener('click', () => {
+            programDivs.forEach(box => {
+                box.style.display = 'none';
+            });
+            designDivs.forEach(box => {
+                box.style.display = 'block';
+                box.style.animation = 'rotateAnimation 1s';
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+        var toggleButtons = document.querySelectorAll(".toggle-button");
+
+        toggleButtons.forEach(function(button) {
+          button.addEventListener("click", function() {
+            toggleButtons.forEach(function(btn) {
+              btn.classList.remove("active");
+            });
+            this.classList.add("active");
+          });
+        });
+      });
+      
+        var tugma = document.querySelectorAll(".clickSound");
+        function chiqarishOvozi() {
+            var audio = new Audio('./audio/btn.wav');
+            audio.play();
+        }
+        tugma[0].addEventListener("click", chiqarishOvozi);
+        var tugmalar = document.querySelectorAll(".clickSound");
+        function chiqarishOvozi2() {
+            var audio = new Audio('./audio/btn.wav');
+            audio.play();
+        }
+
+        tugmalar.forEach(function(tugma) {
+            tugma.addEventListener("click", chiqarishOvozi2);
+        });
+      </script>
+      <!-- --- -->
+
+      <!-- Script links -->
+      <script src="./js/price-js/prise-tables.js"></script>
+      <script src="./js/price-js/prise-common.js"></script>
+      <script src="./js/price-js/price-modernizer.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <!-- --- -->
+      
+  </body>
+</html>
