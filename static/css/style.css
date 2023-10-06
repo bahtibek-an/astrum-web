@@ -885,11 +885,11 @@ h5 {
 .footer-box a:hover {
     background: rgba(0, 0, 0, 0.3);
 }
-.footer-box a.first {
-    margin-top: 30px;
-}
 .footer-box a:not(:last-child) {
     margin-bottom: 14px;
+}
+.footer-box a.first {
+    margin-top: 30px;
 }
 .footer-li{
     cursor: pointer;
