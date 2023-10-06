@@ -13,13 +13,8 @@
     <body>
         <!-- Loader -->
         <div id="preloader">
-          <div class="frame" data-loader="circle-side">
-            <div class="circle"></div>
-            <div class="line left"></div>
-            <div class="line right"></div>
-            <div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
-            <div class="hide top"></div>
-            <div class="hide bottom"></div>
+          <div class="preloader__gif">
+            <img src="{% static './img/loader-gif.gif' %}"/>
           </div>
         </div>
         <!-- --- -->
@@ -577,6 +572,10 @@
           setTimeout(() => {
             frame.remove();
           }, 3000);
+
+          setTimeout(() => {
+            frame.classList.add('active');
+          }, 2500);
         </script>
         <!-- --- -->
 

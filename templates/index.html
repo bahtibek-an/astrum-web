@@ -12,25 +12,26 @@
   </head>
   <body>
     <!-- Loader -->
+
     <div id="preloader">
-			<div class="frame" data-loader="circle-side">
-				<div class="circle"></div>
-				<div class="line left"></div>
-				<div class="line right"></div>
-				<div class="big">As<img src="{% static './img/loader-logo.png' %}" width="40px" class="loader-logo">rum</div>
-				<div class="hide top"></div>
-				<div class="hide bottom"></div>
-			</div>
-	  </div>
+      <div class="preloader__gif">
+        <img src="{% static './img/loader-gif.gif' %}"/>
+      </div>
+    </div>
+
     <!-- --- -->
 
     <div id="flip">
       {% for i in news_header %}
-            <div>
-                <a href="{{i.link}}">
-                    <div>{{ i.title }}</div>
-                </a>
-            </div>
+          <a href="{{i.link}}">
+            {{ i.title }}
+            <span>
+              {{ i.title_right }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12" fill="none">
+                <path d="M1.27399 4.90417C0.859773 4.90417 0.523987 5.23996 0.523987 5.65417C0.523987 6.06839 0.859773 6.40417 1.27399 6.40417V4.90417ZM19.1813 6.1845C19.4742 5.89161 19.4742 5.41674 19.1813 5.12384L14.4083 0.350874C14.1154 0.0579805 13.6405 0.0579805 13.3476 0.350874C13.0547 0.643767 13.0547 1.11864 13.3476 1.41153L17.5903 5.65417L13.3476 9.89682C13.0547 10.1897 13.0547 10.6646 13.3476 10.9575C13.6405 11.2504 14.1154 11.2504 14.4083 10.9575L19.1813 6.1845ZM1.27399 6.40417H18.6509V4.90417H1.27399V6.40417Z" fill="white"/>
+              </svg>
+            </span>
+          </a>
       {% endfor %}
     </div>
 
@@ -387,7 +388,6 @@
                   <div class="modal-body align-self-center">
                     <form class="form__review" method="post" action="{% url 'send_message' %}">
                       {% csrf_token %}
-                      {{ form }}
                       <div class="mb-3 text-center">
                         <div class="register-text">Готовы стать учеником Astrum?</div>
                         <div class="register text-center">
@@ -397,22 +397,46 @@
                       </div>
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Имя Фамилия</label>
-                        <input name="full_name" type="text" class="form-control full_name" id="recipient-name" placeholder="Имя Фамилия">
+                        <input 
+                          name="full_name" 
+                          type="text" 
+                          class="form-control full_name" 
+                          id="recipient-name" 
+                          placeholder="Имя Фамилия"
+                          required
+                        >
                       </div>
                       <div class="mb-3">
                         <label for="message-number" class="col-form-label">Номер телефона:</label>
-                        <input name="phone" type="number" class="form-control phone_number" id="number" placeholder="+998">
+                        <input 
+                          pattern=".{19,19}"
+                          name="phone" 
+                          type="tel" 
+                          class="form-control phone_number" 
+                          id="number" 
+                          placeholder="+998"
+                          required  
+                        >
                       </div>
                       <div class="mb-3">
                         <label for="message-number" class="col-form-label">Telegram nick-name:</label>
-                        <input name="nick_name" type="text" maxlength="10" class="form-control nick_name" id="email" placeholder="@examle" autocomplete="on">
+                        <input 
+                          name="nick_name" 
+                          type="text" 
+                          maxlength="10" 
+                          class="form-control nick_name" 
+                          id="email" 
+                          placeholder="@examle" 
+                          autocomplete="on"
+                          required
+                        >
+                      </div>
+                      <div class="modal-footer align-self-center text-center">
+                        <button type="submit" class="register-button form__review-btn">
+                          Отправить
+                        </button>
                       </div>
                     </form>
-                  </div>
-                  <div class="modal-footer align-self-center text-center">
-                    <button type="submit" class="register-button form__review-btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                      Отправить
-                    </button>
                   </div>
                 </div>
               </div>
@@ -420,12 +444,17 @@
           </div>
         </div>
 
-        <div class="confirm__modal modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="confirm__modal modal">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-white">
               <div class="modal-header">
                 <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button 
+                  type="button" 
+                  class="btn-close btn-close__confirm-modal" 
+                  data-bs-dismiss="modal" 
+                  aria-label="Close"
+                ></button>
               </div>
               <div class="modal-body succes-text register-modal">
                 <div class="form-floating">
@@ -464,10 +493,10 @@
 
           <div class="footer-box">
             <p class="footer-p">Astrum</p>
-                  <a href="{% url 'kompanita' %}"><li class="footer-li">Akademiya haqida</li></a>
-                  <a href="{% url 'kursi' %}"><li class="footer-li">Kurslar</li></a>
-                  <a href="{% url 'photo' %}"><li class="footer-li">Foto rasmlar</li></a>
-                  <a href="{% url 'karyera' %}"><li class="footer-li">Karyera</li></a>
+            <a href="{% url 'kompanita' %}"><li class="footer-li">Akademiya haqida</li></a>
+            <a href="{% url 'kursi' %}"><li class="footer-li">Kurslar</li></a>
+            <a href="{% url 'photo' %}"><li class="footer-li">Foto rasmlar</li></a>
+            <a href="{% url 'karyera' %}"><li class="footer-li">Karyera</li></a>
           </div>
 
           <div class="footer-box">
@@ -528,7 +557,7 @@
 
 
         <!-- Modal -->
-        <div class="success__modal modal fade">
+        <div class="success__modal modal">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-white">
               <div class="modal-header">
@@ -556,6 +585,10 @@
       setTimeout(() => {
         frame.remove();
       }, 3000);
+
+      setTimeout(() => {
+        frame.classList.add('active');
+      }, 2500);
 
       const locationText = document.querySelector('.location-text');
       const locationH1 = document.querySelector('.location-h1');

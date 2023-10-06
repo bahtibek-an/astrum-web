@@ -3,13 +3,16 @@ from django.db import models
 
 class NewsHeader(models.Model):
     title = models.CharField(max_length=256, blank=True)
+    title_right = models.CharField(max_length=256, blank=True)
     link = models.CharField(max_length=255)
 
     title_ru = models.CharField(max_length=256, blank=True)
+    title_right_ru = models.CharField(max_length=256, blank=True)
     link_ru = models.CharField(max_length=255)
 
     title_eng = models.CharField(max_length=256, blank=True)
     link_eng = models.CharField(max_length=255)
+    title_right_eng = models.CharField(max_length=256, blank=True)
 
     def __str__(self):
         return self.title

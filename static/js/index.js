@@ -151,36 +151,86 @@ if (window.matchMedia("(max-width: 900px)").matches) {
 //   }, 1000);
 // });
 
+function switchConfirmModal(type) {
+  const confirmModal = document.querySelector(".confirm__modal");
+  if(type) {
+    confirmModal.classList.add("show");
+    confirmModal.style.display = "block";
+    return
+  }
+  confirmModal.classList.remove("show");
+  confirmModal.style.display = "none";
+}
+
+function switchSuccessModal(type) {
+  const successModal = document.querySelector(".success__modal");
+  if(type) {
+    successModal.classList.add("show");
+    successModal.style.display = "block";
+    return
+  }
+  successModal.classList.remove("show");
+  successModal.style.display = "none";
+}
+
+document.querySelector(".btn-close__confirm-modal").addEventListener('click', () => {
+  switchConfirmModal(false);
+});
+
+document.querySelector(".phone_number").addEventListener("input", function(e) {
+  const input = e.target;
+  const value = input.value.replace(/\D/g, "");  // Removes any non-digit characters
+  
+  let formatted = "+";
+
+  if (value.length <= 3) {
+      formatted += `(${value}`;
+  } else if (value.length <= 5) {
+      formatted += `(${value.slice(0, 3)}) ${value.slice(3)}`;
+  } else if (value.length <= 8) {
+      formatted += `(${value.slice(0, 3)}) ${value.slice(3, 5)}-${value.slice(5, 8)}`;
+  } else if (value.length <= 10) {
+      formatted += `(${value.slice(0, 3)}) ${value.slice(3, 5)}-${value.slice(5, 8)}-${value.slice(8, 10)}`;
+  } else {
+      formatted += `(${value.slice(0, 3)}) ${value.slice(3, 5)}-${value.slice(5, 8)}-${value.slice(8, 10)}-${value.slice(10, 12)}`;
+  }
+
+  input.value = formatted;
+});
 
 
-document.querySelector(".form__review-btn").addEventListener("click", () => {
 
-  const fullName = document.querySelector(".full_name").value;
-  const phoneNumber = document.querySelector(".phone_number").value;
-  const nickName = document.querySelector(".nick_name").value;
-  const csrf = document.querySelector('[name="csrfmiddlewaretoken"]').value;
+document.querySelector(".form__review").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const fullName = document.querySelector(".full_name");
+  const phoneNumber = document.querySelector(".phone_number");
+  const nickName = document.querySelector(".nick_name");
+  const csrf = document.querySelector('[name="csrfmiddlewaretoken"]');
+  
+  let phoneValue = phoneNumber.value.replace(/[+()\-\s]/g, '')
 
   const formData = new FormData();
-  formData.append("full_name", fullName);
-  formData.append("phone", phoneNumber);
-  formData.append("nick_name", nickName);
-  formData.append("csrfmiddlewaretoken", csrf);
+  formData.append("full_name", fullName.value);
+  formData.append("phone", phoneValue);
+  formData.append("nick_name", nickName.value);
+  formData.append("csrfmiddlewaretoken", csrf.value);
 
   const response = fetch("/send-message/", {
     method: "POST",
     body: formData,
   });
+
+  switchConfirmModal(true);
 });
 
 document.querySelector(".confirm__btn").addEventListener("click", (e) => {
-  const successModal = document.querySelector(".success__modal");
-  const confirmModal = document.querySelector(".confirm__modal");
   const optCode = document.querySelector(".opt__code").value;
   const modalBackdrop = document.querySelector(".modal-backdrop");
   const modalOpen = document.querySelector(".modal-open");
   const nickName = document.querySelector(".nick_name").value;
   const fullName = document.querySelector(".full_name").value;
-  const phoneNumber = document.querySelector(".phone_number").value;
+  const phoneNumber = document.querySelector(".phone_number").value.replace(/[+()\-\s]/g, '');
   const csrf = document.querySelector('[name="csrfmiddlewaretoken"]').value;
 
   const formData = new FormData();
@@ -199,12 +249,8 @@ document.querySelector(".confirm__btn").addEventListener("click", (e) => {
     })
     .then((data) => {
       if(data.status === 'success') {
-        confirmModal.classList.remove("show");
-        modalBackdrop.classList.remove("show");
-        successModal.classList.add("active");
-        successModal.classList.add("show");
-        modalOpen.style.overflow = "auto";
-        modalOpen.style.paddingRight = "0"
+        switchConfirmModal(false);
+        switchSuccessModal(true);
         return;
       }
       alert("Invalid code")
@@ -215,13 +261,11 @@ document.querySelector(".close__success-modal").addEventListener("click", () => 
   const successModal = document.querySelector(".success__modal");
   successModal.classList.remove("active");
   successModal.classList.remove("show");
-  window.location.reload();
 });
 
 document.querySelector(".btnclose__confirm-modal").addEventListener("click", () => {
   const successModal = document.querySelector(".success__modal");
   successModal.classList.remove("active");
   successModal.classList.remove("show");
-  window.location.reload();
 });
 

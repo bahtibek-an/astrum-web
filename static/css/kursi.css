@@ -477,40 +477,56 @@ li {
 
 
 
-
-#flip > div a {
-    color: #fff;
-}
-#flip > div > div {
+#flip a {
+    display: block;
     color:#ffffff;
-    margin-bottom: 50px;
-    display: inline-block;
-    align-items: center;
-    text-align: center;
-}
-#flip > div {
-    height: 50px;
-}
-#flip {
-    width: 100%;
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
-    background-image: linear-gradient(90deg, #6946EC, #F8C88A, #6946ec);
-    height: 50px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}  
-#flip div:first-child {
-    animation: show 10s linear infinite;
     font-family: 'Gilroy';
     font-weight: 700;
     font-size: 16px;
+}
+#flip {
+    width: 100%;
+    height: 50px;
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    background-image: linear-gradient(90deg, #6946EC, #F8C88A, #6946ec);
+    overflow: hidden;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}  
+#flip {
     display: flex;
     align-items: center;
     justify-content: center;
 }   
+#flip span {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-left: 20px;
+    display: inline-block;
+    animation: moveSpan 3s infinite alternate;
+}
+
+
+@keyframes moveSpan {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(27px);
+    }
+}
+
+@media (max-width: 1100px) {
+    #flip a,
+    #flip span  {
+        font-size: 12px !important;
+    }
+}
+
+
 
 .header-box{
     width: 100%;
@@ -1590,12 +1606,6 @@ label {
     }
     .lip{
         gap: 1.5rem;
-    }
-    #flip > div  {
-        font-size: 12px;
-    }
-    #flip {
-        padding-top: 5px;
     }
 }
 /*  */

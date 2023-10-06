@@ -6,6 +6,7 @@ from django.db import models
 class AkademyaHaqidaHeader(models.Model):
     title = models.CharField(max_length=250, blank=True)
     descriptions = models.CharField(max_length=300, blank=True)
+
     image1 = models.ImageField(blank=True)
     image2 = models.ImageField(blank=True)
     image3 = models.ImageField(blank=True)
@@ -22,7 +23,7 @@ class AkademyaHaqidaHeader(models.Model):
 
     def __str__(self):
         return self.title
-
+    
 
 class AssideAkademiyaHaqida(models.Model):
     title = models.CharField(max_length=250, blank=True)
