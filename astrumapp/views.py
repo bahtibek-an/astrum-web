@@ -37,7 +37,9 @@ def kurs_about(request, id):
     kurs_pLan = KursPLan.objects.all()
     # training programs
     training_program = TrainingProgram.objects.filter(course=id)
-    course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
+    course_seasons = []
+    if training_program:
+        course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
     korib_chiqish = KoribChiqish.objects.all()
     bitiruvchilar = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar = BitiruvchilarVideolar.objects.all()
@@ -95,7 +97,9 @@ def kurs_about_ru(request, pk):
 
     # training programs
     training_program = TrainingProgram.objects.filter(course=pk)
-    course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
+    course_seasons = []
+    if training_program:
+        course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
 
     ctx = {
         "course_ru": courses_ru, "main_course_ru": main_course_ru,
@@ -143,7 +147,9 @@ def kurs_about_eng(request, id):
 
     # training programs
     training_program = TrainingProgram.objects.filter(course=id)
-    course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
+    course_seasons = []
+    if training_program:
+        course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
 
     return render(request, "kursini_ichidagi-eng.html",
                   {"course_eng": course_eng, "main_course_eng": main_course_eng,
