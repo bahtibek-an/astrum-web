@@ -1,6 +1,7 @@
 from Kurs_ichi.models import *
 from django.contrib import admin
 from .models import TrainingProgram, QuestionAndAnswers, CourseSeason
+from tinymce.widgets import TinyMCE
 
 
 # Определяем административный класс для модели QuestionAndAnswers
@@ -17,6 +18,9 @@ class CourseSeasonInline(admin.TabularInline):
 class CourseSeasonAdmin(admin.ModelAdmin):
     list_display = ('course_season', 'title_ru', 'title_ru')
     list_filter = ('course_season',)
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMCE()},
+    }
     inlines = [QuestionAndAnswersInline]
 
 
@@ -24,6 +28,9 @@ class CourseSeasonAdmin(admin.ModelAdmin):
 class TrainingProgramAdmin(admin.ModelAdmin):
     # Определяем отображаемые поля в списке объектов
     list_display = ('title_ru', 'course')
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMCE()},
+    }
 
     inlines = [CourseSeasonInline]
 
