@@ -13,7 +13,7 @@ urlpatterns = [
     path('ru/', index_ru, name="home_ru"),
     path('ru/about_academy/', kompanita_ru, name="kompanita_ru"),
     path('ru/courses/', kursi_ru, name="kursi_ru"),
-    path('ru/courses/<int:id>/', kurs_about_ru, name="kurs_about_ru"),
+    path('ru/courses/<int:pk>/', kurs_about_ru, name="kurs_about_ru"),
     path('ru/photo/', photo_ru, name="photo_ru"),
     path('ru/about_us/', karyera_ru, name="karyera_ru"),
 

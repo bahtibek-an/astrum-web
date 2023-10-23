@@ -265,69 +265,77 @@
               </ul>
             </div>
 
-            <div class="section" id="abzor">
-                {% for i in savollar1 %}
-                  <div class="green-title">{{course.title}}</div>
+                        <div class="section" id="abzor">
+                {% for i in training_program %}
+                <div class="green-title">{{course_ru.title}}</div>
 
-                  <h1 class="section-title mb-3">{{i.title1}}</h1>
+                <h1 class="section-title mb-3">{{i.title}}</h1>
 
-                  <p class="section-text mb-5">
-                    {{i.descriptions1}}
-                  </p>
+                <p class="section-text mb-5">
+                    {{i.descriptions}}
+                </p>
 
-                  <h1 class="section-title mb-3">
-                    {{i.title2}}
-                  </h1>
+                <h1 class="section-title mb-3">
+                    Структура курса
+                </h1>
 
-                  <p class="section-text mb-5">
-                    {{i.descriptions2}}
-                  </p>
+                <p class="section-text mb-5">
+                    {{i.course_structure | safe}}
+                </p>
 
-                  <h4 class="program-h4 mb-3">{{i.title3}}</h4>
-
-                  <p class="section-text">
-                  {{i.descriptions3}}
-                  </p>
 
                 {% endfor %}
                 <!-- Questions-answeres -->
-                
-                <div class="accordion" id="#quest{{ forloop.counter }}">
-                  <!-- <div class="accordion_line-left">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="4" height="565" viewBox="0 0 4 565" fill="none">
-                      <line x1="1.92773" y1="1.5791" x2="1.92771" y2="562.579" stroke="#99999B" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 12"/>
-                    </svg>
-                  </div> -->
 
-                  {% for i in savollar_javob1 %}
+                <div class="accordion" id="#quest{{ forloop.counter }}">
+                    <!-- <div class="accordion_line-left">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="4" height="565" viewBox="0 0 4 565" fill="none">
+                        <line x1="1.92773" y1="1.5791" x2="1.92771" y2="562.579" stroke="#99999B" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 12"/>
+                      </svg>
+                    </div> -->
+
+                    {% for i in course_seasons %}
+                    <h4 class="program-h4 mb-3">{{i.title}}</h4>
+
+                    <p class="section-text">
+                        {{i.description}}
+                    </p>
+                    {% for a in i.question_and_answers.all %}
                     {% if forloop.counter0 < 10 %}
-                      <div class="accordion-item">
-                        
+                    <div class="accordion-item">
+
                         <div class="accordion__point">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <circle cx="8.27539" cy="8.07886" r="7.5" fill="#9747FF"/>
-                          </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                 fill="none">
+                                <circle cx="8.27539" cy="8.07886" r="7.5" fill="#9747FF"/>
+                            </svg>
                         </div>
                         <h2 class="accordion-header">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#quest{{ forloop.counter }}" aria-expanded="false" aria-controls="quest{{ forloop.counter }}">
-                            <div class="accordion-img">
-                              <img src="{% static './img/arrow-left.svg' %}"/>
-                            </div>
-                            <span class="accordion-header-title">{{ i.title }}</span>
-                            <div class="accordion-header-btn">Ko'proq</div>
-                          </button>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#quest{{ a.id }}" aria-expanded="false"
+                                    aria-controls="quest{{ a.id }}">
+                                <div class="accordion-img">
+                                    <img src="{% static './img/arrow-left.svg' %}"/>
+                                </div>
+                                <span class="accordion-header-title">{{ a.question }}</span>
+                                <div class="accordion-header-btn">Больше</div>
+                            </button>
 
-                          <div id="quest{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              {{ i.descriptions }}
-                            </div><br>
-                          </div><br>
+                            <div id="quest{{ a.id }}" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{ a.answer }}
+                                </div>
+                                <br>
+                            </div>
+                            <br>
 
                         </h2>
-                      </div>
+                    </div>
                     {% endif %}
-                {% endfor %}
-              </div>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="section" id="class">

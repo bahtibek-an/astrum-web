@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
-
 class Kurslar(models.Model):
     title = models.CharField(max_length=250, blank=True)
 
@@ -35,9 +33,5 @@ class Courses(models.Model):
     duration_eng = models.CharField(max_length=256, blank=True)
     is_main = models.BooleanField(default=False)
 
-    
-
     def __str__(self):
         return self.title
-
-

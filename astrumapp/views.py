@@ -17,6 +17,7 @@ import random
 from django.core.cache import cache
 from uuid import uuid4
 
+
 def kurs_about(request, id):
     course = get_object_or_404(Courses, id=id)
     news_header = NewsHeader.objects.all()
@@ -34,10 +35,9 @@ def kurs_about(request, id):
     oylik_tolov_qulayligi = OylikTolovQulayligi.objects.all()
     kurs_jadvali = KursJadvali.objects.all()
     kurs_pLan = KursPLan.objects.all()
-    savollar1 = Savollar1.objects.all()
-    savollar_javob1 = SavollarJavob1.objects.all()
-    savollar2 = Savollar2.objects.all()
-    savollar_javob2 = SavollarJavob2.objects.all()
+    # training programs
+    training_program = TrainingProgram.objects.filter(course=id)
+    course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
     korib_chiqish = KoribChiqish.objects.all()
     bitiruvchilar = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar = BitiruvchilarVideolar.objects.all()
@@ -55,18 +55,20 @@ def kurs_about(request, id):
                    "bugungi_tolov_qlayligi": bugungi_tolov_qlayligi,
                    "oylik_tolov": oylik_tolov, "oylik_tolov_qulayligi": oylik_tolov_qulayligi,
                    "kurs_jadvali": kurs_jadvali, "kurs_pLan": kurs_pLan,
-                   "savollar1": savollar1, "savollar_javob1": savollar_javob1, "savollar2": savollar2,
-                   "savollar_javob2": savollar_javob2,
                    "news_header": news_header, "korib_chiqish": korib_chiqish,
                    "bitiruvchilar": bitiruvchilar, "bitiruvchilar_videolar": bitiruvchilar_videolar,
-                   "comentarya": comentarya})
+                   "comentarya": comentarya,
+                   # training programs
+                   'training_program': training_program,
+                   'course_seasons': course_seasons,
+                   })
 
 
-def kurs_about_ru(request, id):
-    course_ru = get_object_or_404(Courses, id=id)
-    news_header_ru = NewsHeader.objects.all()
-
-    trend_dasturi_ru = TreningDasturi.objects.all()
+def kurs_about_ru(request, pk):
+    courses_ru: object = get_object_or_404(Courses, pk=pk)
+    news_header_ru: object = NewsHeader.objects.all()
+    prices: object = Narxlar.objects.all()
+    trend_dasturi_ru: object = TreningDasturi.objects.all()
     trening_dasturi_answer_ru = TreningDasturiAnswer.objects.all()
 
     # Fix the next line to use the correct model name: KurslarUchunDarslar
@@ -79,10 +81,10 @@ def kurs_about_ru(request, id):
     oylik_tolov_qulayligi_ru = OylikTolovQulayligi.objects.all()
     kurs_jadvali_ru = KursJadvali.objects.all()
     kurs_pLan_ru = KursPLan.objects.all()
-    savollar1_ru = Savollar1.objects.all()
-    savollar_javob1_ru = SavollarJavob1.objects.all()
-    savollar2_ru = Savollar2.objects.all()
-    savollar_javob2_ru = SavollarJavob2.objects.all()
+    # savollar1_ru = Savollar1.objects.all()
+    # savollar_javob1_ru = SavollarJavob1.objects.all()
+    # savollar2_ru = Savollar2.objects.all()
+    # savollar_javob2_ru = SavollarJavob2.objects.all()
     korib_chiqish_ru = KoribChiqish.objects.all()
     bitiruvchilar_ru = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar_ru = BitiruvchilarVideolar.objects.all()
@@ -91,20 +93,27 @@ def kurs_about_ru(request, id):
     main_course_ru = Courses.objects.all()
     footer_ru = Footer.objects.all()
 
-    return render(request, "kursini_ichidagi-ru.html",
-                  {"course_ru": course_ru, "main_course_ru": main_course_ru,
-                   "footer_ru": footer_ru, "trend_dasturi_ru": trend_dasturi_ru,
-                   "trening_dasturi_answer_ru": trening_dasturi_answer_ru,
-                   "kurslar_uchun_darslar_ru": kurslar_uchun_darslar_ru,
-                   "narxlar_ru": narxlar_ru, "bugungi_tolov_ru": bugungi_tolov_ru,
-                   "bugungi_tolov_qlayligi_ru": bugungi_tolov_qlayligi_ru,
-                   "oylik_tolov_ru": oylik_tolov_ru, "oylik_tolov_qulayligi_ru": oylik_tolov_qulayligi_ru,
-                   "kurs_jadvali_ru": kurs_jadvali_ru, "kurs_pLan_ru": kurs_pLan_ru,
-                   "savollar1_ru": savollar1_ru, "savollar_javob1_ru": savollar_javob1_ru, "savollar2_ru": savollar2_ru,
-                   "savollar_javob2_ru": savollar_javob2_ru,
-                   "news_header_ru": news_header_ru, "korib_chiqish_ru": korib_chiqish_ru,
-                   "bitiruvchilar_ru": bitiruvchilar_ru, "bitiruvchilar_videolar_ru": bitiruvchilar_videolar_ru,
-                   "comentarya_ru": comentarya_ru})
+    # training programs
+    training_program = TrainingProgram.objects.filter(course=pk)
+    course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
+
+    ctx = {
+        "course_ru": courses_ru, "main_course_ru": main_course_ru,
+        "footer_ru": footer_ru, "trend_dasturi_ru": trend_dasturi_ru,
+        "trening_dasturi_answer_ru": trening_dasturi_answer_ru,
+        "kurslar_uchun_darslar_ru": kurslar_uchun_darslar_ru,
+        "narxlar_ru": prices, "bugungi_tolov_ru": bugungi_tolov_ru,
+        "bugungi_tolov_qlayligi_ru": bugungi_tolov_qlayligi_ru,
+        "oylik_tolov_ru": oylik_tolov_ru, "oylik_tolov_qulayligi_ru": oylik_tolov_qulayligi_ru,
+        "kurs_jadvali_ru": kurs_jadvali_ru, "kurs_pLan_ru": kurs_pLan_ru,
+        "news_header_ru": news_header_ru, "korib_chiqish_ru": korib_chiqish_ru,
+        "bitiruvchilar_ru": bitiruvchilar_ru, "bitiruvchilar_videolar_ru": bitiruvchilar_videolar_ru,
+        "comentarya_ru": comentarya_ru,
+        # training programs
+        'training_program': training_program,
+        'course_seasons': course_seasons,
+    }
+    return render(request, "kursini_ichidagi-ru.html", ctx)
 
 
 def kurs_about_eng(request, id):
@@ -124,10 +133,6 @@ def kurs_about_eng(request, id):
     oylik_tolov_qulayligi_eng = OylikTolovQulayligi.objects.all()
     kurs_jadvali_eng = KursJadvali.objects.all()
     kurs_pLan_eng = KursPLan.objects.all()
-    savollar1_eng = Savollar1.objects.all()
-    savollar_javob1_eng = SavollarJavob1.objects.all()
-    savollar2_eng = Savollar2.objects.all()
-    savollar_javob2_eng = SavollarJavob2.objects.all()
     korib_chiqish_eng = KoribChiqish.objects.all()
     bitiruvchilar_eng = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar_eng = BitiruvchilarVideolar.objects.all()
@@ -135,6 +140,10 @@ def kurs_about_eng(request, id):
 
     main_course_eng = Courses.objects.all()
     footer_eng = Footer.objects.all()
+
+    # training programs
+    training_program = TrainingProgram.objects.filter(course=id)
+    course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
 
     return render(request, "kursini_ichidagi-eng.html",
                   {"course_eng": course_eng, "main_course_eng": main_course_eng,
@@ -145,11 +154,13 @@ def kurs_about_eng(request, id):
                    "bugungi_tolov_qlayligi_eng": bugungi_tolov_qlayligi_eng,
                    "oylik_tolov_eng": oylik_tolov_eng, "oylik_tolov_qulayligi_eng": oylik_tolov_qulayligi_eng,
                    "kurs_jadvali_eng": kurs_jadvali_eng, "kurs_pLan_eng": kurs_pLan_eng,
-                   "savollar1_eng": savollar1_eng, "savollar_javob1_eng": savollar_javob1_eng,
-                   "savollar2_eng": savollar2_eng, "savollar_javob2_eng": savollar_javob2_eng,
                    "news_header_eng": news_header_eng, "korib_chiqish_eng": korib_chiqish_eng,
                    "bitiruvchilar_eng": bitiruvchilar_eng, "bitiruvchilar_videolar_eng": bitiruvchilar_videolar_eng,
-                   "comentarya_eng": comentarya_eng})
+                   "comentarya_eng": comentarya_eng,
+                   # training programs
+                   'training_program': training_program,
+                   'course_seasons': course_seasons,
+                   })
 
 
 def index(request):
@@ -568,7 +579,8 @@ def send_message(request):
             }
             response = requests.post('http://sms.etc.uz:8084/single-sms', json=data)
             if response.status_code == 200:
-                data = ReportData.objects.create(phone=phone, random_code=random_code, full_name=full_name, nick_name=nick_name)
+                data = ReportData.objects.create(phone=phone, random_code=random_code, full_name=full_name,
+                                                 nick_name=nick_name)
                 data.save()
                 status_data = {'status': 'success'}
                 response = JsonResponse(status_data, status=200)
@@ -580,7 +592,6 @@ def send_message(request):
     return render(request, "index.html", {"form": form})
 
 
-
 def confirm_code(request):
     if request.method == "POST":
         form = ConfirmForm(request.POST)
@@ -589,10 +600,10 @@ def confirm_code(request):
             code = form.cleaned_data["code"]
             full_name = form.cleaned_data["full_name"]
             nick_name = form.cleaned_data["nick_name"]
-            
+
             try:
                 data_report = ReportData.objects.filter(phone=phone).order_by('-created_time').first()
-                
+
                 if data_report.random_code == code:
                     status_data = {'status': 'success'}
 
@@ -625,7 +636,8 @@ def confirm_code(request):
 
                     print(data)
 
-                    responseBitrix = requests.post('https://office.astrum.uz/rest/33/eko4d7ti6fax0tx1/crm.lead.add.json', json=data)
+                    responseBitrix = requests.post(
+                        'https://office.astrum.uz/rest/33/eko4d7ti6fax0tx1/crm.lead.add.json', json=data)
 
                     response = JsonResponse(status_data, status=200)
                     return response
@@ -633,8 +645,5 @@ def confirm_code(request):
             except:
                 return JsonResponse({'status': 'error'}, status=400)
     return JsonResponse({'status': 'get method'}, status=400)
-
-
-
 
 ### English tili qismiii ###

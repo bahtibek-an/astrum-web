@@ -1,8 +1,6 @@
 from django.core.validators import FileExtensionValidator
 from django.db import models
-
-
-# Create your models here.
+from Cours.models import Courses
 
 
 class TreningDasturi(models.Model):
@@ -22,18 +20,18 @@ class TreningDasturi(models.Model):
 class KoribChiqish(models.Model):
     title = models.CharField(max_length=100)
     name = models.CharField(max_length=250)
-    descriptions = models.CharField(max_length=500)
+    descriptions = models.TextField(blank=True, null=True)
 
     title_ru = models.CharField(max_length=100)
     name_ru = models.CharField(max_length=250)
-    descriptions_ru = models.CharField(max_length=500)
+    descriptions_ru = models.TextField(blank=True, null=True)
 
     title_eng = models.CharField(max_length=100)
     name_eng = models.CharField(max_length=250)
-    descriptions_eng = models.CharField(max_length=500)
+    descriptions_eng = models.TextField(blank=True, null=True)
 
     video = models.FileField(upload_to='videos_uploaded', null=True, validators=[
-                                 FileExtensionValidator(allowed_extensions=['MOV', 'avi', 'mp4', 'webm', 'mkv'])])
+        FileExtensionValidator(allowed_extensions=['MOV', 'avi', 'mp4', 'webm', 'mkv'])])
 
     def __str__(self):
         return self.title
@@ -247,69 +245,64 @@ class KursPLan(models.Model):
         return self.kurs_name
 
 
-class Savollar2(models.Model):
-    name = models.CharField(max_length=156)
-    descriptions = models.CharField(max_length=156)
+class TrainingProgram(models.Model):
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True, blank=True,
+                               related_name="training_programs")
 
-    name_ru = models.CharField(max_length=156)
-    descriptions_ru = models.CharField(max_length=156)
-
-    name_eng = models.CharField(max_length=156)
-    descriptions_eng = models.CharField(max_length=156)
-
-    def __str__(self):
-        return self.name
-
-
-class SavollarJavob2(models.Model):
     title = models.CharField(max_length=200)
-    descriptions = models.CharField(max_length=1000)
+    descriptions = models.TextField()
+    course_structure = models.TextField()
 
     title_ru = models.CharField(max_length=200)
-    descriptions_ru = models.CharField(max_length=1000)
+    descriptions_ru = models.TextField()
+    course_structure_ru = models.TextField()
 
-    title_eng = models.CharField(max_length=200)
-    descriptions_eng = models.CharField(max_length=1000)
+    title_en = models.CharField(max_length=200)
+    descriptions_en = models.TextField()
+    course_structure_en = models.TextField()
 
-    def __str__(self):
-        return self.title
-
-
-class Savollar1(models.Model):
-    title1 = models.CharField(max_length=200)
-    descriptions1 = models.CharField(max_length=1000)
-    title2 = models.CharField(max_length=200)
-    descriptions2 = models.CharField(max_length=1000)
-    title3 = models.CharField(max_length=200)
-    descriptions3 = models.CharField(max_length=1000)
-
-    title1_ru = models.CharField(max_length=200)
-    descriptions1_ru = models.CharField(max_length=1000)
-    title2_ru = models.CharField(max_length=200)
-    descriptions2_ru = models.CharField(max_length=1000)
-    title3_ru = models.CharField(max_length=200)
-    descriptions3_ru = models.CharField(max_length=1000)
-
-    title1_eng = models.CharField(max_length=200)
-    descriptions1_eng = models.CharField(max_length=1000)
-    title2_eng = models.CharField(max_length=200)
-    descriptions2_eng = models.CharField(max_length=1000)
-    title3_eng = models.CharField(max_length=200)
-    descriptions3_eng = models.CharField(max_length=1000)
+    class Meta:
+        verbose_name = "Учебная программа"
+        verbose_name_plural = "Учебные программы"
 
     def __str__(self):
-        return self.title1
+        return self.title_ru
 
 
-class SavollarJavob1(models.Model):
+class CourseSeason(models.Model):
+    course_season = models.ForeignKey(TrainingProgram, on_delete=models.CASCADE, related_name="course_seasons")
+
     title = models.CharField(max_length=200)
-    descriptions = models.CharField(max_length=1000)
+    description = models.TextField()
 
     title_ru = models.CharField(max_length=200)
-    descriptions_ru = models.CharField(max_length=1000)
+    description_ru = models.TextField()
 
-    title_eng = models.CharField(max_length=200)
-    descriptions_eng = models.CharField(max_length=1000)
+    title_en = models.CharField(max_length=200)
+    description_en = models.TextField()
+
+    class Meta:
+        verbose_name = "Сезон курса"
+        verbose_name_plural = "Сезоны курса"
 
     def __str__(self):
-        return self.title
+        return self.title_ru
+
+
+class QuestionAndAnswers(models.Model):
+    course_season = models.ForeignKey(CourseSeason, on_delete=models.CASCADE, related_name="question_and_answers")
+    question = models.CharField(max_length=400)
+    answer = models.TextField()
+
+    question_ru = models.CharField(max_length=400, default="test")
+    answer_ru = models.TextField()
+
+    question_en = models.CharField(max_length=400)
+    answer_en = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Вопросы и ответы"
+        verbose_name = "Вопрос и ответ"
+
+    def __str__(self):
+        return self.question_ru
