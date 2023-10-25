@@ -4,6 +4,9 @@ from Cours.models import Courses
 
 
 class TreningDasturi(models.Model):
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True, blank=True,
+                               related_name="course_importance")
+
     title = models.CharField(max_length=100)
     name = models.CharField(max_length=250)
 
@@ -15,6 +18,10 @@ class TreningDasturi(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Важность курса"
+        verbose_name_plural = "Важность курсов"
 
 
 class KoribChiqish(models.Model):
@@ -90,6 +97,9 @@ class Comentarya(models.Model):
 
 
 class TreningDasturiAnswer(models.Model):
+    course_training = models.ForeignKey(TreningDasturi, on_delete=models.CASCADE, null=True, blank=True,
+                                        related_name="training_answers")
+
     title = models.CharField(max_length=100)
     descriptions = models.CharField(max_length=250)
 
@@ -101,6 +111,10 @@ class TreningDasturiAnswer(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Oтвет на важность курса"
+        verbose_name_plural = "Ответы на важность курсов"
 
 
 class KurslarUchunDarslar(models.Model):

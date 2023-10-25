@@ -46,6 +46,22 @@ class KoribChiqishAdmin(admin.ModelAdmin):
     list_filter = ('course',)
 
 
+class TreningDasturiAnswerInline(admin.TabularInline):
+    model = TreningDasturiAnswer
+    extra = 1
+
+
+class TreningDasturiAdmin(admin.ModelAdmin):
+    list_display = ('title_ru', 'course')
+    list_filter = ('course',)
+    inlines = [TreningDasturiAnswerInline]
+
+
+class TreningDasturiAnswerAdmin(admin.ModelAdmin):
+    list_display = ('title_ru', 'course_training')
+    list_filter = ('course_training',)
+
+
 admin.site.register(KoribChiqish, KoribChiqishAdmin)
 
 # Регистрируем административный класс TrainingProgram с вложенным QuestionAndAnswersInline
@@ -55,8 +71,8 @@ admin.site.register(TrainingProgram, TrainingProgramAdmin)
 admin.site.register(QuestionAndAnswers)
 admin.site.register(CourseSeason, CourseSeasonAdmin)
 
-admin.site.register(TreningDasturi)
-admin.site.register(TreningDasturiAnswer)
+admin.site.register(TreningDasturi, TreningDasturiAdmin)
+admin.site.register(TreningDasturiAnswer, TreningDasturiAnswerAdmin)
 admin.site.register(KurslarUchunDarslar)
 admin.site.register(Narxlar)
 admin.site.register(BugungiTolov)
