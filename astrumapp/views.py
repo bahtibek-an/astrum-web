@@ -22,8 +22,8 @@ def kurs_about(request, id):
     course = get_object_or_404(Courses, id=id)
     news_header = NewsHeader.objects.all()
 
-    trend_dasturi = TreningDasturi.objects.all()
-    trening_dasturi_answer = TreningDasturiAnswer.objects.all()
+    trend_dasturi = TreningDasturi.objects.filter(course=id)
+    trening_dasturi_answer = TreningDasturiAnswer.objects.filter(course_training__course=id)
 
     # Fix the next line to use the correct model name: KurslarUchunDarslar
     kurslar_uchun_darslar = KurslarUchunDarslar.objects.all()
@@ -88,10 +88,7 @@ def kurs_about_ru(request, pk):
     # savollar_javob1_ru = SavollarJavob1.objects.all()
     # savollar2_ru = Savollar2.objects.all()
     # savollar_javob2_ru = SavollarJavob2.objects.all()
-    try:
-        korib_chiqish_ru = KoribChiqish.objects.get(course=pk)
-    except KoribChiqish.DoesNotExist:
-        korib_chiqish_ru = []
+    korib_chiqish_ru = KoribChiqish.objects.filter(course=pk)
 
     bitiruvchilar_ru = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar_ru = BitiruvchilarVideolar.objects.all()

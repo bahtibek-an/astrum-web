@@ -17,7 +17,7 @@ class TreningDasturi(models.Model):
     name_eng = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.title
+        return self.course.title
 
     class Meta:
         verbose_name = "Важность курса"
