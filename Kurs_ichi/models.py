@@ -18,6 +18,9 @@ class TreningDasturi(models.Model):
 
 
 class KoribChiqish(models.Model):
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True, blank=True,
+                               related_name="course_views")
+
     title = models.CharField(max_length=100)
     name = models.CharField(max_length=250)
     descriptions = models.TextField(blank=True, null=True)

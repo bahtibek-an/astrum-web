@@ -41,6 +41,13 @@ class TrainingProgramAdmin(admin.ModelAdmin):
     search_fields = ('title_ru', 'course__name')
 
 
+class KoribChiqishAdmin(admin.ModelAdmin):
+    list_display = ('title_ru', 'course')
+    list_filter = ('course',)
+
+
+admin.site.register(KoribChiqish, KoribChiqishAdmin)
+
 # Регистрируем административный класс TrainingProgram с вложенным QuestionAndAnswersInline
 admin.site.register(TrainingProgram, TrainingProgramAdmin)
 
@@ -56,7 +63,6 @@ admin.site.register(BugungiTolov)
 admin.site.register(BugungiTolovQulayligi)
 admin.site.register(OylikTolov)
 admin.site.register(OylikTolovQulayligi)
-admin.site.register(KoribChiqish)
 
 admin.site.register(Bitiruvchilar)
 admin.site.register(BitiruvchilarVideolar)

@@ -40,7 +40,8 @@ def kurs_about(request, id):
     course_seasons = []
     if training_program:
         course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
-    korib_chiqish = KoribChiqish.objects.all()
+    korib_chiqish = KoribChiqish.objects.filter(course=id)
+
     bitiruvchilar = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar = BitiruvchilarVideolar.objects.all()
     comentarya = Comentarya.objects.all()
@@ -87,7 +88,11 @@ def kurs_about_ru(request, pk):
     # savollar_javob1_ru = SavollarJavob1.objects.all()
     # savollar2_ru = Savollar2.objects.all()
     # savollar_javob2_ru = SavollarJavob2.objects.all()
-    korib_chiqish_ru = KoribChiqish.objects.all()
+    try:
+        korib_chiqish_ru = KoribChiqish.objects.get(course=pk)
+    except KoribChiqish.DoesNotExist:
+        korib_chiqish_ru = []
+
     bitiruvchilar_ru = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar_ru = BitiruvchilarVideolar.objects.all()
     comentarya_ru = Comentarya.objects.all()
@@ -137,7 +142,10 @@ def kurs_about_eng(request, id):
     oylik_tolov_qulayligi_eng = OylikTolovQulayligi.objects.all()
     kurs_jadvali_eng = KursJadvali.objects.all()
     kurs_pLan_eng = KursPLan.objects.all()
-    korib_chiqish_eng = KoribChiqish.objects.all()
+    try:
+        korib_chiqish_eng = KoribChiqish.objects.get(course=id)
+    except KoribChiqish.DoesNotExist:
+        korib_chiqish_eng = []
     bitiruvchilar_eng = Bitiruvchilar.objects.all()
     bitiruvchilar_videolar_eng = BitiruvchilarVideolar.objects.all()
     comentarya_eng = Comentarya.objects.all()
