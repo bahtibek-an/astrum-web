@@ -387,35 +387,59 @@
                 </div>
             </div>
 
+            <div class="mentors">
+                <div class="green-title">КОМАНДА РАЗРАБОТЧИКОВ</div>
+                <h1 class="section-title">Учитесь у экспертов программировать</h1>
+                <p class="section-text">
+                    Наши преподаватели программирования одержимы своей работой! Они научат вас передовым методам и навыкам создания хорошего кода на современных языках программирования. О, и они очень дружелюбны и приносят кучу хорошей энергии на занятиях!
+                </p>
+
+                <div class="mentors__main">
+                    <div class="mentors__main-img">
+                        <img src="{% static './img/Mask group (12).png' %}"/>
+                        <span class="mentors__main-specialist">Преподаватель</span>
+                    </div>
+                    <div class="mentors__main-info">
+                        <div class="mentors__main-info-detail">
+                            <h4 class="mentors__main-info-name">Джасур Алиев</h4>
+                            <h4 class="mentors__main-info-specialist">Senior Full Stack Developer</h4>
+                        </div>
+                        <p class="mentors__main-info-text">
+                            “ Привет! Меня зовут Джасур, я ментор в направлении Full stack developer. Я учился в Ташкентском университете и был одним из первых преподавателей компании NAPA. Я являюсь членом Консультативного совета по направлении компании. Я очень увлеченный учитель и не люблю плохай код) ”
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="section" id="class">
                 {% for i in kurslar_uchun_darslar_ru %}
-                <div class="section-line"></div>
-                <div class="green-title">Уроки на курсах</div>
-                <h1 class="section-title">{{i.name_ru}}</h1>
-                <p class="section-text">
-                    {{i.descriptions_ru}}
-                </p>
-                <div class="carousel-w-100">
+                    <div class="section-line"></div>
+                    <div class="green-title">Уроки на курсах</div>
+                    <h1 class="section-title">{{i.name_ru}}</h1>
+                    <p class="section-text">
+                        {{i.descriptions_ru}}
+                    </p>
+                    <div class="carousel-w-100">
 
-                    <div class="mentor-carousel-item">
-                        <img src="{{i.image1.url}}" class="carousel-img">
-                    </div>
+                        <div class="mentor-carousel-item">
+                            <img src="{{i.image1.url}}" class="carousel-img">
+                        </div>
 
-                    <div class="mentor-carousel-item">
-                        <img src="{{i.image2.url}}" class="carousel-img">
-                    </div>
+                        <div class="mentor-carousel-item">
+                            <img src="{{i.image2.url}}" class="carousel-img">
+                        </div>
 
-                    <div class="mentor-carousel-item">
-                        <img src="{{i.image3.url}}" class="carousel-img">
-                    </div>
+                        <div class="mentor-carousel-item">
+                            <img src="{{i.image3.url}}" class="carousel-img">
+                        </div>
 
-                    <div class="mentor-carousel-item">
-                        <img src="{{i.image4.url}}" class="carousel-img">
-                    </div>
+                        <div class="mentor-carousel-item">
+                            <img src="{{i.image4.url}}" class="carousel-img">
+                        </div>
 
-                    <div class="mentor-carousel-item">
-                        <img src="{{i.image5.url}}" class="carousel-img">
-                    </div>
+                        <div class="mentor-carousel-item">
+                            <img src="{{i.image5.url}}" class="carousel-img">
+                        </div>
                     {% endfor %}
                 </div>
             </div>
