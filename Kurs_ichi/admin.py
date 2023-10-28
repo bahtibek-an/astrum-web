@@ -62,6 +62,12 @@ class TreningDasturiAnswerAdmin(admin.ModelAdmin):
     list_filter = ('course_training',)
 
 
+class MentorAdmin(admin.ModelAdmin):
+    list_display = ('full_name_ru', 'course', 'job_title_ru')
+
+
+admin.site.register(AstrumMentor, MentorAdmin)
+
 admin.site.register(KoribChiqish, KoribChiqishAdmin)
 
 # Регистрируем административный класс TrainingProgram с вложенным QuestionAndAnswersInline

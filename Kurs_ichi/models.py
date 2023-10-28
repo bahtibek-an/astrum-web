@@ -323,3 +323,30 @@ class QuestionAndAnswers(models.Model):
 
     def __str__(self):
         return self.question_ru
+
+
+class AstrumMentor(models.Model):
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True, blank=True,
+                               related_name="mentors")
+    image = models.ImageField(upload_to="mentors/", null=True)
+    full_name = models.CharField(max_length=200)
+    job_title = models.CharField(max_length=200)
+    job_type = models.CharField(max_length=200)
+    description = models.TextField()
+
+    full_name_ru = models.CharField(max_length=200)
+    job_title_ru = models.CharField(max_length=200)
+    job_type_ru = models.CharField(max_length=200)
+    description_ru = models.TextField()
+
+    full_name_en = models.CharField(max_length=200)
+    job_title_en = models.CharField(max_length=200)
+    job_type_en = models.CharField(max_length=200)
+    description_en = models.TextField()
+
+    class Meta:
+        verbose_name = "Mентор"
+        verbose_name_plural = "Mенторы"
+
+    def __str__(self):
+        return self.full_name_ru

@@ -49,6 +49,8 @@ def kurs_about(request, id):
     main_course = Courses.objects.all()
     footer = Footer.objects.all()
 
+    mentors = AstrumMentor.objects.filter(course=id)
+
     return render(request, "kursini_ichidagi.html",
                   {"course": course, "main_course": main_course,
                    "footer": footer, "trend_dasturi": trend_dasturi,
@@ -64,6 +66,7 @@ def kurs_about(request, id):
                    # training programs
                    'training_program': training_program,
                    'course_seasons': course_seasons,
+                   "mentors": mentors,
                    })
 
 
@@ -103,6 +106,8 @@ def kurs_about_ru(request, pk):
     if training_program:
         course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
 
+    mentors = AstrumMentor.objects.filter(course=id)
+
     ctx = {
         "course_ru": courses_ru, "main_course_ru": main_course_ru,
         "footer_ru": footer_ru, "trend_dasturi_ru": trend_dasturi_ru,
@@ -118,6 +123,7 @@ def kurs_about_ru(request, pk):
         # training programs
         'training_program': training_program,
         'course_seasons': course_seasons,
+        "mentors": mentors
     }
     return render(request, "kursini_ichidagi-ru.html", ctx)
 
@@ -155,7 +161,7 @@ def kurs_about_eng(request, id):
     course_seasons = []
     if training_program:
         course_seasons = CourseSeason.objects.filter(course_season=training_program[0].id)
-
+    mentors = AstrumMentor.objects.filter(course=id)
     return render(request, "kursini_ichidagi-eng.html",
                   {"course_eng": course_eng, "main_course_eng": main_course_eng,
                    "footer_eng": footer_eng, "trend_dasturi_eng": trend_dasturi_eng,
@@ -171,6 +177,7 @@ def kurs_about_eng(request, id):
                    # training programs
                    'training_program': training_program,
                    'course_seasons': course_seasons,
+                   "mentors": mentors,
                    })
 
 
