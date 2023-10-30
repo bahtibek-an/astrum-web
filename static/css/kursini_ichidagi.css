@@ -2884,6 +2884,11 @@ label {
     position: relative;
     width: 250px;
     height: 366px;
+    cursor: pointer;
+}
+
+.mentors__images-item-description {
+    display: none;
 }
 
 .mentors__images-item-job {

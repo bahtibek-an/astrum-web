@@ -50,4 +50,29 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		})
 	})
+
+
+
+	document.querySelectorAll(".mentors__images-item").forEach((item) => {
+		item.addEventListener("click", function() {
+			const clickedElement = this;
+			const imgSrc = clickedElement.querySelector(".mentors__images-img");
+			const descriptionText = clickedElement.querySelector(".mentors__images-item-description").textContent;
+			const jobType = clickedElement.querySelector(".mentors__images-item-job").textContent;
+			const fullName = clickedElement.querySelector(".mentors__images-item-name").textContent;
+			const jobTitle = clickedElement.querySelector(".mentors__images-item-spec").textContent;
+
+			const mainImg = document.querySelector(".mentors__main-img img");
+			const mainJobType = document.querySelector(".mentors__main-specialist");
+			const mainFullName = document.querySelector(".mentors__main-info-name");
+			const mainJobTitle = document.querySelector(".mentors__main-info-specialist");
+			const mainDescription = document.querySelector(".mentors__main-info-text");
+			console.log(this)
+			mainImg.src = imgSrc.src;
+			mainJobType.textContent = jobType;
+			mainFullName.textContent = fullName;
+			mainJobTitle.textContent = jobTitle;
+			mainDescription.textContent = descriptionText;
+		})
+	})
 });
