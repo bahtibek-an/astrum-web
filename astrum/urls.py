@@ -18,10 +18,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+
+def okay(request):
+    return HttpResponse('pretend-binary-data-here', content_type='image/jpeg')
+
 
 urlpatterns = [
     path('', include('astrumapp.urls')),
+    path('favicon.ico', okay),  # for warning
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
