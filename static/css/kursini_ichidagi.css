@@ -2980,3 +2980,38 @@ label {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.tools {
+}
+
+.tools__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tools__item {
+    height: 160px;
+}
+
+.tools__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media(max-width: 800px) {
+    .tools__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .tools__list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .tools__item {
+        height: min-content;
+    }
+}
