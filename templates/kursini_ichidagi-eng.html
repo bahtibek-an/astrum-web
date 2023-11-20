@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrum IT Academy | {{course_eng.title_eng}} </title>
+    <link rel="stylesheet" href="{% static 'css/kursini_ichidagi.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Header -->
+<div id="flip">
+    {% for i in news_header_eng %}
+    <a href="{{i.link_eng }}">
+        {{ i.title_eng }}
+        <span>
+                {{ i.title_right_eng  }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12" fill="none">
+                  <path d="M1.27399 4.90417C0.859773 4.90417 0.523987 5.23996 0.523987 5.65417C0.523987 6.06839 0.859773 6.40417 1.27399 6.40417V4.90417ZM19.1813 6.1845C19.4742 5.89161 19.4742 5.41674 19.1813 5.12384L14.4083 0.350874C14.1154 0.0579805 13.6405 0.0579805 13.3476 0.350874C13.0547 0.643767 13.0547 1.11864 13.3476 1.41153L17.5903 5.65417L13.3476 9.89682C13.0547 10.1897 13.0547 10.6646 13.3476 10.9575C13.6405 11.2504 14.1154 11.2504 14.4083 10.9575L19.1813 6.1845ZM1.27399 6.40417H18.6509V4.90417H1.27399V6.40417Z"
+                        fill="white"/>
+                </svg>
+              </span>
+    </a>
+    {% endfor %}
+</div>
+<!-- --- -->
+
+<!-- Header bottom -->
+<div class="navbar34">
+    <div class="header-bottom container">
+        <!-- Logo image -->
+        <a href="{% url 'home_eng' %}">
+            <img src="{% static 'img/blue-logo.svg' %}" class="logo">
+        </a>
+
+        <!-- Header links -->
+        <div class="head-link">
+            <ul class="header-links">
+                <a href="{% url 'kompanita_eng' %}">
+                    <li>About the Academy</li>
+                </a>
+                <a href="{% url 'kursi_eng' %}">
+                    <li>Courses</li>
+                </a>
+                <a href="{% url 'photo_eng' %}">
+                    <li>Photo pictures</li>
+                </a>
+                <a href="{% url 'karyera_eng' %}">
+                    <li>About us</li>
+                </a>
+            </ul>
+        </div>
+        <div class="buttons">
+
+            <!-- Best cources button -->
+            <div class="best-cources">
+                <a href="{% url 'kursi_eng' %}">
+                    <button class="btn-course">
+                        Best courses
+                    </button>
+                </a>
+            </div>
+            <!-- --- -->
+
+            <!-- Languages -->
+            <div class="lang">
+                <div id="lang" class="dropdown">
+                    <button class="dropbtn">Eng</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'kursi' %}">Uz</a>
+                        <a href="{% url 'kursi_ru' %}">Ru</a>
+                    </div>
+                </div>
+            </div>
+            <!-- --- -->
+        </div>
+    </div>
+</div>
+
+<!-- Navbar active -->
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home_eng' %}">
+            <img src="{% static './img/blue-logo.svg' %}" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+                aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+             aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                    <img src="{% static './img/logo.svg' %}" class="navbar-logo">
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <a href="{% url 'kompanita_eng' %}">
+                        <li class="nav-item">About academy</li>
+                    </a>
+                    <a href="{% url 'kursi_eng' %}">
+                        <li class="nav-item">Courses</li>
+                    </a>
+                    <a href="{% url 'photo_eng' %}">
+                        <li class="nav-item">Photo pictures</li>
+                    </a>
+                    <a href="{% url 'karyera_eng' %}">
+                        <li class="nav-item">Career</li>
+                    </a>
+                </ul>
+                <!-- Languages -->
+                <div class="lang">
+                    <div id="lang" class="dropdown">
+                        <button class="dropbtn">Ru</button>
+                        <div class="dropdown-content">
+                            <a href="{% url 'home' %}">Uz</a>
+                            <a href="{% url 'home_eng' %}">Eng</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- --- -->
+            </div>
+        </div>
+    </div>
+</nav>
+
+</div>
+</div>
+<!-- --- -->
+
+<!-- Header title -->
+<div class="container hero__breadcrumb">
+
+    <div class="location-page text-center" id="m-5">
+        <!-- <p class="bold">Главная&zwnj;</p> | курсы и образование | Full stack developer  -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home_eng' %}">Homepage</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'kursi_eng' %}">Course and training</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Full stack developer</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="hero__content">
+        <div class="hero__description">
+            <div class="comment">
+                <h1 class="title-comment">{{course_eng.title_eng}}</h1>
+                <h3 class="time-comment">{{course_eng.data_eng}}</h3>
+                <div class="green-line"></div>
+                <div class="box-skills">
+                    {{course_eng.short_descriptions_eng}}
+                </div>
+                <p class="text-comment">
+                    {{course_eng.short_descriptions_big_eng}}
+                </p>
+                <div id="btn-register-box">
+                    <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                      Hozir roʻyxatdan oʻting
+                    </button> -->
+                    <script data-b24-form="click/107/cvf8d7" data-skip-moving="true">
+                        (function (w, d, u) {
+                            var s = d.createElement('script');
+                            s.async = true;
+                            s.src = u + '?' + (Date.now() / 180000 | 0);
+                            var h = d.getElementsByTagName('script')[0];
+                            h.parentNode.insertBefore(s, h);
+                        })(window, document, 'https://office.astrum.uz/upload/crm/form/loader_107_cvf8d7.js');
+                    </script>
+                    <button class="btn-register clickSound" data-b24-form="click/107/cvf8d7" data-skip-moving="true">
+                        Do you need help?
+                    </button>
+
+                    <!-- Modal register -->
+                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Show the second modal window and hide it using the button below.
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                            data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Hide this modal and show the first one using the button below.
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle"
+                                            data-bs-toggle="modal" data-bs-dismiss="modal">Back to first
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- --- -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__image">
+            <img src="{{course_eng.image.url}}" class="hero-img">
+        </div>
+    </div>
+</div>
+<!-- --- -->
+
+<!-- Aside -->
+<div class="container mb-5 mt-5">
+    <div class="row aside-row">
+
+        <div class="col">
+            <aside class="aside">
+                <div class="aside-title">{{course_eng.title_eng}}</div>
+                <div class="grey-line"></div>
+                <ul class="aside-links">
+                    <a href="#programa">
+                        <li class="aside-link">Training program</li>
+                    </a>
+                    <a href="#class">
+                        <li class="aside-link">Lessons on courses</li>
+                    </a>
+                    <a href="#price">
+                        <li class="aside-link">Prices</li>
+                    </a>
+                    <a href="#raspisania">
+                        <li class="aside-link">Course Schedule</li>
+                    </a>
+                    <a href="#questions">
+                        <li class="aside-link">Questions</li>
+                    </a>
+                </ul>
+                <div class="aside-btn text-center">
+                    <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                        (function (w, d, u) {
+                            var s = d.createElement('script');
+                            s.async = true;
+                            s.src = u + '?' + (Date.now() / 180000 | 0);
+                            var h = d.getElementsByTagName('script')[0];
+                            h.parentNode.insertBefore(s, h);
+                        })(window, document, 'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                    </script>
+                    <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                        Register
+                    </button>
+                    <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                      Hozir roʻyxatdan oʻting
+                    </button> -->
+                </div>
+            </aside>
+        </div>
+
+        <div class="col-8 container learn__course programming__skills">
+
+            <div class="section" id="abzor">
+                {% for i in korib_chiqish_eng %}
+                <div class="green-title">{{i.title_eng}}</div>
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                <p class="section-text">
+                    {{i.descriptions_eng}}
+                </p>
+                <div class="section">
+                    <video src="{{i.video.url}}" controls class="section-video"></video>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="section" id="programa">
+                {% for i in trend_dasturi_eng %}
+                <div class="green-title">{{i.title_eng}}</div>
+
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                {% endfor %}
+                <ul class="section-program-ul">
+
+                    {% for i in trening_dasturi_answer_eng %}
+                    {% if forloop.counter0 < 5 %}
+                    <li class="program-li d-flex">
+                        <ion-icon name="checkmark-sharp" class="program-icon"></ion-icon>
+                        <div class="program-text">
+                            <h4 class="program-h4">{{i.title_eng}}</h4>
+                            <p class="program-p">{{i.descriptions_eng}}</p>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+            <div class="section" id="abzor">
+                {% for i in training_program %}
+                <div class="green-title">{{course_ru.title_en}}</div>
+
+                <h1 class="section-title mb-3">{{i.title_en}}</h1>
+
+                <p class="section-text mb-5">
+                    {{i.descriptions_en}}
+                </p>
+
+                <h1 class="section-title mb-3">
+                    Course structure
+                </h1>
+
+                <p class="section-text mb-5">
+                    {{i.course_structure_en | safe}}
+                </p>
+
+                {% endfor %}
+                <!-- Questions-answeres -->
+
+                <div class="accordion" id="#quest{{ forloop.counter }}">
+                    <!-- <div class="accordion_line-left">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="4" height="565" viewBox="0 0 4 565" fill="none">
+                        <line x1="1.92773" y1="1.5791" x2="1.92771" y2="562.579" stroke="#99999B" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 12"/>
+                      </svg>
+                    </div> -->
+
+                    {% for i in course_seasons %}
+                    <h4 class="program-h4 mb-3">{{i.title_en}}</h4>
+
+                    <p class="section-text">
+                        {{i.description_en}}
+                    </p>
+                    {% for a in i.question_and_answers.all %}
+                    {% if forloop.counter0 < 10 %}
+                    <div class="accordion-item">
+
+                        <div class="accordion__point">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                 fill="none">
+                                <circle cx="8.27539" cy="8.07886" r="7.5" fill="#9747FF"/>
+                            </svg>
+                        </div>
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#quest{{ a.id }}" aria-expanded="false"
+                                    aria-controls="quest{{ a.id }}">
+                                <div class="accordion-img">
+                                    <img src="{% static './img/arrow-left.svg' %}"/>
+                                </div>
+                                <span class="accordion-header-title">{{ a.question_ru }}</span>
+                                <div class="accordion-header-btn">Ko'proq</div>
+                            </button>
+
+                            <div id="quest{{ a.id }}" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{ a.answer_ru }}
+                                </div>
+                                <br>
+                            </div>
+                            <br>
+
+                        </h2>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mentors">
+                <div class="green-title">DEVELOPMENT TEAM</div>
+                <h1 class="section-title"></h1>
+                <p class="section-text">
+                    Our programming teachers are obsessed with their work! They will teach you best practices and skills for creating good code in modern programming languages. Oh, and they are super friendly and bring tons of good energy to class!
+                </p>
+
+                <div class="mentors__main">
+                    <div class="mentors__main-img">
+                        <img src="{% static './img/Mask group (12).png' %}"/>
+                        <span class="mentors__main-specialist">Преподаватель</span>
+                    </div>
+                    <div class="mentors__main-info">
+                        <div class="mentors__main-info-detail">
+                            <h4 class="mentors__main-info-name">Джасур Алиев</h4>
+                            <h4 class="mentors__main-info-specialist">Senior Full Stack Developer</h4>
+                        </div>
+                        <p class="mentors__main-info-text">
+                            “ Привет! Меня зовут Джасур, я ментор в направлении Full stack developer. Я учился в Ташкентском университете и был одним из первых преподавателей компании NAPA. Я являюсь членом Консультативного совета по направлении компании. Я очень увлеченный учитель и не люблю плохай код) ”
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mentors__images">
+                    <div class="green-title">КОМАНДА программистов</div>
+                    <ul class="mentors__images-list">
+                        <li class="mentors__images-item">
+                            <img src="{% static './img/Mask group (13).png' %}" alt="mentor-img"/>
+                            <span class="mentors__images-item-job">Преподаватель</span>
+                            <div class="mentors__images-item-info">
+                                <h4 class="mentors__images-item-name">Азиза Джамилиева</h4>
+                                <p class="mentors__images-item-spec">Software Engineer</p>
+                            </div>
+                        </li>
+                        <li class="mentors__images-item">
+                            <img src="{% static './img/Mask group (13).png' %}" alt="mentor-img"/>
+                            <span class="mentors__images-item-job">Преподаватель</span>
+                            <div class="mentors__images-item-info">
+                                <h4 class="mentors__images-item-name">Азиза Джамилиева</h4>
+                                <p class="mentors__images-item-spec">Software Engineer</p>
+                            </div>
+                        </li>
+                        <li class="mentors__images-item">
+                            <img src="{% static './img/Mask group (13).png' %}" alt="mentor-img"/>
+                            <span class="mentors__images-item-job">Преподаватель</span>
+                            <div class="mentors__images-item-info">
+                                <h4 class="mentors__images-item-name">Азиза Джамилиева</h4>
+                                <p class="mentors__images-item-spec">Software Engineer</p>
+                            </div>
+                        </li>
+                        <li class="mentors__images-item">
+                            <img src="{% static './img/Mask group (13).png' %}" alt="mentor-img"/>
+                            <span class="mentors__images-item-job">Преподаватель</span>
+                            <div class="mentors__images-item-info">
+                                <h4 class="mentors__images-item-name">Азиза Джамилиева</h4>
+                                <p class="mentors__images-item-spec">Software Engineer</p>
+                            </div>
+                        </li>
+                        <li class="mentors__images-item">
+                            <img src="{% static './img/Mask group (13).png' %}" alt="mentor-img"/>
+                            <span class="mentors__images-item-job">Преподаватель</span>
+                            <div class="mentors__images-item-info">
+                                <h4 class="mentors__images-item-name">Азиза Джамилиева</h4>
+                                <p class="mentors__images-item-spec">Software Engineer</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="class">
+                {% for i in kurslar_uchun_darslar_eng %}
+                <div class="section-line"></div>
+                <div class="green-title">Lessons on courses</div>
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                <p class="section-text">
+                    {{i.descriptions_eng}}
+                </p>
+                <div class="carousel-w-100">
+
+                    <div class="mentor-carousel-item">
+                        <img src="{{i.image1.url}}" class="carousel-img">
+                    </div>
+
+                    <div class="mentor-carousel-item">
+                        <img src="{{i.image2.url}}" class="carousel-img">
+                    </div>
+
+                    <div class="mentor-carousel-item">
+                        <img src="{{i.image3.url}}" class="carousel-img">
+                    </div>
+
+                    <div class="mentor-carousel-item">
+                        <img src="{{i.image4.url}}" class="carousel-img">
+                    </div>
+
+                    <div class="mentor-carousel-item">
+                        <img src="{{i.image5.url}}" class="carousel-img">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="section" id="vipusnik">
+                {% for i in bitiruvchilar_eng %}
+                <div class="section-line"></div>
+                <div class="green-title">Graduates</div>
+                <h1 class="section-title">{{i.title_eng}}</h1>
+                <p class="section-text">
+                    {{i.descriptions_eng}}
+                </p>
+                {% endfor %}
+
+                <div class="row gap-1 mt-5">
+
+                    {% for i in bitiruvchilar_videolar_eng %}
+                    {% if forloop.counter0 < 4 %}
+                    <div class="col">
+                        <video src="{{i.video.url}}" controls class="col-video"></video>
+                        <div class="name-mentor">{{i.name_lastname_eng}}</div>
+                        <p class="skills-mentor">{{i.skill_eng}}</p>
+                        <div class="green-line"></div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+                <div class="grid-2">
+
+
+                    {% for i in comentarya_eng %}
+                    {% if forloop.counter0 < 8 %}
+                    <div class="comment">
+                        <div class="comment-header">
+                            <img src="{{i.image.url}}" class="profile-img">
+                            <div class="profile-name">
+                                <div class="comment-name">{{i.name_lastname_eng}}</div>
+                                <div class="comment-skills">{{i.skill_eng}}</div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            {{i.descriptions_eng}}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="section" id="price">
+                <div class="section-line"></div>
+                {% for i in narxlar_eng %}
+                <div class="green-title">Prices</div>
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                <p class="section-text">
+                    {{i.descriptions_eng}}
+                </p>
+                {% endfor %}
+                <main>
+                    <div class="pricing">
+                        <div class="pricing-container">
+                            <div class="pricing-switcher">
+                                <button class="pricing-switcher-btn active">Today's payment</button>
+                                <button class="pricing-switcher-btn">Monthly payment</button>
+                            </div>
+
+                            <div class="popular">
+                                <ul class="pricing-wrapper">
+
+                                    {% for i in bugungi_tolov_eng %}
+
+                                    <!-- Front-box -->
+                                    <li class="pricing__item active">
+                                        <div class="pricing-title">
+                                            Today's payment
+                                        </div>
+
+                                        <div class="today-price">
+                                            <p class="bold">
+                                                Monthly payment&nbsp;
+                                            </p>
+                                            -&nbsp;Discount {{i.oylik_tolov_chegirma_eng}}
+                                        </div>
+
+                                        <div class="uzs">
+                                            <div class="strikethrough">
+                                                <p class="bold size-2">{{i.skidka_eng}} </p>
+                                            </div>
+                                            <p class="bold size-2">
+                                                &nbsp; {{i.narx_oyiga_eng}}
+                                            </p>&nbsp;/ per month
+                                        </div>
+
+                                        <div class="table">
+                                            <div class="table-text">
+                                                {{i.kurs_name_eng}}
+                                            </div>
+                                            <div class="table-price">
+                                                {{i.kurs_narx_eng}}
+                                            </div>
+                                        </div>
+
+                                        <div class="table second">
+                                            <div class="table-btn">
+                                                {{i.skidka_text_eng}}
+                                            </div>
+                                            <div class="table-price">
+                                                {{i.skidka_narx_eng}}
+                                            </div>
+                                        </div>
+
+                                        <div class="table third">
+                                            <div class="table-text">
+                                                General
+                                            </div>
+                                            <div class="table-price">
+                                                <div class="uzs2">
+                                                    <div class="strikethrough">
+                                                        <p class="d-flex">{{i.jami_skidka_eng}}</p>
+                                                    </div>
+                                                    <p class="d-flex">
+                                                        &nbsp;{{i.jami_narx_eng}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                        <footer class="pricing-footer">
+                                            <a href="#0">
+                                                <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                                    (function (w, d, u) {
+                                                        var s = d.createElement('script');
+                                                        s.async = true;
+                                                        s.src = u + '?' + (Date.now() / 180000 | 0);
+                                                        var h = d.getElementsByTagName('script')[0];
+                                                        h.parentNode.insertBefore(s, h);
+                                                    })(window, document, 'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                                                </script>
+                                                <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke"
+                                                        data-skip-moving="true">
+                                                    Register
+                                                </button>
+                                                <!-- <button class="btn-register w-100" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                                  Hozir roʻyxatdan oʻting
+                                                </button> -->
+                                            </a>
+                                        </footer>
+
+                                        {% for i in bugungi_tolov_qlayligi_eng %}
+                                        <div class="bottom-text first">
+                                            <p class="stick">&#x2714;</p>
+                                            <p class="bottom-p">{{i.title_eng}}</p>
+                                        </div>
+                                        {% endfor %}
+
+                                    </li>
+                                    <!-- --- -->
+
+                                    <!-- Back-box -->
+                                    <li class="pricing__item">
+                                        <div class="pricing-title">
+                                            PAYMENT PLAN
+                                        </div>
+
+                                        {% for i in oylik_tolov_eng %}
+                                        <div class="today-price">
+                                            <p class="bold">
+                                                5 monthly payments
+                                            </p>
+                                        </div>
+
+                                        <div class="uzs">
+                                            <p class="bold size-2">{{i.oyiga_eng}}</p>/ monthly
+                                        </div>
+
+                                        <div class="table">
+                                            <div class="table-text">
+                                                5x monthly payments
+                                            </div>
+                                            <div class="table-price">
+                                                {{i.besh_x_oylik_tolovlar_eng}}
+                                            </div>
+                                        </div>
+
+                                        <div class="table-line"></div>
+
+                                        <div class="table">
+                                            <div class="table-text">
+                                                General
+                                            </div>
+                                            <div class="table-price">
+                                                {{i.jami_narx_eng}}
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                        <footer class="pricing-footer">
+                                            <a href="#0">
+                                                <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                                    (function (w, d, u) {
+                                                        var s = d.createElement('script');
+                                                        s.async = true;
+                                                        s.src = u + '?' + (Date.now() / 180000 | 0);
+                                                        var h = d.getElementsByTagName('script')[0];
+                                                        h.parentNode.insertBefore(s, h);
+                                                    })(window, document, 'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                                                </script>
+                                                <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke"
+                                                        data-skip-moving="true">
+                                                    Register
+                                                </button>
+                                                <!-- <button class="btn-register w-100" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                                  Hozir roʻyxatdan oʻting
+                                                </button> -->
+                                            </a>
+                                        </footer>
+
+                                        {% for i in oylik_tolov_qulayligi_eng %}
+                                        <div class="bottom-text first">
+                                            <p class="stick">&#x2714;</p>
+                                            <p class="bottom-p">{{i.title_eng}}</p>
+                                        </div>
+                                        {% endfor %}
+
+                                    </li>
+                                    <!-- --- -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <div class="section" id="raspisania">
+                <div class="section-line"></div>
+
+                {% for i in kurs_jadvali_eng %}
+                <div class="green-title">{{i.title_eng}}</div>
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                <p class="section-text">
+                    {{i.descriptions_eng}}
+                </p>
+                {% endfor %}
+
+                <!-- --- -->
+                <div class="box">
+
+                    {% for i in kurs_pLan_eng %}
+                    {% if forloop.counter0 < 5 %}
+                    <div class="box-title">{{i.kurs_name_eng}}</div>
+                    <div class="box-texts">
+                        <div class="box-text">
+                            {{i.data_eng}}
+                        </div>
+                        <div class="green-line"></div>
+                        <div class="yellow-box">{{i.oqish_davomiligi_eng}}</div>
+                        <div class="greyline"></div>
+                        <div class="box-footer comment-header">
+                            <div class="profile-img-box">
+                                <img src="{{i.image.url}}">
+                            </div>
+                            <div class="header-text">
+                                <div class="name-mentor">{{i.name_lastname_eng}}</div>
+                                <p class="skills-mentor">{{i.sohasi_eng}}</p>
+                                <div class="green-line"></div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+
+                            <div class="box-register">
+                                <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">
+                                    (function (w, d, u) {
+                                        var s = d.createElement('script');
+                                        s.async = true;
+                                        s.src = u + '?' + (Date.now() / 180000 | 0);
+                                        var h = d.getElementsByTagName('script')[0];
+                                        h.parentNode.insertBefore(s, h);
+                                    })(window, document, 'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');
+                                </script>
+                                <button class="btn-register clickSound" data-b24-form="click/141/q1j9ke"
+                                        data-skip-moving="true">
+                                    Register
+                                </button>
+                                <!-- <button class="btn-register clickSound" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                  Hozir roʻyxatdan oʻting
+                                </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="questions">
+                <div class="section-line"></div>
+                {% for i in savollar2_eng %}
+                <div class="green-title">QUESTIONS</div>
+                <h1 class="section-title">{{i.name_eng}}</h1>
+                <p class="section-text">{{i.descriptions_eng}}</p>
+                <!-- Questions-answeres -->
+                {% endfor %}
+                <div class="accordion" id="accordionExample">
+
+                    <div class="accordion-item">
+                        {% for i in savollar_javob2_eng %}
+                        {% if forloop.counter0 < 10 %}
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#quest{{ forloop.counter }}" aria-expanded="false"
+                                    aria-controls="quest{{ forloop.counter }}">
+                                <div class="accordion-img">
+                                    <img src="{% static './img/arrow-left.svg' %}"/>
+                                </div>
+                                <span class="accordion-header-title">{{ i.title_eng }}</span>
+                                <div class="accordion-header-btn">Ko'proq</div>
+                            </button>
+
+                            <div id="quest{{ forloop.counter }}" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{ i.descriptions_eng }}
+                                </div>
+                                <br>
+                            </div>
+                            <br>
+
+                        </h2>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <!-- --- -->
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+<!-- --- -->
+
+<!-- Courses row -->
+<div class="container">
+    <div class="grid-4">
+
+        <!-- Box -->
+        {% for i in main_course_eng %}
+        {% if forloop.counter0 < 4 %}
+        <div class="col">
+            <div class="course-box">
+                <img src="{{i.image.url}}" class="course-img">
+                <div class="course-body">
+                    <p class="course__date">{{i.data_eng}}</p>
+                    <h3 class="course__title title-h3">{{i.title_eng}}</h3>
+                    <p class="course__text">{{i.short_descriptions_eng}}</p>
+                    <h6 class="course__duration">{{i.duration_eng}}</h6>
+                    <div class="green-line"></div>
+                    <a href="{% url 'kurs_about' i.id %}">
+                        <button class="btn-course-more">More details</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- --- -->
+
+    </div>
+</div>
+<!-- --- -->
+
+<!-- Footer -->
+<div class="section-footer container">
+    <div class="footer">
+        <div class="footer-box">
+            <div class="modal-contact">
+                <div class="register-box">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body align-self-center">
+                                <form>
+                                    <div class="mb-3 text-center">
+                                        <div class="register-text">Ready to become an Astrum student?</div>
+                                        <div class="register text-center">
+                                            <img src="{% static './img/shar.svg' %}" class="shar2">
+                                            <h4 class="register-text-2">Submit your application</h4>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">First Name Last Name</label>
+                                        <input type="text" class="form-control" id="recipient-name"
+                                               placeholder="First Name Last Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-number" class="col-form-label">Phone number:</label>
+                                        <input type="number" class="form-control" id="number" placeholder="+998">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-number" class="col-form-label">Telegram username:</label>
+                                        <input type="text" maxlength="10" class="form-control" id="email"
+                                               placeholder="@examle" autocomplete="on">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer align-self-center text-center">
+                                <button type="button" class="register-button" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalToggle">
+                                    Dispatch
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-white">
+                    <div class="modal-header">
+                        <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Natija</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body succes-text register-modal">
+                        <div class="form-floating">
+                            <input type="password" maxlength="4" class="form-control" id="floatingPassword"
+                                   placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="modal-footer register-modal align-self-center text-center">
+                        <button type="button" class="register-button" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" data-bs-dismiss="modal">
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-white">
+                    <div class="modal-header">
+                        <h1 class="modal-title register-text fs-5" id="staticBackdropLabel">Результат</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body succes-text register-modal">
+                        Sent
+                    </div>
+                    <div class="modal-footer register-modal align-self-center text-center">
+                        <button type="button" class="register-button" data-bs-dismiss="modal">It's clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-boxes grid container">
+
+            <div class="footer-box">
+                <p class="footer-p">COURSES AND TRAINING</p>
+                <div class="footer-box">
+                    <ul>
+                        {% for i in main_course_ru %}
+                        {% if forloop.counter0 < 3 %}
+                        <li class="footer-li">
+                            <img src="{{i.image.url}}" class="footer-img">
+                            <div class="footer-text">
+                                {{i.title_ru}}
+                                <p class="footer-time">{{i.duration_ru}}</p>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <p class="footer-p">Astrum</p>
+                <a class="first" href="{% url 'kompanita_eng' %}">
+                    <li class="footer-li">About academy</li>
+                </a>
+                <a href="{% url 'kursi_eng' %}">
+                    <li class="footer-li">Courses</li>
+                </a>
+                <a href="{% url 'photo_eng' %}">
+                    <li class="footer-li">Photo pictures</li>
+                </a>
+                <a href="{% url 'karyera_eng' %}">
+                    <li class="footer-li">About Us</li>
+                </a>
+            </div>
+
+            <div class="footer-box">
+                <p class="footer-p">Connection</p>
+                <a class="first" href="tel:+998943151337">
+                    <li class="footer-li">
+                        <!-- <ion-icon name="call" class="call-icon"></ion-icon> -->
+                        Call us
+                    </li>
+                </a>
+                <a href="">
+                    <li class="footer-li">
+                        <!-- <ion-icon name="logo-instagram" class="insta-icon"></ion-icon> -->
+                        Instagram
+                    </li>
+                </a>
+                <a href="">
+                    <li class="footer-li">
+                        <!-- <ion-icon name="logo-facebook" class="face-icon"></ion-icon> -->
+                        Facebook
+                    </li>
+                </a>
+                <a href="">
+                    <li class="footer-li">
+                        <!-- <ion-icon name="paper-plane-sharp" class="tg-icon"></ion-icon> -->
+                        Telegram
+                    </li>
+                </a>
+                <a href="">
+                    <li class="footer-li">
+                        <!-- <ion-icon name="mail-unread-outline" class="mail-icon"></ion-icon> -->
+                        Contact us by email
+                    </li>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="last-footer">
+                {% for i in footer_eng %}
+                <div class="footer-logo">
+                    <div class="footer-logo-imgs">
+                        <img src="{% static 'img/Group 58.png' %}">
+                        <img class="footer-logo-img-it" src="{% static 'img/Group 57.png' %}">
+                    </div>
+                    <p>{{i.motto_eng}}</p>
+                </div>
+                <h4>
+                    {{i.short_descriptions_eng}}
+                </h4>
+                <h6>
+                    © Astrum it academy Ltd 2022 <b>Terms</b> & <b>Privacy</b>
+                </h6>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- --- -->
+
+<!-- Scripts -->
+<script>
+    const frame = document.getElementById('preloader');
+    setTimeout(() => {
+        frame.remove();
+    }, 3000);
+
+    const appearOptions = {};
+    const faders = document.querySelectorAll('.fade-in');
+    const sectionOnScroll = new IntersectionObserver(function (enteries, appearOnScroll) {
+        enteries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            }
+        })
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    })
+
+    const programDivs = document.querySelectorAll('.front-box');
+    const designDivs = document.querySelectorAll('.back-box');
+
+    const programButton = document.querySelector('.front-btn');
+    programButton.addEventListener('click', () => {
+        programDivs.forEach(box => {
+            box.style.display = 'block';
+            box.style.animation = 'rotateAnimation 1s';
+        });
+        designDivs.forEach(box => {
+            box.style.display = 'none';
+        });
+    });
+
+    const designButton = document.querySelector('.back-btn');
+    designButton.addEventListener('click', () => {
+        programDivs.forEach(box => {
+            box.style.display = 'none';
+        });
+        designDivs.forEach(box => {
+            box.style.display = 'block';
+            box.style.animation = 'rotateAnimation 1s';
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var toggleButtons = document.querySelectorAll(".toggle-button");
+
+        toggleButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                toggleButtons.forEach(function (btn) {
+                    btn.classList.remove("active");
+                });
+                this.classList.add("active");
+            });
+        });
+    });
+
+    var tugma = document.querySelectorAll(".clickSound");
+
+    function chiqarishOvozi() {
+        var audio = new Audio('./audio/btn.wav');
+        audio.play();
+    }
+
+    tugma[0].addEventListener("click", chiqarishOvozi);
+    var tugmalar = document.querySelectorAll(".clickSound");
+
+    function chiqarishOvozi2() {
+        var audio = new Audio('./audio/btn.wav');
+        audio.play();
+    }
+
+    tugmalar.forEach(function (tugma) {
+        tugma.addEventListener("click", chiqarishOvozi2);
+    });
+</script>
+<!-- --- -->
+
+<!-- Script links -->
+<script src="{% static './js/price-js/prise-tables.js' %}"></script>
+<script src="{% static './js/price-js/prise-common.js' %}"></script>
+<script src="{% static './js/price-js/price-modernizer.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- --- -->
+<!-- <script data-b24-form="click/141/q1j9ke" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://office.astrum.uz/upload/crm/form/loader_141_q1j9ke.js');</script> -->
+<!--  -->
+
+</body>
+</html>
